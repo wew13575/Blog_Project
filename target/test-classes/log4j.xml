@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.sanguk.spring">
+	<logger name="com.sanguk">
 		<level value="info" />
 	</logger>
 	
