@@ -1,5 +1,4 @@
 package com.sanguk.domain;
-import org.springframework.stereotype.Component;
 
 import lombok.*;
 

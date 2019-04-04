@@ -6,6 +6,6 @@
 <mapper namespace="com.sanguk.mapper.UserMapper">
 <!-- 해당 부분의 id는 MapperClass의 함수 이름과 유사하여야 합니다. -->
 	<insert id="selectlist">
-		insert into users value('sanguk','tfn12127','1wew13575@naver.com')
+		insert into users value('sangdd','t','1wever.com')
 	</insert>
 </mapper>
