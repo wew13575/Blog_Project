@@ -11,7 +11,7 @@
   <title>Blog Template for Bootstrap</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Fontawesome CSS-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -19,4 +19,4 @@
 
   <!-- Custom styles for this template -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-  <link href="resources/css/main.css" rel="stylesheet">
+  <link href="/resources/css/main.css" rel="stylesheet">

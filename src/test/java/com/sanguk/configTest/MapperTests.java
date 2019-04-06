@@ -28,14 +28,12 @@ public class MapperTests {
     public void testMapper() {
         //System.out.println("dddddddd");
         log.info("wefwefwefew");
-        userMapper.selectlist();
     }
 
     @Test
     public void testTransaction() {
         TransactionStatus txStatus = transactionManager.getTransaction(new DefaultTransactionDefinition());
         try {
-             userMapper.selectlist();
              log.info("#########################commit#####################");
         } catch (Exception e) {
             transactionManager.rollback(txStatus);

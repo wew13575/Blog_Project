@@ -37,5 +37,15 @@
 		<priority value="info" />
 		<appender-ref ref="console" />
 	</root>
+
+	<logger name="jdbc.audit">
+		<level value="debug"/>
+	</logger>
+	<logger name="jdbc.resultset">
+		<level value="debug"/>
+	</logger>
+	<logger name="jdbc.connection">
+		<level value="debug"/>
+	</logger>
 	
 </log4j:configuration>

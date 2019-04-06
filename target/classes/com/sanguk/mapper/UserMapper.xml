@@ -2,10 +2,45 @@
 <!DOCTYPE mapper
 	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- 해당 부분의 namespace는 project package + Mapper Package + Mapper Interface 이름입니다. -->
 <mapper namespace="com.sanguk.mapper.UserMapper">
-<!-- 해당 부분의 id는 MapperClass의 함수 이름과 유사하여야 합니다. -->
-	<insert id="selectlist">
-		insert into users value('sangdd','t','1wever.com')
+	<resultMap type="com.sanguk.domain.UserVO" id="userMap">
+		<id property="userid" column="userid"/>
+		<result property="userpw" column="userpw"/>
+		<result property="userName" column="username"/>
+		<result property="enabled" column="enabled"/>
+		<result property="regDate" column="regdate"/>
+		<result property="updateDate" column="updatedate"/>
+		<collection property="authList" resultMap="authMap">
+		</collection>
+		</resultMap>
+
+	<resultMap id="authMap" type="com.sanguk.domain.AuthVO">
+		<result property="userid" column="userid"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+
+
+	<select id="read" resultMap="userMap">
+		SELECT
+			user.userid, userpw, username, enabled, regdate, updatedate, auth
+		FROM 
+			users user LEFT OUTER JOIN auths auth on user.userid = auth.userid
+		WHERE user.userid = #{userid}
+	</select>
+
+	<insert id="registerUsers">
+		INSERT INTO USERS
+		 	(userid, userpw, username)
+		values
+			(#{userid},#{userpw},#{userName})
+
+	</insert>
+
+	<insert id="registerAuths">
+		INSERT INTO AUTHS
+		 	(userid, auth)
+		values
+			(#{userid},#{auth})
+
 	</insert>
 </mapper>
