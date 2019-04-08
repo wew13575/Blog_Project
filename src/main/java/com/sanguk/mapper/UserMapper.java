@@ -12,9 +12,16 @@ public interface UserMapper {
 
     UserVO read(String userid);
 
-
-
     void registerUsers(UserVO userVO);
     
     void registerAuths(AuthVO authVO);
+
+    
+    int getFailcnt(String userid);
+    
+    void addFailcnt(String userid);
+
+    void resetFailcnt(String userid);
+
+    void setUserDisable(String userid);
 }

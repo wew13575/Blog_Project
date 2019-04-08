@@ -26,7 +26,7 @@ public class UserServiceTests{
     @Test
     public void registerUserTest(){
         UserVO uservo = new UserVO();
-        uservo.setUserid("dntkddnr");
+        uservo.setUserid("dntkddnr123");
         uservo.setUserpw("tfn12127");
         uservo.setUserName("sanguk");
 

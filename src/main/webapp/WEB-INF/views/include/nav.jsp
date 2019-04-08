@@ -46,32 +46,43 @@
         </div>
         <hr class="divider">
         <div class="row no-gutters" id="loginBox">
-          <form>
-
-
+          <sec:authentication property="principal" var="pinfo"/>
+          <sec:authorize access="isAnonymous()">
+          <form action="/user/login.do" method="POST">
             <div class="group">
-              <input type="text" required>
+              <input type="text" name="loginid" required>
               <span class="highlight"></span>
               <span class="bar"></span>
               <label>ID</label>
             </div>
-
-
             <div class="group">
-              <input type="text" required>
+              <input type="password" name="loginpw" required>
               <span class="highlight"></span>
               <span class="bar"></span>
               <label>PASSWORD</label>
             </div>
 
-            <button class="formbtn fifth">Login!</button>
+            <button type="submit" class="formbtn fifth" >Login!</button>
           </form>
+          </sec:authorize>
+          <sec:authorize access="isAuthenticated()">
+              <div class="userimagebox">
+                  <image class="userimage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Albert_Einstein_%28Nobel%29.png/100px-Albert_Einstein_%28Nobel%29.png">
+              </div>
+              
+              <div id="userinfocontent">
+                  <p>${pinfo.username}님 반갑습니다!</p>
+                  <a href="/user/logout.do">로그아웃</a>&nbsp; <a href="/user/mypage">마이페이지</a>
+              </div>
+
+          </sec:authorize>
         </div>
         <hr class="divider">
 
         <div class="sidebarnav">
-          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-quote-left"></i>&nbsp; &nbsp; 블로그 메인</div>
-          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 우상욱 소개</div>
+          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 우상욱이야기</div>
+          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 우상욱소개</div>
+          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 자유게시판</div>
         </div>
 
       </div>

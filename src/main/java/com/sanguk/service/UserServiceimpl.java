@@ -25,9 +25,31 @@ public class UserServiceimpl implements UserService {
 		AuthVO authVO = new AuthVO();
 		userVO.setUserpw(passwordEncoder.encode(userVO.getUserpw()));
 		authVO.setUserid(userVO.getUserid());
-		authVO.setAuth("ROLE_MEMBER");
+		authVO.setAuth("ROLE_ADMIN");
 
 		userMapper.registerUsers(userVO);
 		userMapper.registerAuths(authVO);
-    }
+		}
+		
+		
+		@Override
+    public int getFailcnt(String userid){
+
+			return userMapper.getFailcnt(userid);
+		}
+
+		@Override
+    public void addFailcnt(String userid){
+			userMapper.addFailcnt(userid);
+		}
+
+		@Override
+    public void resetFailcnt(String userid){
+			userMapper.resetFailcnt(userid);
+		}
+
+		@Override
+    public void setUserDisable(String userid){
+			userMapper.setUserDisable(userid);
+		}
 }

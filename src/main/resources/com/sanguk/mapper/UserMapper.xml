@@ -10,6 +10,7 @@
 		<result property="enabled" column="enabled"/>
 		<result property="regDate" column="regdate"/>
 		<result property="updateDate" column="updatedate"/>
+		<result property="failcnt" column="failcnt"/>
 		<collection property="authList" resultMap="authMap">
 		</collection>
 		</resultMap>
@@ -22,7 +23,7 @@
 
 	<select id="read" resultMap="userMap">
 		SELECT
-			user.userid, userpw, username, enabled, regdate, updatedate, auth
+			user.userid, userpw, username, enabled, failcnt, regdate, updatedate, auth
 		FROM 
 			users user LEFT OUTER JOIN auths auth on user.userid = auth.userid
 		WHERE user.userid = #{userid}
@@ -43,4 +44,38 @@
 			(#{userid},#{auth})
 
 	</insert>
+
+	
+	<select id="getFailcnt" resultType="int">
+		SELECT
+			failcnt
+		FROM 
+			users
+		WHERE userid = #{userid}
+	</select>
+	
+	<update id="addFailcnt">
+		UPDATE users
+
+		SET failcnt = failcnt+1
+
+		WHERE userid = #{userid}
+	</update>
+
+	<update id="resetFailcnt">
+		UPDATE users
+
+		SET failcnt = 0
+
+		WHERE userid = #{userid}
+	</update>
+
+	<update id="setUserDisable">
+		UPDATE users
+
+		SET enabled = 0
+
+		WHERE userid = #{userid}
+	</update>
+
 </mapper>

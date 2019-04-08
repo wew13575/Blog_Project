@@ -5,9 +5,11 @@ import java.util.stream.Collectors;
 
 import com.sanguk.domain.UserVO;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * CustomUser
@@ -18,6 +20,7 @@ public class CustomUser extends User{
 
 
     private static final long serialVersionUID = 1L;
+
 
     private UserVO userVO;
 

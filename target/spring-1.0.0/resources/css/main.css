@@ -125,9 +125,37 @@ body{
 
 
 
+#loginBox{
+  height: 140px;
+  width: 250px;
+  padding: 0px 25px;
+}
+.userimagebox{
+  height: 80px;
+}
+#userinfocontent{
+  width: 200px;
+  height: 60px;
+  font-size: 14px;
+  text-align: center;
+}
+
+#userinfocontent a,p{
+  font-size: 14px;
+  text-align: center;
+}
+
+.userimage{
+  width: 80px; height: 80px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
+  margin-left: 60px;
+}
+
 #loginBox form{
     
-    margin: 0px 15px 0px 35px;
+    margin: 0px 0px 0px 10px;
     height: 140px;
     width: 180px;
 }
@@ -633,6 +661,7 @@ input:focus ~ .highlight {
   opacity: 0.6;
   cursor: pointer;
 }
+
 
 #introduce{
   width: 250px;

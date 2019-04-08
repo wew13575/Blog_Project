@@ -12,6 +12,7 @@ public class UserVO{
     private String userid;
     private String userpw;
     private String userName;
+    private int failcnt;
     private boolean enabled;
     
     private Date regDate;
