@@ -2,8 +2,10 @@ package com.sanguk.service;
 
 import com.sanguk.domain.UserVO;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public interface UserService {
-    public void register(UserVO userVO);
+    public void register(UserVO userVO,MultipartFile profile) throws Exception;
 
     public int getFailcnt(String userid);
 

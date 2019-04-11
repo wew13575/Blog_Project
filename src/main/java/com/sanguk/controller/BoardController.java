@@ -2,6 +2,7 @@ package com.sanguk.controller;
 
 import lombok.extern.log4j.Log4j;
 
+import com.sanguk.domain.ArticleVO;
 import com.sanguk.domain.UserVO;
 
 import org.springframework.stereotype.Controller;
@@ -21,50 +22,48 @@ public class BoardController {
 
 
 	@GetMapping("/list")//TODO 게시물 목록 요청
-	public String getArticleList(){
-		
+	public String getArticleList(int pageNum){
+		if(pageNum==0){
+			//첫페이지로 리다이렉트ㄱㄱ	
+		}
 		return "index";
     }
     
-    @GetMapping("/keyword")//TODO 게시물 검색 목록 요청
-	public String getSearchArticles(){
+    @GetMapping("/search")//TODO 게시물 검색 목록 요청
+	public String getSearchArticles(String keyword, int pageNum){
 		
 		return "index";
     }
 
-    @GetMapping("/{ArticleId}") //TODO 클릭 게시물 요청
-	public String getArticle(){
+    @GetMapping("/article") //TODO 클릭 게시물 요청
+	public String getArticle(String articleid){
 		
 		return "index";
     }	
     
     
+    
 
-    @GetMapping("/editor")//TODO 게시글 에디터 요청
-	public String getEditorPage(){
+    @GetMapping("/editor")//TODO 게시글 에디터 요청 articleid 있으면 수정
+	public String getEditorPage(String articleid){
+		if(!articleid.equals("")){
+			
+		return "editor";
+		}
 		
 		return "editor";
     }   
-    
-    @PostMapping("/editor")//TODO 게시물 게시
-	public String postArticle(){
+		
+		
+    @PostMapping("/editor/write")//TODO 게시물 게시 articleid 있으면 수정
+	public String postArticle(ArticleVO articlevo){
+		
+
 		
 		return "index";
     }  
     
-    @GetMapping("/editor/{ArticleId}") //TODO 게시물 수정 내용 표시
-	public String getArticlesToModify(){
-		
-		return "index";
-    }	
-    
-    @PostMapping("/editor/{ArticleId}")//TODO 게시물 수정 
-	public String postModifiedArticle(){
-		
-		return "index";
-    }
-
-    @DeleteMapping("/{ArticleId}")//TODO 게시물 삭제 
+    @DeleteMapping("/article")//TODO 게시물 삭제 
 	public String deleteArticle(@PathVariable String ArticleId){
 		
 		return "index";

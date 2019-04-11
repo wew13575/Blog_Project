@@ -4,25 +4,30 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" style="width: 320px;">
         <div class="modal-content">
-          <form class="text-center border border-light p-5" action="/user/register" method="post">
+          <form class="text-center border border-light p-5" action="/user/register" method="post" enctype="multipart/form-data">
 
             <p class="h4 mb-4">회원 가입</p>
             <hr>
             <!-- E-mail -->
-            <input name="userid" type="id" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="id 입력" required>
+            <input name="userid" type="id" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="id (필수)" required>
 
             <!-- Password -->
-            <input name="userpw" type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="패스워드 입력"
+            <input name="userpw" type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="패스워드 (필수)"
               aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
             <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
               At least 8 characters and 1 digit
             </small>
 
             <!-- Phone number -->
-            <input name="userName" type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="이름 입력"
+            <input name="userName" type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="이름 (필수)"
               aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
             <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
             </small>
+
+            
+            <input id="fileinput" type="file" name="profile" accept=".jpg, .jpeg, gif, png"> 
+            
+            <input name="userinfo" type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="자기 소개" required>
 
             <!-- Sign up button -->
             <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>

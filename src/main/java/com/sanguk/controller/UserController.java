@@ -21,6 +21,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/user")
@@ -32,15 +34,15 @@ public class UserController{
 	private UserServiceimpl userservice; 
 	
 	@PostMapping("/register")
-	public String register(UserVO userVO) {
-		userservice.register(userVO);
+	public String register(UserVO userVO, @RequestParam("file") MultipartFile profile) throws Exception {
+		userservice.register(userVO,profile);
 		return "redirect:/";
 	}
 
 
 
 	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
-	 public String loout(HttpServletRequest request, HttpServletResponse response) throws Exception 
+	 public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception 
 	 {
 		  Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		   if (auth != null){ new SecurityContextLogoutHandler().logout(request, response, auth);

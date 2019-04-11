@@ -32,11 +32,11 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
         log.warn("############Login Seccesed##############");
         log.warn("##########"+request.getParameter("loginid")+"#################");
-
+        
         
 
 
         userService.resetFailcnt(request.getParameter("loginid"));
-        response.sendRedirect("/");
+        response.sendRedirect("/home");
     }
 }

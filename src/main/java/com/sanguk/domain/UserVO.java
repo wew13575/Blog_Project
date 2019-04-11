@@ -14,6 +14,9 @@ public class UserVO{
     private String userName;
     private int failcnt;
     private boolean enabled;
+    private String profilePath;
+    private String userinfo;
+    
     
     private Date regDate;
     private Date updateDate;

@@ -1,5 +1,8 @@
 package com.sanguk.config;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.sql.DataSource;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -16,6 +19,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration
 @ComponentScan(basePackages = { "com.sanguk" })
@@ -63,9 +68,26 @@ public class RootConfig {
     return new SqlSessionTemplate(sqlSessionFactory());
   }
 
-
   @Bean
   public DataSourceTransactionManager transactionManager() {
     return new DataSourceTransactionManager(dataSource());
+  }
+
+  @Bean
+  public String uploadPath() {
+    return "c:/image/";
+  }
+
+  @Bean
+  public Path rootLocation(){
+    return Paths.get(uploadPath());
+  }
+
+  @Bean
+  public MultipartResolver multipartResolver() {
+    CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+    resolver.setMaxInMemorySize(100000000);
+    resolver.setMaxUploadSize(200000000);
+    return resolver;
   }
 }

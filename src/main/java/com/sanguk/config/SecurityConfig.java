@@ -59,7 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     http
     .authorizeRequests()
     .antMatchers("/admin/editor").access("hasRole('ROLE_ADMIN')") //TODO 글 list 제외하고 나머지 제한할것
-    .antMatchers("/board/editor").access("hasRole('ROLE_MEMBER')") //TODO 댓글 list 제외하고 나머지 제한할것
+    .antMatchers("/board/editor").authenticated() //TODO 댓글 list 제외하고 나머지 제한할것
+    .antMatchers("/home").authenticated()
     .anyRequest().permitAll() //TODO 마이페이지 제한할것
     .and()
     .formLogin().loginProcessingUrl("/user/login.do").loginPage("/").usernameParameter("loginid").passwordParameter("loginpw")

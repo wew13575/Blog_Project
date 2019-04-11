@@ -11,6 +11,8 @@
 		<result property="regDate" column="regdate"/>
 		<result property="updateDate" column="updatedate"/>
 		<result property="failcnt" column="failcnt"/>
+		<result property="profilePath" column="profilepath"/>
+		<result property="userinfo" column="userinfo"/>
 		<collection property="authList" resultMap="authMap">
 		</collection>
 		</resultMap>
@@ -23,7 +25,7 @@
 
 	<select id="read" resultMap="userMap">
 		SELECT
-			user.userid, userpw, username, enabled, failcnt, regdate, updatedate, auth
+			user.userid, userpw, username,userinfo, profilepath, enabled, failcnt, regdate, updatedate, auth
 		FROM 
 			users user LEFT OUTER JOIN auths auth on user.userid = auth.userid
 		WHERE user.userid = #{userid}
@@ -31,9 +33,9 @@
 
 	<insert id="registerUsers">
 		INSERT INTO USERS
-		 	(userid, userpw, username)
+		 	(userid, userpw, username, profilepath)
 		values
-			(#{userid},#{userpw},#{userName})
+			(#{userid},#{userpw},#{userName},#{profilePath})
 
 	</insert>
 
