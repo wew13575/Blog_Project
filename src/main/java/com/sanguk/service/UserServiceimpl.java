@@ -51,37 +51,13 @@ public class UserServiceimpl implements UserService {
 	}
 
 	@Override
-	public void register(UserVO userVO, MultipartFile profile) throws Exception {
+	public void register(UserVO userVO) {
 
-		String profilePath;
+		
 
 		AuthVO authVO = new AuthVO();
 		userVO.setUserpw(passwordEncoder.encode(userVO.getUserpw()));
 
-		{
-
-			try {
-				if (profile.isEmpty()) {
-					throw new Exception();
-				}
-				String fileName = profile.getOriginalFilename();
-				String extension = fileName.split("\\.")[1];
-				if (!MediaUtils.containsImageMediaType(extension)) {
-					throw new Exception();
-				}
-				profilePath = UploadFileUtils.fileSave(rootLocation.toString(), profile);
-				if (profilePath.toCharArray()[0] == '/') {
-					profilePath = profilePath.substring(1);
-				}
-
-			} catch (Exception e) {
-				profilePath = "basicprofile.jpg";
-				throw new Exception("Failed to store file " + profile.getOriginalFilename(), e);
-			}
-		}
-
-		log.debug(profilePath);
-		userVO.setProfilePath(profilePath);
 		authVO.setUserid(userVO.getUserid());
 		authVO.setAuth("ROLE_ADMIN");
 
@@ -98,6 +74,39 @@ public class UserServiceimpl implements UserService {
 
 		userList();
 	}
+
+
+	@Override
+	public String saveProfile(MultipartFile profile)  throws Exception{
+		String profilePath;
+
+		try {
+			if (profile.isEmpty()) {
+				throw new Exception();
+			}
+			String fileName = profile.getOriginalFilename();
+			String extension = fileName.split("\\.")[1];
+			if (!MediaUtils.containsImageMediaType(extension)) {
+				throw new Exception();
+			}
+			profilePath = UploadFileUtils.fileSave(rootLocation.toString(), profile);
+			if (profilePath.toCharArray()[0] == '/') {
+				profilePath = profilePath.substring(1);
+			}
+
+		} catch (Exception e) {
+			profilePath = "basicprofile.jpg";
+			throw new Exception("Failed to store file " + profile.getOriginalFilename(), e);
+		}
+
+		return profilePath;
+	}
+
+
+
+
+
+
 
 	@Override
 	public int getFailcnt(String userid) {

@@ -22,9 +22,9 @@
     $('.overlay').hide();
   });
 
-    $("#inputSuccess1").on("change", function () {
-      checkid();
-    });
+  $("#userid").on("change", function () {
+    checkid();
+  });
 
 
   $(window).scroll(function (event) {
@@ -116,7 +116,7 @@
 
   checkid = function () {
     $.ajax({
-      data : { "id" : $("#inputSuccess1").val() },
+      data: { "id": $("#userid").val() },
       type: "POST",
       url: '/user/checkid',
       success: function (result) {
@@ -124,15 +124,70 @@
         console.log(result.checkStatus);
         if (result == true) {
           $("#resultcheck").text("가입 할 수 있는 ID입니다.");
+          $("#resultcheck").css("color", "blue");
           $("#checkid").val("1");
+
         }
         else {
           $("#resultcheck").text("가입 할 수 없는 ID입니다.");
+          $("#resultcheck").css("color", "red");
           $("#checkid").val("0");
         }
       }
     });
   };
+
+  $("#registersubmit").click(function (event) {
+    event.preventDefault();
+
+    if ($("#checkid").val() == '0') {
+      alert("check id for register");
+    }
+    else {
+      var form = { userid: $("#userid").val(), userpw: $("#userpw").val(), userName: $("#username").val(), userinfo: $("#userinfo").val(), profilePath: $("#profilepath").val()};
+      console.log(form);
+      console.log(JSON.stringify(form));
+
+      
+      var formData = new FormData();
+      $.ajax({
+
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(form),
+        url: "/user/register",
+        processData: false,
+        contentType: "application/json",
+        type: 'POST',
+        success: function (data) {
+          $("#myModal").modal("hide");
+        },
+        error: function (e) {
+
+        }
+      });
+    }
+
+  })
+$("#fileinput").change(function (){
+  var form_data = new FormData();
+      form_data.append('file', $('#registerform>input[type=file]')[0].files[0]);
+      $.ajax({
+        data: form_data,
+        type: "POST",
+        url: '/user/saveprofile',
+        cache: false,
+        contentType: false,
+        enctype: 'multipart/form-data',
+        processData: false,
+        success: function (profilepath) {
+          $("#profilepath").val(profilepath);
+          alert(profilepath);
+        }
+      });
+})
+
 
 
   function expand() {
@@ -182,7 +237,10 @@
       paginationWrapper.classList.remove('transition-prev')
     }
   }
-
+  $('.modal').on('hidden.bs.modal', function (e) {
+    console.log('modal close');
+  $(this).find('form')[0].reset()
+});
 
 </script>
 <!--   -----------                       푸터        --------------->

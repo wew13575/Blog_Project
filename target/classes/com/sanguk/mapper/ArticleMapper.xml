@@ -27,6 +27,7 @@
     <resultMap id="authorMap" type="com.sanguk.domain.UserVO">
         <result property="profilePath" column="profilepath" />
         <result property="userinfo" column="userinfo" />
+        <result property="userid" column="userid" />
     </resultMap>
 
     <insert id="registerArticle" useGeneratedKeys="true" keyProperty="id">

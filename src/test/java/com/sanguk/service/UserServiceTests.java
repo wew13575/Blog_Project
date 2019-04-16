@@ -38,7 +38,7 @@ public class UserServiceTests {
         uservo.setUserName("sanggergweguk");
 
         try {
-            userServiceimpl.register(uservo, mockMultipartFile);
+            userServiceimpl.register(uservo);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

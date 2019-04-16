@@ -22,9 +22,11 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -41,13 +43,24 @@ public class UserController{
 	private UserServiceimpl userservice; 
 	
 	@PostMapping("/register")
-	public String register(UserVO userVO, MultipartFile profile) throws Exception {
-		if(profile.isEmpty()){
-			log.info("fileisEmpty");
-		}
-		userservice.register(userVO,profile);
-		return "redirect:/";
+	@ResponseBody
+	public void register(@RequestBody UserVO userVO) throws Exception {
+		log.info(userVO.toString());
+		userservice.register(userVO);
 	}
+	@PostMapping("/saveprofile")
+    @ResponseBody
+    public ResponseEntity<?> saveprofile(@RequestParam("file") MultipartFile file) {
+		try {
+			 log.info(file.getOriginalFilename());
+			return ResponseEntity.ok().body(userservice.saveProfile(file));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+
 	
 	@PostMapping("/checkid")
 	public @ResponseBody boolean checkid(@RequestParam("id") String id) {
