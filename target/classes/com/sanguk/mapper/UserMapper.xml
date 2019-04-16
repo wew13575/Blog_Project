@@ -31,6 +31,13 @@
 		WHERE user.userid = #{userid}
 	</select>
 
+	<select id="checkid" resultType="String" >
+		SELECT
+			userid
+		FROM 
+			users
+	</select>
+
 	<insert id="registerUsers">
 		INSERT INTO USERS
 		 	(userid, userpw, username, profilepath)

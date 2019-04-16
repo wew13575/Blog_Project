@@ -26,6 +26,7 @@ public class UploadUtilTests {
 
     @Autowired
     UploadServiceimpl uploadService;
+
 /* 
     @Test
     public void teetete() {
@@ -52,6 +53,18 @@ public class UploadUtilTests {
         }
 } 
  */
+
+
+    @Test
+    public void makethumnailtest(){
+        
+			try {
+				log.info(UploadFileUtils.makeThumbnail("c:/image/c4d6d1ed5e234b5c98ed50fa7bdded40.jpg","jpg", "c:/thumnail/","c4d6d1ed5e234b5c98ed50fa7bdded40.jpg"));
+			} catch (Exception e) {
+				log.warn(e.getStackTrace());
+				//articleVO.setThumnailpath("basicthumnail.jpg");
+			}
+    }
 }
 
 

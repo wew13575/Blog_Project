@@ -26,19 +26,4 @@ public class InfoController {
 		return "index";
     }
     
-    
-
-    @GetMapping("/editor")//TODO 게시글 에디터 요청 articleid 있으면 수정
-	public String getEditorPage(){
-		
-		return "editor";
-    }   
-		
-		
-    @PostMapping("/editor")//TODO 게시물 게시 articleid 있으면 수정
-	public String postArticle(){
-		
-		return "index";
-    }  
-    
 }

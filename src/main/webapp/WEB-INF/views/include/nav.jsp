@@ -9,28 +9,30 @@
             <p class="h4 mb-4">회원 가입</p>
             <hr>
             <!-- E-mail -->
-            <input name="userid" type="id" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="id (필수)" required>
-
+            <input name="userid" type="id" id="inputSuccess1" class="form-control mb-4" placeholder="Id *" required>
+            <small id="resultcheck" class="form-text text-muted mb-4">
+            </small>
+            <input id="checkid" type="hidden" value="0"> 
             <!-- Password -->
-            <input name="userpw" type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="패스워드 (필수)"
+            <input name="userpw" type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password *"
               aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
-            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text">
               At least 8 characters and 1 digit
             </small>
 
             <!-- Phone number -->
-            <input name="userName" type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="이름 (필수)"
+            <input name="userName" type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Nickname *"
               aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
-            <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+            <small id="defaultRegisterFormPhoneHelpBlock" class="form-text">
             </small>
 
             
-            <input id="fileinput" type="file" name="profile" accept=".jpg, .jpeg, gif, png"> 
+            <input id="fileinput" type="file" name="profile" accept=".jpg, .jpeg, .png"> 
             
-            <input name="userinfo" type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="자기 소개" required>
+            <input name="userinfo" type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Your Info">
 
             <!-- Sign up button -->
-            <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+            <button class="btn btn-info my-4 btn-block" id="registersubmit">Sign in</button>
 
 
             <hr>
@@ -51,7 +53,6 @@
         </div>
         <hr class="divider">
         <div class="row no-gutters" id="loginBox">
-          <sec:authentication property="principal" var="pinfo"/>
           <sec:authorize access="isAnonymous()">
           <form action="/user/login.do" method="POST">
             <div class="group">
@@ -72,11 +73,11 @@
           </sec:authorize>
           <sec:authorize access="isAuthenticated()">
               <div class="userimagebox">
-                  <image class="userimage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Albert_Einstein_%28Nobel%29.png/100px-Albert_Einstein_%28Nobel%29.png">
+                  <image class="userimage" src="/upload/image/${uservo.profilePath}">
               </div>
               
               <div id="userinfocontent">
-                  <p>${pinfo.username}님 반갑습니다!</p>
+                  <p>${uservo.userid}님 반갑습니다!</p>
                   <a href="/user/logout.do">로그아웃</a>&nbsp; <a href="/user/mypage">마이페이지</a>
               </div>
 
@@ -85,6 +86,7 @@
         <hr class="divider">
 
         <div class="sidebarnav">
+          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 홈</div>
           <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 우상욱이야기</div>
           <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 우상욱소개</div>
           <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 자유게시판</div>

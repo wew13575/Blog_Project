@@ -37,6 +37,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
 
         userService.resetFailcnt(request.getParameter("loginid"));
-        response.sendRedirect("/home");
+        response.sendRedirect("/");
     }
 }

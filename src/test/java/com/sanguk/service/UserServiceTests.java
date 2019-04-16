@@ -3,6 +3,7 @@ package com.sanguk.service;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import com.sanguk.domain.UserVO;
 
@@ -32,9 +33,9 @@ public class UserServiceTests {
               "text/plain", "test data".getBytes());
 
         UserVO uservo = new UserVO();
-        uservo.setUserid("dn");
-        uservo.setUserpw("tfn12127");
-        uservo.setUserName("sanguk");
+        uservo.setUserid("dergw");
+        uservo.setUserpw("tfn12egrerweg127");
+        uservo.setUserName("sanggergweguk");
 
         try {
             userServiceimpl.register(uservo, mockMultipartFile);
@@ -42,8 +43,13 @@ public class UserServiceTests {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
     }
+
+    @Test
+    public void checkidTest(){
+        log.info(userServiceimpl.checkid("dn"));
+    }
+    
 }
 
 

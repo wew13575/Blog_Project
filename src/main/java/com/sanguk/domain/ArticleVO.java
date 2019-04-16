@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class ArticleVO {
 
-    private String id; //default generated sequence
+    private int id; //default generated sequence
     private String author;
     private String title;
     private String content;
@@ -19,12 +19,15 @@ public class ArticleVO {
     private String Thumnailpath; //1 or not
     private int contentimgcnt; //default 0
 
-    private String boardType; //mapping in controller
+    private int boardType; //mapping in controller
     
     
 
     private List<TagVO> taglist;
     private List<CommentVO> commentlist;
+    private UserVO uservo;
+    
+    
 
     //get from mapper resulttype
     

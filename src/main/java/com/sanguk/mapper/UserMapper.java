@@ -1,5 +1,7 @@
 package com.sanguk.mapper;
 
+import java.util.List;
+
 import com.sanguk.domain.AuthVO;
 import com.sanguk.domain.UserVO;
 
@@ -11,6 +13,8 @@ import org.apache.ibatis.annotations.Select;
 public interface UserMapper {
 
     UserVO read(String userid);
+
+    List<String> checkid();
 
     void registerUsers(UserVO userVO);
     

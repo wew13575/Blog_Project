@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sanguk.mapper.ArticleMapper">
+    <resultMap type="com.sanguk.domain.ArticleVO" id="articleMap">
+        <id property="id" column="id" />
+        <result property="author" column="author" />
+        <result property="title" column="title" />
+        <result property="content" column="content" />
+        <result property="viewcnt" column="viewcnt" />
+        <result property="Thumnailpath" column="thumnailpath" />
+        <result property="boardType" column="boardtype" />
+        <result property="regDate" column="regdate" />
+        <result property="updateDate" column="updateDate" />
+        <association property="uservo" resultMap="authorMap"></association>
+        <collection property="commentlist" resultMap="commentMap"></collection>
+        <collection property="taglist" resultMap="tagMap"></collection>
+    </resultMap>
+    <resultMap id="commentMap" type="com.sanguk.domain.CommentVO">
+        <result property="commentid" column="commentid" />
+        <result property="commentauthor" column="commentauthor" />
+        <result property="commentcontent" column="commentcontent" />
+        <result property="updateDate" column="updatedate" />
+    </resultMap>
+    <resultMap id="tagMap" type="com.sanguk.domain.TagVO">
+        <result property="tag" column="tag" />
+    </resultMap>
+    <resultMap id="authorMap" type="com.sanguk.domain.UserVO">
+        <result property="profilePath" column="profilepath" />
+        <result property="userinfo" column="userinfo" />
+    </resultMap>
+
+    <insert id="registerArticle" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ARTICLES
+		 	(author, title, content, thumnailpath, boardtype)
+		values
+			(#{author},#{title},#{content},#{Thumnailpath},#{boardType})
+    </insert>
+    <update id="setInfo">
+		UPDATE ARTICLES
+        SET title=#{title},content=#{content}
+        WHERE boardType=2
+    </update>
+</mapper>

@@ -48,16 +48,11 @@ public class UploadController {
     public ResponseEntity<?> serveFile(@PathVariable String fileName) {
         try {
             HttpHeaders headers = new HttpHeaders();
-            String extension = fileName.split(".")[1];
+            String extension = fileName.split("\\.")[1];
             
             headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + new String(fileName.getBytes("UTF-8"), "ISO-8859-1") + "\"");
+            headers.setContentType(MediaUtils.getMediaType(extension));
             
-            
-            if (MediaUtils.containsImageMediaType(extension.toUpperCase())) {
-                headers.setContentType(MediaType.valueOf(extension.toUpperCase()));
-            } else {
-                headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-            }
 
             
 

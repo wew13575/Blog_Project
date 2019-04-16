@@ -15,5 +15,7 @@ public interface UserService {
 
     public void setUserDisable(String userid); 
 
+    public boolean checkid(String userid); 
+
     
 }

@@ -2,9 +2,11 @@ package com.sanguk.config;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import javax.sql.DataSource;
 
+import com.sanguk.mapper.UserMapper;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -62,7 +64,8 @@ public class RootConfig {
 
     return (SqlSessionFactory) sqlSessionFactory.getObject();
   }
-
+  
+  
   @Bean
   public SqlSessionTemplate sqlSession() throws Exception {
     return new SqlSessionTemplate(sqlSessionFactory());
@@ -82,6 +85,18 @@ public class RootConfig {
   public Path rootLocation(){
     return Paths.get(uploadPath());
   }
+
+  @Bean
+  public String thumnailPath() {
+    return "c:/thumnail/";
+  }
+
+  
+  @Bean
+  public Path thumnailLocation(){
+    return Paths.get(thumnailPath());
+  }
+
 
   @Bean
   public MultipartResolver multipartResolver() {
