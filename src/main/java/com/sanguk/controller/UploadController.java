@@ -34,6 +34,7 @@ public class UploadController {
     @ResponseBody
     public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
 		try {
+            log.info("안w녕d 어");
 			 
 			return ResponseEntity.ok().body("/upload/image/" + uploadService.saveImage(file));
         } catch (Exception e) {
