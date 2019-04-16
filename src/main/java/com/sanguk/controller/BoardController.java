@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/board")
+@RequestMapping("/")
 @Log4j
 public class BoardController {
 
 	@GetMapping("/blog") // TODO 게시물 목록 요청
-	public String getBlogList(int pageNum) {
+	public String getBlogPage(int pageNum) {
 		if (pageNum == 0) {
 			// 첫페이지로 리다이렉트ㄱㄱ
 		}
@@ -35,17 +35,20 @@ public class BoardController {
 	}
 
 	@GetMapping("/board") // TODO 게시물 목록 요청
-	public String getBoardList(int pageNum) {
+	public String getBoardPage(int pageNum) {
 		if (pageNum == 0) {
 			// 첫페이지로 리다이렉트ㄱㄱ
 		}
 		return "index";
 	}
 
-	@GetMapping("/search") // TODO 게시물 검색 목록 요청
-	public String getSearchArticles(String keyword, int pageNum) {
-
+	@GetMapping("/info") // TODO 게시물 목록 요청
+	public String getInfoPage(int pageNum) {
+		if (pageNum == 0) {
+			// 첫페이지로 리다이렉트ㄱㄱ
+		}
 		return "index";
 	}
+
 
 }

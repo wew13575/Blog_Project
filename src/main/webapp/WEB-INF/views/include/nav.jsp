@@ -47,7 +47,7 @@
     <nav id="mySidenav" class="sidenav">
       <div class="sidebarContent">
         <a href="#" id="logoBox">
-          장애인의 개발일기
+          장애인wdw의 개발일기
         </a>
         <div id="introduce">
           안녕하세요. 개발 뻘짓 블로그입니다~!.

@@ -9,7 +9,7 @@
             <p class="h4 mb-4">회원 가입</p>
             <hr>
             <!-- E-mail -->
-            <input name="userid" type="id" id="userid" class="form-control mb-4" placeholder="Id *" required>
+            <input name="userid" type="id" id="userid" class="form-control" placeholder="Id *" required>
             <small id="resultcheck" class="form-text text-muted mb-4">
             </small>
             <input id="checkid" type="hidden" value="0"> 
@@ -47,7 +47,7 @@
     <nav id="mySidenav" class="sidenav">
       <div class="sidebarContent">
         <a href="#" id="logoBox">
-          장애인의 개발일기
+          장애인ddwdw의 개발일기
         </a>
         <div id="introduce">
           안녕하세요. 개발 뻘짓 블로그입니다~!.

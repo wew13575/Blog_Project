@@ -43,9 +43,10 @@ public class UserController{
 	private UserServiceimpl userservice; 
 	
 	@PostMapping("/register")
-	@ResponseBody
+	@ResponseBody //TODO 테스트 해보고 없앨것!
 	public void register(@RequestBody UserVO userVO) throws Exception {
 		log.info(userVO.toString());
+		log.info("안녕 업데이");
 		userservice.register(userVO);
 	}
 	@PostMapping("/saveprofile")
@@ -67,6 +68,7 @@ public class UserController{
 
 		log.info(id);
 
+		log.info("안녕 업데awdwdwwa이트d다awawddwaddwad시awdawd되었어");
 		boolean checkStatus = userservice.checkid(id);
 		log.info(checkStatus);
 		return checkStatus;

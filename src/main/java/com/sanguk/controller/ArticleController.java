@@ -70,4 +70,11 @@ public class ArticleController {
 		return "index";
 	}
 
+	
+	@GetMapping("/search") // TODO 게시물 검색 목록 요청
+	public String getSearchArticles(String keyword, int pageNum) {
+
+		return "index";
+	}
+
 }
