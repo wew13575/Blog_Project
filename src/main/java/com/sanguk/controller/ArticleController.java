@@ -67,6 +67,10 @@ public class ArticleController {
 	@GetMapping("/modify") 
 	public String getupdateView(Model model,@RequestParam(value = "articleid", defaultValue = "-1") String articleid) {
 		
+		if(articleid.equals("-1")){
+			return "redirect:/";
+		}
+
 		UserVO userVO = ProfileUtils.getProfile(userMapper);
 		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleid));
 
@@ -107,35 +111,34 @@ public class ArticleController {
 
 	@PostMapping("/delete") // TODO 게시물 삭제
 	@Transactional
-	public String deleteArticle(Model model,@RequestParam(value = "articleid", defaultValue = "-1") String param_ArticleId) {
+	public String deleteArticle(Model model,@RequestParam(value = "articleid", defaultValue = "-1") String articleId) {
+		
+		if(articleId.equals("-1")){
+			return "redirect:/";
+		}
 
 		UserVO userVO = ProfileUtils.getProfile(userMapper);
-		int articleId = Integer.parseInt(param_ArticleId);
+		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleId));
 
-		if (articleId == -1) {
-			return "redirect:/"; //TODO 삭제할 게시글 번호 없음
-		}
-
-		ArticleVO articleVO = articleService.getArticle(articleId);
-
-		if(articleVO == null){ //TODO 삭제할 게시글 미존재
+		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){
 			return "redirect:/";
 		}
-		if(!userVO.getUserid().equals(articleVO.getAuthor())){ //TODO error페이지 처리
-			log.info(userVO.getUserid()+articleVO.getAuthor());
-			log.info("다른사람 글 삭제불가");
-			return "redirect:/";
-		}
-					//TODO 삭제처리 할것
-		articleService.deleteArticle(articleId);
-		return "showmodify";// 수정시
+
+		//TODO 삭제처리 할것
+		articleService.deleteArticle(articleVO.getId());
+		return "redirect:/";// 수정시
 	}
 
 
 
 	@GetMapping("/post") // TODO 클릭 게시물 요청
-	public String getArticle(Model model, int articleid) {
-		ArticleVO articleVO = articleService.getArticle(articleid);
+	public String getArticle(Model model, @RequestParam(value = "articleid", defaultValue = "-1") String articleId) {
+		
+		if(articleId.equals("-1")){
+			return "redirect:/";
+		}
+
+		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleId));
 		if(articleVO!=null){
 			model.addAttribute("articlevo", articleVO);
 			log.info(articleVO);

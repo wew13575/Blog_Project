@@ -56,7 +56,6 @@ request.setCharacterEncoding("UTF-8");
       <!--   -----------                       컨텐츠        --------------->
 
       <div id="articlecontainer">
-        <input type="hidden" id="PARAM_articleid" value="${articlevo.id}">
         <div id="articletitle">
           ${articlevo.title}
         </div>
@@ -108,7 +107,6 @@ request.setCharacterEncoding("UTF-8");
                       <button class="commentbutton">Delete</button>
 
                   </div>
-
               </div>
             </div>
           </c:forEach>
@@ -125,6 +123,16 @@ request.setCharacterEncoding("UTF-8");
           </div>
           </form>
         </sec:authorize>
+        <div id="articlebuttonbox">
+          <form style="display: hidden" action="/article/delete?articleid=${articlevo.id}" method="post" id="articledeleteform">
+          <button id="articledeletebutton" class="commentbutton articlebutton">
+            Delete
+          </button>
+        </form>
+          <button onclick = "location.href = '/article/modify?articleid=${articlevo.id}' " class="commentbutton articlebutton">
+            Edit
+          </button>
+        </div>
       </div>
 
 

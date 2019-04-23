@@ -55,8 +55,18 @@
 
 
 
+  deletearticle = 
 
 
+  $("#articledeletebutton").click(function (event){
+    event.preventDefault;
+
+    var con_test = confirm("정말 삭제 하시겠습니까?.");
+
+    if(con_test == true){
+      $("#articledeleteform").submit();
+    }
+  });
 
 
 

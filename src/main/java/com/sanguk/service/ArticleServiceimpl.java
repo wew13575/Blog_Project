@@ -40,6 +40,7 @@ public class ArticleServiceimpl implements ArticleService {
 	@Autowired
 	String thumnailPath;
 
+	
 	@Override
 	public void registerArticle(ArticleVO articleVO) {
 
@@ -119,15 +120,8 @@ public class ArticleServiceimpl implements ArticleService {
 	}
 
 
-
-
-	
-
-
 	@Override
 	public void deleteArticle(int articleid) {
-
 			articleMapper.deleteArticle(articleid);
-
 	}
 }
