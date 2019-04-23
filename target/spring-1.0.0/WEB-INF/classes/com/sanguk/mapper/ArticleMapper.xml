@@ -36,9 +36,10 @@
     </update>
 
     <update id="updateArticle">
-		UPDATE ARTICLES
-        SET title=#{title},content=#{content},thumnailpath=#{thumnailpath}
-        WHERE id=#{articleid}
+		UPDATE 
+            ARTICLES
+        SET title=#{title},content=#{content},thumnailpath=#{thumnailpath},updatedate = CURRENT_TIMESTAMP
+        WHERE id=#{id}
     </update>
 
     <delete id="deleteArticle">

@@ -32,11 +32,7 @@ public class ArticleController {
 
 	@GetMapping("/write") // TODO 게시글 에디터 요청 articleid 있으면 수정
 	public String getregisterView(Model model) {
-
-
-		UserVO uservo = ProfileUtils.getProfile(userMapper);
-		   model.addAttribute("uservo", uservo);
-		   
+		
 	   	return "showeditor";// 수정시
 	}
 
@@ -49,6 +45,8 @@ public class ArticleController {
 	@Transactional
 	public String registerArticle(ArticleVO articleVO, String tag) {
 		log.info(articleVO.toString());
+
+		
 
 		if (articleVO.getBoardType() == 2) {
 			articleService.setInfo(articleVO);
@@ -82,7 +80,6 @@ public class ArticleController {
 		}
 
 		model.addAttribute("articlevo", articleVO);  
-		model.addAttribute("uservo", userVO);
 		model.addAttribute("tagstring", tagstring);
 		return "showmodify";// 수정가능
 	}
@@ -101,7 +98,7 @@ public class ArticleController {
 		articleService.updateArticle(articleVO);
 		articleService.deleteTag(articleVO.getId());
 		articleService.registerTag(articleVO.getId(), tag);
-		return "redirect:/";// 수정시
+		return "redirect:/article/post?articleid="+articleVO.getId();// 수정시
 	}
 
 

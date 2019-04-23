@@ -16,9 +16,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class ArticleUtils {
 
-
-
-	public static ArticleVO getArticleThumnail(ArticleVO articleVO, String uploadPath, String thumnailPath){
+	public static ArticleVO getArticleThumnail(ArticleVO articleVO, String uploadPath, String thumnailPath) {
 
 		String thumnailContent = null;
 		if (articleVO.getContentimgcnt() != 0) {
@@ -44,31 +42,31 @@ public class ArticleUtils {
 		}
 
 		return articleVO;
-    }
-    
-    public static ArticleVO initArticleTitle(ArticleVO articleVO){
+	}
 
+
+
+	public static ArticleVO initArticleTitle(ArticleVO articleVO) {
 		String title = articleVO.getTitle().replace("<", "").replace(">", "");
 		if (title.length() == 0) {
 			title = "제목 없음";
 		}
 		articleVO.setTitle(title);
+		return articleVO;
+	}
 
 
 
-        return articleVO;
-		}
-		
-		public static boolean isArticleAuthor(ArticleVO articleVO, UserVO uservo){
+	public static boolean isArticleAuthor(ArticleVO articleVO, UserVO uservo) {
 
-		if(articleVO == null){ //TODO error페이지 처리
+		if (articleVO == null || uservo == null) { // TODO error페이지 처리
 			return false;
 		}
-		if(!uservo.getUserid().equals(articleVO.getAuthor())){ //TODO error페이지 처리
-			log.info(uservo.getUserid()+articleVO.getAuthor());
+		if (!uservo.getUserid().equals(articleVO.getAuthor())) { // TODO error페이지 처리
+			log.info(uservo.getUserid() + articleVO.getAuthor());
 			log.info("다른사람 글 수정불가");
 			return false;
 		}
 		return true;
-		}
+	}
 }

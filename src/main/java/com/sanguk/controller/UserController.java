@@ -52,6 +52,10 @@ public class UserController{
 		log.info(userVO.toString());
 		userService.register(userVO);
 	}
+
+
+
+	
 	@PostMapping("/saveprofile")
     @ResponseBody
     public ResponseEntity<?> saveprofile(@RequestParam("file") MultipartFile file) {

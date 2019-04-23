@@ -7,6 +7,7 @@ com\sanguk\domain\UserVO.class
 com\sanguk\config\RootConfig.class
 com\sanguk\service\UploadServiceimpl.class
 com\sanguk\util\MediaUtils.class
+com\sanguk\aop\HttpInterceptor.class
 com\sanguk\config\WebConfig.class
 com\sanguk\util\UploadFileUtils.class
 com\sanguk\service\ArticleServiceimpl.class

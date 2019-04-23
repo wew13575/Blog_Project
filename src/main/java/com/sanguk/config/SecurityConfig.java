@@ -58,7 +58,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   public void configure(HttpSecurity http) throws Exception {
     http
     .authorizeRequests()
-      .antMatchers("/article/write").access("hasRole('ROLE_MEMBER')")
+    .antMatchers("/article/write").access("hasRole('ROLE_MEMBER')")
+    .antMatchers("/article/modify").access("hasRole('ROLE_MEMBER')")
+    .antMatchers("/article/delete").access("hasRole('ROLE_MEMBER')")
       .antMatchers("/article/comment").access("hasRole('ROLE_MEMBER')")
       .anyRequest().permitAll() //TODO 마이페이지 제한할것
     .and()
