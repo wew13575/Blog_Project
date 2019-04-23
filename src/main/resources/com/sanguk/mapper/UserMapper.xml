@@ -38,11 +38,18 @@
 			users
 	</select>
 
+	<select id="checknick" resultType="String" >
+		SELECT
+			username
+		FROM 
+			users
+	</select>
+
 	<insert id="registerUsers">
 		INSERT INTO USERS
-		 	(userid, userpw, username, profilepath)
+		 	(userid, userpw, username, profilepath, userinfo )
 		values
-			(#{userid},#{userpw},#{userName},#{profilePath})
+			(#{userid},#{userpw},#{userName},#{profilePath},#{userinfo})
 
 	</insert>
 

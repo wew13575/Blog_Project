@@ -85,26 +85,24 @@ request.setCharacterEncoding("UTF-8");
 
 
       <div id="summernotecontainer">
-        <form action="/article/write" class="boardSubmit" method="post" enctype="multipart/form-data"
+        <form action="/article/modify" class="boardSubmit" method="post" enctype="multipart/form-data"
           style="padding:5px;">
-          <select name="boardType" class="form-control">
-            <option value="0">블로그</option>
-            <option value="1">게시판</option>
-            <option value="2">소개</option><!-- 계정 권한에 따른 분기 처리할것 -->
-          </select>
-          <input name="title" type="text" id="defaultRegisterFormEmail" class="form-control p-2" placeholder="글 제목"
-            style="margin: 10px 0px;">
+            <input type="hidden" name="boardType" id="boardselector" value="${articlevo.boardType}">
+          
+          <button class="btn btn-primary" id="editorbutton" type="submit">수정하기</button>
+          <input name="title" maxlength="30" type="text" id="defaultRegisterFormEmail" class="form-control p-2 editorcontrol" placeholder="TITLE"
+            style="margin: 10px 0px;" required value="${articlevo.title}">
           <textarea class="form-control" id="summernote" name="content" placeholder="content" maxlength="1000"
-            rows="7"></textarea>
+            rows="7" required>${articlevo.content}</textarea>
 
           <sec:authorize access="hasRole('ROLE_ADMIN')">
-            <input name="tag" type="text" id="defaultRegisterFormEmail" class="form-control p-2" placeholder="#태그 입력"
-              style="margin: 10px 0px;">
+            <input name="tag" maxlength="30" type="text" id="defaultRegisterFormEmail" class="form-control editorcontrol" placeholder="#HASHTAG"
+              style="margin: 10px 0px;" value="${tagstring}">
           </sec:authorize>
-          <button class="btn btn-primary" type="submit">작성하기</button>
           <input type="hidden" name="author" value="${uservo.userid}">
-          <input type="hidden" id="imgcnt" name="contentimgcnt" value="0">
-          <input type="hidden" name="Thumnailpath" value="basicthumnail.jpg">
+          <input type="hidden" name="id" value="${articlevo.id}">
+          <input type="hidden" id="imgcnt" name="contentimgcnt" value="1">
+          <input type="hidden" name="Thumnailpath" value="THUMB_basic.jpg">
         </form>
       </div>
 
@@ -168,8 +166,8 @@ request.setCharacterEncoding("UTF-8");
     }
 
     $('#summernote').summernote({
-      height: 450,                 // set editor height
-      minHeight: 450,             // set minimum height of editor
+      height: 500,                 // set editor height
+      minHeight: 500,             // set minimum height of editor
       maxHeight: null,
       disableDragAndDrop: false,         // set maximum height of editor
       fontNames: ['맑은고딕', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New',],

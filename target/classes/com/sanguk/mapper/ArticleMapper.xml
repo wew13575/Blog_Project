@@ -12,14 +12,7 @@
         <result property="regDate" column="regdate" />
         <result property="updateDate" column="updateDate" />
         <association property="uservo" resultMap="authorMap"></association>
-        <collection property="commentlist" resultMap="commentMap"></collection>
         <collection property="taglist" resultMap="tagMap"></collection>
-    </resultMap>
-    <resultMap id="commentMap" type="com.sanguk.domain.CommentVO">
-        <result property="commentid" column="commentid" />
-        <result property="commentauthor" column="commentauthor" />
-        <result property="commentcontent" column="commentcontent" />
-        <result property="updateDate" column="updatedate" />
     </resultMap>
     <resultMap id="tagMap" type="com.sanguk.domain.TagVO">
         <result property="tag" column="tag" />
@@ -27,7 +20,7 @@
     <resultMap id="authorMap" type="com.sanguk.domain.UserVO">
         <result property="profilePath" column="profilepath" />
         <result property="userinfo" column="userinfo" />
-        <result property="userid" column="userid" />
+        <result property="userName" column="username" />
     </resultMap>
 
     <insert id="registerArticle" useGeneratedKeys="true" keyProperty="id">
@@ -41,4 +34,28 @@
         SET title=#{title},content=#{content}
         WHERE boardType=2
     </update>
+
+    <update id="updateArticle">
+		UPDATE ARTICLES
+        SET title=#{title},content=#{content},thumnailpath=#{thumnailpath}
+        WHERE id=#{articleid}
+    </update>
+
+    <delete id="deleteArticle">
+        DELETE 
+        FROM
+            ARTICLES
+        WHERE 
+            id=#{articleid}
+    </delete>
+
+    <select id="getArticle" resultMap="articleMap">
+        SELECT 
+            a.id, a.author, a.title, a.content, a.updatedate, t.tag, u.userinfo, u.profilepath, u.username
+        FROM 
+            articles a 
+	    INNER JOIN users u on a.author = u.userid
+	    LEFT OUTER JOIN tags t on a.id = t.articleid
+        WHERE a.id = #{articleid}
+    </select>
 </mapper>

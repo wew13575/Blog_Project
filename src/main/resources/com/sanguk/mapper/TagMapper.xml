@@ -16,4 +16,12 @@
 			(#{articleid},#{tag})
     </insert>
 
+		<delete id="deleteTag">
+			DELETE
+			FROM
+				TAGS
+			WHERE 
+				articleid = #{articleid}
+		</delete>
+
 </mapper>

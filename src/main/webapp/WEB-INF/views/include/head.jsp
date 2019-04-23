@@ -7,8 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <link rel="icon" href="../../../../favicon.ico">
-
-  <title>Blog Template for Bootstrap</title>
+  <title>여기는.. 우산국..</title>
 
   <!-- Bootstrap core CSS -->
   <link href="/resources/css/bootstrap.min.css" rel="stylesheet">

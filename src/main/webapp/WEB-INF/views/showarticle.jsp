@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%
 request.setCharacterEncoding("UTF-8");
 %>
@@ -11,6 +11,8 @@ request.setCharacterEncoding("UTF-8");
   <!--   -----------            헤드        --------------->
   <%@ include file="include/head.jsp" %>
   <!--   -----------            헤드        --------------->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+
 </head>
 
 
@@ -36,44 +38,16 @@ request.setCharacterEncoding("UTF-8");
     <!--   -----------            사이드바        --------------->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!--   -----------                       헤  더        --------------->
     <!--   -----------                       헤  더        --------------->
     <!--   -----------                       헤  더        --------------->
     <header>
-
-
-        <%@ include file="include/header.jsp" %>
+      <%@ include file="include/header.jsp" %>
     </header>
 
     <!--   -----------                       헤  더        --------------->
     <!--   -----------                       헤  더        --------------->
     <!--   -----------                       헤  더        --------------->
-
-
-
 
     <div class="container-fluid">
 
@@ -81,86 +55,77 @@ request.setCharacterEncoding("UTF-8");
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
 
-      <div class="content contentcontainer">
-        <div class="contentBox">
-          <div class="contentItem">
-            <div class="ThumnailBox" style="
-        background-image: url('image/144396_66012_628.jpg');"></div>
-            <div class="contentTitle">
-              장정
-            </div>
-            <div class="contentDay">
-              2019년 3월 29일
-            </div>
-            <div class="contentHashtag">
-              dddddddddd
-            </div>
-          </div>
-        </div>
-
-        <div class="contentBox">
-          <div class="contentItem">
-            <div class="ThumnailBox" style="
-          background-image: url('image/144396_66012_628.jpg');"></div>
-            <div class="contentTitle">
-              장정wfwefewf
-            </div>
-            <div class="contentDay">
-              2019년 3월 29일
-            </div>
-            <div class="contentHashtag">
-              dddddddddd
-            </div>
-
-
-          </div>
-        </div>
-        <div class="contentBox">
-          <div class="contentItem">
-            <div class="ThumnailBox" style="
-            background-image: url('image/144396_66012_628.jpg');"></div>
-            <div class="contentTitle">
-              장정
-            </div>
-            <div class="contentDay">
-              2019년 3월 29일
-            </div>
-            <div class="contentHashtag">
-              dddddddddd
-            </div>
-          </div>
+      <div id="articlecontainer">
+        <input type="hidden" id="PARAM_articleid" value="${articlevo.id}">
+        <div id="articletitle">
+          ${articlevo.title}
         </div>
 
 
 
+        <div id="topbox">
+          <div id="articleinfo">
+            <image class="userimage" src="/upload/image/${articlevo.uservo.profilePath}" style="float:left;">
+            </image>
+            <div class="infobox" id="articleinfoname">${articlevo.uservo.userName}</div>
+            <div class="infobox" id="articleinfodate">${articlevo.updateDate}</div>
 
-      </div>
+          </div>
+          <div id="exportBox">
 
-      <div class="pagination-wrapper">
-        <div class="pagination">
-          <svg class="btn btn--prev" height="96" viewBox="0 0 24 24" width="96" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
-            <path d="M0-.5h24v24H0z" fill="none" />
-          </svg>
+          </div>
+        </div>
 
-          <div class="pagination-container">
-            <div class="little-dot  little-dot--first"></div>
-            <div class="little-dot">
-              <div class="big-dot-container">
-                <div class="big-dot"></div>
+        <div id="articlecontent">
+          ${articlevo.content}
+        </div>
+        <div id="articletag">
+          <c:forEach var="tag" items="${articlevo.taglist}">
+            <a href="/search?keyword=${tag.tag}">${tag.tag}</a>
+          </c:forEach>
+        </div>
+        <div id="commentcontainer">
+          <c:forEach var="comment" items="${articlevo.commentlist}">
+            <div class="commententity">
+              <div class="commentorprofile">
+                <image class="userimage" src="/upload/image/${comment.uservo.profilePath}">
+                </image>
+              </div>
+              <div class="comment">
+                <div class="commentboxtop">
+                  <div class="commentorname">
+                    ${comment.uservo.userName}
+                  </div>
+                  <div class="commentdate">
+                    ${comment.updateDate}
+                  </div>
+                </div>
+                  <div class="commentcontent">
+                    ${comment.content}
+                  </div>
+                  <div class="commentboxbutton">
+                      <button class="commentbutton">Edit</button>
+                      <button class="commentbutton">Delete</button>
+
+                  </div>
+
               </div>
             </div>
-            <div class="little-dot  little-dot--last"></div>
-          </div>
-
-          <svg class="btn btn--next" height="96" viewBox="0 0 24 24" width="96" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            <path d="M0-.25h24v24H0z" fill="none" />
-          </svg>
+          </c:forEach>
         </div>
+        <sec:authorize access="isAuthenticated()">
+          <form id="commenteditor">
+            <input type="hidden" id="PARAM_userid" value="${uservo.userName}">
+            <textarea id=commentformtext></textarea>
+            <div id="formbuttonbox">
+
+            <button class="commentbutton" id=commentformsubmit>
+              Write
+            </button>
+          </div>
+          </form>
+        </sec:authorize>
       </div>
-
-
 
 
 
@@ -178,7 +143,7 @@ request.setCharacterEncoding("UTF-8");
       <!--   -----------                       푸터        --------------->
       <footer class="blog-footer">
 
-          <%@ include file="include/footer.jsp" %>
+        <%@ include file="include/footer.jsp" %>
 
       </footer>
     </div>
@@ -191,12 +156,10 @@ request.setCharacterEncoding("UTF-8");
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
- 
+
   <%@ include file="include/script.jsp" %>
   <!--   -----------                       푸터        --------------->
   <!--   -----------                       푸터        --------------->
-  <!--   -----------                       푸터        --------------->
-
 </body>
 
 </html>

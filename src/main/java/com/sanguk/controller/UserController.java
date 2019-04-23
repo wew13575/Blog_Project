@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sanguk.domain.AuthVO;
 import com.sanguk.domain.UserVO;
 import com.sanguk.mapper.UserMapper;
+import com.sanguk.service.UploadServiceimpl;
 import com.sanguk.service.UserService;
 import com.sanguk.service.UserServiceimpl;
 
@@ -40,21 +41,23 @@ public class UserController{
 
 	
 	@Autowired
-	private UserServiceimpl userservice; 
+	private UserServiceimpl userService; 
+
+	@Autowired
+	private UploadServiceimpl uploadService;
 	
 	@PostMapping("/register")
 	@ResponseBody //TODO 테스트 해보고 없앨것!
 	public void register(@RequestBody UserVO userVO) throws Exception {
 		log.info(userVO.toString());
-		log.info("안녕d 업d데이");
-		userservice.register(userVO);
+		userService.register(userVO);
 	}
 	@PostMapping("/saveprofile")
     @ResponseBody
     public ResponseEntity<?> saveprofile(@RequestParam("file") MultipartFile file) {
 		try {
 			 log.info(file.getOriginalFilename());
-			return ResponseEntity.ok().body(userservice.saveProfile(file));
+			return ResponseEntity.ok().body(uploadService.saveProfile(file));
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.badRequest().build();
@@ -68,12 +71,22 @@ public class UserController{
 
 		log.info(id);
 
-		log.info("안w녕dddd 어");
-		boolean checkStatus = userservice.checkid(id);
+		boolean checkStatus = userService.checkid(id);
 		log.info(checkStatus);
 		return checkStatus;
-		
 	}
+
+	@PostMapping("/checknick")
+	public @ResponseBody boolean checknick(@RequestParam("nick") String nick) {
+
+		log.info(nick+"ddddd");
+
+		boolean checkStatus = userService.checknick(nick);
+		log.info(checkStatus);
+		return checkStatus;
+	}
+
+
 
 
 

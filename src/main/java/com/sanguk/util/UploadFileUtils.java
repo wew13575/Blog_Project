@@ -70,14 +70,14 @@ public class UploadFileUtils {
         }
     }
 
-    public static String makeThumbnail(String filePath, String fileExt, String savePath, String saveName) throws Exception { // 저장된 원본파일로부터
+    public static String makeThumbnail(String filePath, String fileExt, String savePath, String saveName) throws IllegalStateException, IOException { // 저장된 원본파일로부터
                                                                                                     // BufferedImage 객체를
                                                                                                     // 생성합니다.
         BufferedImage srcImg = ImageIO.read(new File(filePath));
 
         
         // 썸네일의 너비와 높이 입니다.
-        int dw = 350, dh = 350;
+        int dw = 320, dh = 260;
         // 원본 이미지의 너비와 높이 입니다.
         int ow = srcImg.getWidth();
         int oh = srcImg.getHeight();

@@ -12,7 +12,7 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.sanguk">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
@@ -49,8 +49,8 @@
 		<level value="debug"/>
 	</logger>
 
-	<logger name="jdbc.connection">
+	<!-- <logger name="jdbc.connection">
 		<level value="debug"/>
-	</logger>
+	</logger> -->
 	
 </log4j:configuration>

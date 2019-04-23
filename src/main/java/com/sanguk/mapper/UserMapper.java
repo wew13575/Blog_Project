@@ -15,6 +15,7 @@ public interface UserMapper {
     UserVO read(String userid);
 
     List<String> checkid();
+    List<String> checknick();
 
     void registerUsers(UserVO userVO);
     

@@ -25,8 +25,11 @@
   $("#userid").on("change", function () {
     checkid();
   });
+  $("#username").on("change", function () {
+    checknick();
+  });
 
-
+  
   $(window).scroll(function (event) {
     didScroll = true;
   });
@@ -137,11 +140,53 @@
     });
   };
 
+  
+  checknick = function () {
+    $.ajax({
+      data: { "nick": $("#username").val() },
+      type: "POST",
+      url: '/user/checknick',
+      success: function (result) {
+        console.log(result);
+        console.log(result.checkStatus);
+        if (result == true) {
+          $("#resultchecknick").text("사용 가능한 닉네임입니다.");
+          $("#resultchecknick").css("color", "blue");
+          $("#checknick").val("1");
+
+        }
+        else {
+          $("#resultchecknick").text("사용 불 가능한 닉네임입니다.");
+          $("#resultchecknick").css("color", "red");
+          $("#checknick").val("0");
+        }
+      }
+    });
+  };
+
+  $("#userpw").on("change", function () {
+    if(!/^[a-zA-Z0-9]{8,12}$/.test($("#userpw").val())){
+      $("#passresultcheck").css("color","red");
+      $("#pwcheck").val("0");
+    }
+    else{
+      $("#passresultcheck").text("good password!!");
+      $("#passresultcheck").css("color","blue");
+      $("#pwcheck").val("1");
+    }
+  });
+
   $("#registersubmit").click(function (event) {
     event.preventDefault();
 
     if ($("#checkid").val() == '0') {
-      alert("check id for register");
+      alert("check id for register!!");
+    }
+    else if($("#pwcheck").val()=='0'){
+      alert("check password for register!!");
+    }
+    else if($("#checknick").val()=='0'){
+      alert("check nickname for register!!");
     }
     else {
       var form = { userid: $("#userid").val(), userpw: $("#userpw").val(), userName: $("#username").val(), userinfo: $("#userinfo").val(), profilePath: $("#profilepath").val()};
@@ -162,6 +207,10 @@
         type: 'POST',
         success: function (data) {
           $("#myModal").modal("hide");
+          $("#resultcheck").text("Enter your ID (necessary)");
+          $("#passresultcheck").text("At least 8 characters and 1 digit (necessary)");
+          $("#passresultcheck").css("color","");
+          $("#resultcheck").css("color","");
         },
         error: function (e) {
 
@@ -172,7 +221,7 @@
   })
 $("#fileinput").change(function (){
   var form_data = new FormData();
-      form_data.append('file', $('#registerform>input[type=file]')[0].files[0]);
+      form_data.append('file', $('#registerform>div>input[type=file]')[0].files[0]);
       $.ajax({
         data: form_data,
         type: "POST",
@@ -188,8 +237,21 @@ $("#fileinput").change(function (){
       });
 })
 
-
-
+const uploadButton = document.querySelector('.browse-btn');
+const fileInfo = document.querySelector('.file-info');
+const realInput = document.getElementById('fileinput');
+uploadButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  realInput.click();
+});
+realInput.addEventListener('change', () => {
+  const name = realInput.value.split(/\\|\//).pop();
+  const truncated = name.length > 20 
+    ? name.substr(name.length - 20) 
+    : name;
+  
+  fileInfo.innerHTML = truncated;
+});
   function expand() {
 
     if (!$('.searchform .search').hasClass('close')) {

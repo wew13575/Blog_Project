@@ -30,11 +30,16 @@ public class UploadController {
     @Autowired
     UploadServiceimpl uploadService;
 
+    @Autowired
+    String uploadPath;
+
+    @Autowired
+    String thumnailPath;
+
 	@PostMapping("/image.do")
     @ResponseBody
     public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
 		try {
-            log.info("안w녕d 어");
 			 
 			return ResponseEntity.ok().body("/upload/image/" + uploadService.saveImage(file));
         } catch (Exception e) {
@@ -53,11 +58,16 @@ public class UploadController {
             
             headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + new String(fileName.getBytes("UTF-8"), "ISO-8859-1") + "\"");
             headers.setContentType(MediaUtils.getMediaType(extension));
-            
+            Resource resource;
 
             
+            if(fileName.startsWith("THUMB_")){
+                resource = uploadService.loadAsResource(fileName,thumnailPath);
+            }
+            else{
+                resource = uploadService.loadAsResource(fileName,uploadPath);
+            }
 
-            Resource resource = uploadService.loadAsResource(fileName);
             return ResponseEntity.ok().headers(headers).body(resource);
             
         } catch (Exception e) {

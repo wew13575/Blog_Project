@@ -30,7 +30,7 @@ public class BoardController {
 		if (pageNum == 0) {
 			// 첫페이지로 리다이렉트ㄱㄱ
 		}
-		return "index";
+		return "showindex";
 
 	}
 
@@ -39,7 +39,7 @@ public class BoardController {
 		if (pageNum == 0) {
 			// 첫페이지로 리다이렉트ㄱㄱ
 		}
-		return "index";
+		return "showindex";
 	}
 
 	@GetMapping("/info") // TODO 게시물 목록 요청
@@ -47,7 +47,7 @@ public class BoardController {
 		if (pageNum == 0) {
 			// 첫페이지로 리다이렉트ㄱㄱ
 		}
-		return "index";
+		return "showindex";
 	}
 
 

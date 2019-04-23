@@ -7,8 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 public interface UserService {
     public void register(UserVO userVO);
 
-    public String saveProfile(MultipartFile profile) throws Exception;
-
     public int getFailcnt(String userid);
 
     public void addFailcnt(String userid);
@@ -18,6 +16,8 @@ public interface UserService {
     public void setUserDisable(String userid); 
 
     public boolean checkid(String userid); 
+
+    public boolean checknick(String nick);
 
     
 }

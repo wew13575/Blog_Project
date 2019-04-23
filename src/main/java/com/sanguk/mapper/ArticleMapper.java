@@ -9,6 +9,9 @@ public interface ArticleMapper {
 
     void registerArticle(ArticleVO articleVO);
     void setInfo(ArticleVO articleVO);
+    public ArticleVO getArticle(int articleid);
+    void updateArticle(ArticleVO articleVO);
+    void deleteArticle(int articleid);
 
 
 }

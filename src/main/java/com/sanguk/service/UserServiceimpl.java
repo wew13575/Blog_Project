@@ -42,12 +42,15 @@ public class UserServiceimpl implements UserService {
 	@Autowired
 	private DataSourceTransactionManager transactionManager;
 
-	List<String> userList;
+	List<String> userIdList;
+	List<String> userNickList;
 
 	@PostConstruct
 	public void userList() {
-		this.userList = userMapper.checkid();
-		log.info(this.userList);
+		this.userIdList = userMapper.checkid();
+		log.info(this.userIdList);
+		this.userNickList = userMapper.checknick();
+		log.info(this.userNickList);
 	}
 
 	@Override
@@ -67,46 +70,13 @@ public class UserServiceimpl implements UserService {
 			userMapper.registerAuths(authVO);
 		} catch (Exception e) {
 			transactionManager.rollback(txStatus);
-			log.info("##########rollback########");
+			log.info("###########rollback########");
 			log.warn(e.getMessage());
 		}
 		transactionManager.commit(txStatus);
 
 		userList();
 	}
-
-
-	@Override
-	public String saveProfile(MultipartFile profile)  throws Exception{
-		String profilePath;
-
-		try {
-			if (profile.isEmpty()) {
-				throw new Exception();
-			}
-			String fileName = profile.getOriginalFilename();
-			String extension = fileName.split("\\.")[1];
-			if (!MediaUtils.containsImageMediaType(extension)) {
-				throw new Exception();
-			}
-			profilePath = UploadFileUtils.fileSave(rootLocation.toString(), profile);
-			if (profilePath.toCharArray()[0] == '/') {
-				profilePath = profilePath.substring(1);
-			}
-
-		} catch (Exception e) {
-			profilePath = "basicprofile.jpg";
-			throw new Exception("Failed to store file " + profile.getOriginalFilename(), e);
-		}
-
-		return profilePath;
-	}
-
-
-
-
-
-
 
 	@Override
 	public int getFailcnt(String userid) {
@@ -130,9 +100,18 @@ public class UserServiceimpl implements UserService {
 	}
 
 	public boolean checkid(String userid) {
-		if (this.userList.contains(userid)) {
+		if (this.userIdList.contains(userid)) {
 			return false;
 		}
 		return true;
+	}
+
+	
+    public boolean checknick(String nick){
+		if (this.userNickList.contains(nick)) {
+			return false;
+		}
+		return true;
+
 	}
 }

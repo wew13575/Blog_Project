@@ -30,12 +30,12 @@ public class HomeController {
 	private UserMapper userMapper;
 
 	@GetMapping("/")
-	public String index(Model model) throws Exception {
+	public String index(Model model) {
 
 		model.addAttribute("uservo", ProfileUtils.getProfile(userMapper));
 
 
-		return "index";
+		return "showindex";
 	}
 
 }

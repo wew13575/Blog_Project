@@ -36,7 +36,7 @@ public class RootConfig {
   public DataSource dataSource() {
     HikariConfig hikariConfig = new HikariConfig();
     hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-    hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/springpj?serverTimezone=UTC");
+    hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/springpj?serverTimezone=UTC&useSSL=false");
 
     hikariConfig.setUsername("root");
     hikariConfig.setPassword("tfn12127");

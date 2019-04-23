@@ -1,98 +1,111 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog" style="width: 320px;">
-        <div class="modal-content">
-          <form id="registerform" class="text-center border border-light p-5" method="post" enctype="multipart/form-data">
 
-            <p class="h4 mb-4">회원 가입</p>
-            <hr>
-            <!-- E-mail -->
-            <input name="userid" type="id" id="userid" class="form-control" placeholder="Id *" required>
-            <small id="resultcheck" class="form-text text-muted mb-4">
-            </small>
-            <input id="checkid" type="hidden" value="0"> 
-            <!-- Password -->
-            <input name="userpw" type="password" id="userpw" class="form-control" placeholder="Password *"
-              aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
-            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text">
-              At least 8 characters and 1 digit
-            </small>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width: 320px;">
+    <div class="modal-content">
+      <form id="registerform" method="post" enctype="multipart/form-data">
+        <p>SIGN IN</p>
+        <hr>
+        <!-- E-mail -->
+        <input name="userid" type="id" id="userid" class="form-control" maxlength="10"  required>
+        <small id="resultcheck" class="form-text">Enter your ID (necessary)
+        </small>
+        <input id="checkid" type="hidden" value="0">
+        <!-- Password -->
+        <input name="userpw" type="password" id="userpw" maxlength="12" class="form-control"
+          aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
+        <small id="passresultcheck" class="form-text">
+          At least 8 characters and 1 digit (necessary)
+        </small>
+        <input id="pwcheck" type="hidden" value="0">
 
-            <!-- Phone number -->
-            <input name="userName" type="text" id="username" class="form-control" placeholder="Nickname *"
-              aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
-            <small id="defaultRegisterFormPhoneHelpBlock" class="form-text">
-            </small>
+        <!-- Phone number -->
+        <input name="userName" type="text" id="username" maxlength="5" class="form-control"
+          aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
+          <small id="resultchecknick" class="form-text">
+            Enter your Nickname (necessary)
+          </small>
+          <input id="checknick" type="hidden" value="0">
 
-            
-            <input id="fileinput" type="file" name="profile" accept=".jpg, .jpeg, .png"> 
-            <input id="profilepath" type="hidden" value="basicprofile.jpg">
-            
-            <input name="userinfo" type="text" id="userinfo" class="form-control mb-4" placeholder="Your Info">
+          <div class="input-container">
+            <input type="file" id="fileinput" name="profile" accept=".jpg, .jpeg, .png">
+            <button class="browse-btn">
+              Browse Files
+            </button>
+            <span class="file-info">Upload a file</span>
+          </div>
+        <small  class="form-text">
+          Upload your Profile (optionaly)
+        </small>
+        <input id="profilepath" type="hidden" value="basicprofile.jpg">
+        
 
-            <!-- Sign up button -->
-            <button class="btn btn-info my-4 btn-block" id="registersubmit">Sign in</button>
-
-
-            <hr>
-          </form>
-        </div>
-      </div>
+        <textarea name="userinfo" type="text" id="userinfo" class="form-control" maxlength="200" cols="40" rows="5"></textarea>
+        <small  class="form-text">
+          Introduce your self (optionaly)
+        </small>
+        <hr>
+        <!-- Sign up button -->
+        <button class="btn btn-info btn-block" id="registersubmit">Sign in</button>
+      </form>
     </div>
+  </div>
+</div>
 
-    <div class="overlay"></div>
+<div class="overlay"></div>
 
-    <nav id="mySidenav" class="sidenav">
-      <div class="sidebarContent">
-        <a href="#" id="logoBox">
-          장애인wdw의 개발일기
-        </a>
-        <div id="introduce">
-          안녕하세요. 개발 뻘짓 블로그입니다~!.
-        </div>
-        <hr class="divider">
-        <div class="row no-gutters" id="loginBox">
-          <sec:authorize access="isAnonymous()">
-          <form action="/user/login.do" method="POST">
-            <div class="group">
-              <input type="text" name="loginid" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>ID</label>
-            </div>
-            <div class="group">
-              <input type="password" name="loginpw" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>PASSWORD</label>
-            </div>
+<nav id="mySidenav" class="sidenav">
+  <div class="sidebarContent">
+    <a href="#" id="logoBox">
+      우 산 국
+    </a>
+    <sec:authorize access="isAnonymous()">
+      <div class="row no-gutters" id="loginBox">
+        <form action="/user/login.do" method="POST">
+          <div class="group">
+            <input type="text" name="loginid" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>ID</label>
+          </div>
+          <div class="group">
+            <input type="password" name="loginpw" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>PASSWORD</label>
+          </div>
 
-            <button type="submit" class="formbtn fifth" >Login!</button>
-          </form>
-          </sec:authorize>
-          <sec:authorize access="isAuthenticated()">
-              <div class="userimagebox">
-                  <image class="userimage" src="/upload/image/${uservo.profilePath}">
-              </div>
-              
-              <div id="userinfocontent">
-                  <p>${uservo.userid}님 반갑습니다!</p>
-                  <a href="/user/logout.do">로그아웃</a>&nbsp; <a href="/user/mypage">마이페이지</a>
-              </div>
-
-          </sec:authorize>
-        </div>
-        <hr class="divider">
-
-        <div class="sidebarnav">
-          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 홈</div>
-          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 우상욱이야기</div>
-          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 우상욱소개</div>
-          <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; 자유게시판</div>
-        </div>
-
+          <button type="submit" class="formbtn fifth">Login!</button>
+        </form>
       </div>
+    </sec:authorize>
 
-    </nav>
+    <sec:authorize access="isAuthenticated()">
+      <div class="row no-gutters" id="userBox">
+        <div class="userimagebox">
+          <image class="userimage" src="/upload/image/${uservo.profilePath}">
+        </div>
+
+        <div id="userinfocontent">
+          <p>${uservo.userName}님</p>
+        </div>
+
+        <div id="userbuttonbox">
+          <a href="#" class="userbutton write">WRITE</a>
+          <a href="#" class="userbutton logout">LOGOUT</a>
+        </div>
+      </div>
+    </sec:authorize>
+  <hr class="divider">
+
+  <div class="sidebarnav">
+    <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; HOME</div>
+    <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; BLOG</div>
+    <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; INTRODUCE</div>
+    <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; BOARD</div>
+  </div>
+
+  </div>
+
+</nav>

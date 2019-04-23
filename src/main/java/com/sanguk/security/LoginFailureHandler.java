@@ -20,6 +20,7 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
 
     @Autowired
     public UserServiceimpl userService;
+
     
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)
@@ -27,11 +28,17 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
                 
 
         String username = request.getParameter("loginid");
+        
+        boolean checkStatus = userService.checkid(username); //유저 존재하는지 검사
+        
+        if(!checkStatus){
+            log.info("유저존재함");
         userService.addFailcnt(username);
         if(userService.getFailcnt(username)>=3){
             userService.setUserDisable(username);
             log.warn("########## Login disabled id: "+ username);
         }
+    }
         response.sendRedirect("/");
     }
 
