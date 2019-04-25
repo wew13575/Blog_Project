@@ -1051,6 +1051,10 @@ footer p {
   padding-bottom: 18px;
 
 }
+#articlecontent img{
+    width: 100% !important;
+}
+
 
 #articletitle {
   /* 한 줄 자르기 */
@@ -1068,6 +1072,7 @@ footer p {
   /* 여러 줄 자르기 추가 스타일 */
   white-space: normal;
   word-wrap: break-word;
+  word-break: break-all;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -1100,6 +1105,7 @@ footer p {
   position: absolute;
   bottom: 0px;
   right: 0px;
+  
 }
 .commentbutton{
   border-radius: 15px;
@@ -1113,7 +1119,7 @@ footer p {
   line-height: 20px;
   vertical-align: middle;
   color: rgb(255, 255, 255);
-  background: rgb(172, 172, 172);
+  background: rgb(185, 185, 185);
 }
 
 .commentorprofile{
@@ -1128,7 +1134,6 @@ footer p {
   display: inline-block;
 }
 .commentcontent{
-
   white-space: normal;
   word-wrap: break-word;
   min-height: 50px;
@@ -1173,7 +1178,9 @@ footer p {
 #commenteditor{
   width: 100%;
   min-height: 120px;
-  padding: 10px;
+  padding: 10px; 
+  border-bottom: rgba(138, 138, 138, 0.288) solid 1px;
+
 }
 #commentformtext{
   width: 100%;
@@ -1191,4 +1198,19 @@ footer p {
 #formbuttonbox{
   height: 31px;
   padding: 3px;
+}
+
+#articlebuttonbox{
+  height: 35px;
+  padding: 5px;
+}
+.articlebutton{
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  font-size: 13px;
+  float: right;
+  margin-left: 5px;
+  background: rgb(133, 133, 133);
+
 }

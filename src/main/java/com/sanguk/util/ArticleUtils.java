@@ -57,13 +57,13 @@ public class ArticleUtils {
 
 
 
-	public static boolean isArticleAuthor(ArticleVO articleVO, UserVO uservo) {
+	public static boolean isArticleAuthor(ArticleVO articleVO, UserVO userVO) {
 
-		if (articleVO == null || uservo == null) { // TODO error페이지 처리
+		if (articleVO == null || userVO == null) { // TODO error페이지 처리
 			return false;
 		}
-		if (!uservo.getUserid().equals(articleVO.getAuthor())) { // TODO error페이지 처리
-			log.info(uservo.getUserid() + articleVO.getAuthor());
+		if (!userVO.getUserid().equals(articleVO.getAuthor())) { // TODO error페이지 처리
+			log.info(userVO.getUserid() + articleVO.getAuthor());
 			log.info("다른사람 글 수정불가");
 			return false;
 		}

@@ -41,7 +41,7 @@ public class ServletConfig implements WebMvcConfigurer{
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
       registry.addInterceptor(httpInterceptor)
-          .addPathPatterns("/**").excludePathPatterns("/resources/**","/upload/**","/user/**");
+          .addPathPatterns("/**").excludePathPatterns("/resources/**","/upload/**","/user/**","/comment/**");
     }
 
 }

@@ -41,6 +41,13 @@
         SET title=#{title},content=#{content},thumnailpath=#{thumnailpath},updatedate = CURRENT_TIMESTAMP
         WHERE id=#{id}
     </update>
+    
+    <update id="addViewcnt">
+		UPDATE 
+            ARTICLES
+        SET viewcnt = viewcnt+1
+        WHERE id=#{articleid}
+    </update>
 
     <delete id="deleteArticle">
         DELETE 
@@ -58,5 +65,26 @@
 	    INNER JOIN users u on a.author = u.userid
 	    LEFT OUTER JOIN tags t on a.id = t.articleid
         WHERE a.id = #{articleid}
+    </select>
+
+        <select id="getBlogList" resultMap="articleMap">
+        SELECT 
+            a.id, a.author, a.title, a.content, a.updatedate, t.tag, u.userinfo, u.profilepath, u.username
+        FROM 
+            articles a 
+	    INNER JOIN users u on a.author = u.userid
+	    LEFT OUTER JOIN tags t on a.id = t.articleid
+        WHERE a.boardtype =0
+        ORDER BY a.id DESC
+    </select>
+    <select id="getBoardList" resultMap="articleMap">
+        SELECT 
+            a.id, a.author, a.title, a.content, a.updatedate, t.tag, u.userinfo, u.profilepath, u.username
+        FROM 
+            articles a 
+	    INNER JOIN users u on a.author = u.userid
+	    LEFT OUTER JOIN tags t on a.id = t.articleid
+        WHERE a.boardtype =1
+        ORDER BY a.id DESC
     </select>
 </mapper>

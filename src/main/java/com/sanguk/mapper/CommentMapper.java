@@ -12,7 +12,9 @@ public interface CommentMapper {
 
 
     void registerComment(CommentVO commentVO);
-    List<CommentVO> getcomment(int articleid);
+    void deleteComment(int commentId);
+    List<CommentVO> getCommentList(int articleid);
+    CommentVO getComment(int commentid);
 
 
 }

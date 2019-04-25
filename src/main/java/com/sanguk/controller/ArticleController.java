@@ -2,6 +2,7 @@ package com.sanguk.controller;
 
 import lombok.extern.log4j.Log4j;
 
+import java.util.List;
 
 import com.sanguk.domain.ArticleVO;
 import com.sanguk.domain.TagVO;
@@ -12,6 +13,7 @@ import com.sanguk.util.ArticleUtils;
 import com.sanguk.util.ProfileUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/article")
@@ -31,7 +34,7 @@ public class ArticleController {
 	ArticleServiceimpl articleService;
 
 	@GetMapping("/write") // TODO 게시글 에디터 요청 articleid 있으면 수정
-	public String getregisterView(Model model) {
+	public String getregisterView() {
 		
 	   	return "showeditor";// 수정시
 	}
@@ -109,9 +112,9 @@ public class ArticleController {
 
 
 
-	@PostMapping("/delete") // TODO 게시물 삭제
+	@PostMapping("/delete")
 	@Transactional
-	public String deleteArticle(Model model,@RequestParam(value = "articleid", defaultValue = "-1") String articleId) {
+	public String deleteArticle(@RequestParam(value = "articleid", defaultValue = "-1") String articleId) {
 		
 		if(articleId.equals("-1")){
 			return "redirect:/";
@@ -124,27 +127,29 @@ public class ArticleController {
 			return "redirect:/";
 		}
 
-		//TODO 삭제처리 할것
+
 		articleService.deleteArticle(articleVO.getId());
 		return "redirect:/";// 수정시
 	}
 
 
 
-	@GetMapping("/post") // TODO 클릭 게시물 요청
+	@GetMapping("/post")
 	public String getArticle(Model model, @RequestParam(value = "articleid", defaultValue = "-1") String articleId) {
 		
 		if(articleId.equals("-1")){
+			log.info("이게떴니?");
 			return "redirect:/";
 		}
 
 		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleId));
-		if(articleVO!=null){
-			model.addAttribute("articlevo", articleVO);
-			log.info(articleVO);
-			return "showarticle";
+		if(articleVO==null){
+			return "redirect:/"; //TODO 없는 글 처리 페이지 만들기~~
 		}
-		return "redirect:/";
+
+		model.addAttribute("articlevo", articleVO);
+		log.info(articleVO);
+		return "showarticle";
 	}
 
 
@@ -154,10 +159,41 @@ public class ArticleController {
 
 
 
+	@GetMapping("/list") // TODO 게시물 검색 목록 요청
+	@ResponseBody
+	public ResponseEntity<?> getArticleList(int boardType, int pageNum) {
+		
+		
+		log.info(boardType+""+pageNum);
+		
+		if(!(boardType==1||boardType==0)){
+			return ResponseEntity.badRequest().build();
+		}
+		
+		List<ArticleVO> articleList =  articleService.getArticleList(boardType);
+		int Listlength = articleList.size();
+		int fromIndex = 6*pageNum;
+		int toIndex = 6+6*pageNum;
 
+		if(pageNum<0){
+			return ResponseEntity.badRequest().build();
+		}
 
+		if(fromIndex>Listlength){
+			return ResponseEntity.badRequest().build();
+		}
+		if(toIndex>Listlength){
+			toIndex=Listlength;
+		}
 
+		List<ArticleVO> responseList = articleList.subList(fromIndex, toIndex);
 
+		if(responseList.isEmpty()){
+			log.info("없다이기야");
+		}
+	
+		return ResponseEntity.ok().body(articleList);
+	}
 
 
 	

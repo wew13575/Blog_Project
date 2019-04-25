@@ -21,6 +21,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,8 +49,8 @@ public class UserController{
 	
 	@PostMapping("/register")
 	@ResponseBody //TODO 테스트 해보고 없앨것!
-	public void register(@RequestBody UserVO userVO) throws Exception {
-		log.info(userVO.toString());
+	@Transactional
+	public void register(@RequestBody UserVO userVO) {
 		userService.register(userVO);
 	}
 
@@ -73,20 +74,14 @@ public class UserController{
 	@PostMapping("/checkid")
 	public @ResponseBody boolean checkid(@RequestParam("id") String id) {
 
-		log.info(id);
-
 		boolean checkStatus = userService.checkid(id);
-		log.info(checkStatus);
 		return checkStatus;
 	}
 
 	@PostMapping("/checknick")
 	public @ResponseBody boolean checknick(@RequestParam("nick") String nick) {
 
-		log.info(nick+"ddddd");
-
 		boolean checkStatus = userService.checknick(nick);
-		log.info(checkStatus);
 		return checkStatus;
 	}
 

@@ -54,7 +54,7 @@ public class UserControllerTests{
 
 
     @Test
-    public void testHomeController() throws Exception{
+    public void testUserController() throws Exception{
         RequestBuilder reqBuilder = MockMvcRequestBuilders.get("/user/checkid");
         /* mockMvc.perform(reqBuilder).andDo(print());  */
         mockMvc.perform(post("/user/checkid")

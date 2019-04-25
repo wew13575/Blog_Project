@@ -100,10 +100,10 @@
   <hr class="divider">
 
   <div class="sidebarnav">
-    <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; HOME</div>
-    <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; BLOG</div>
-    <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; INTRODUCE</div>
-    <div class="sidebaritem" onclick="getPaging()"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; BOARD</div>
+    <div class="sidebaritem" onclick="location.href = '/'"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; HOME</div>
+    <div class="sidebaritem" onclick="location.href = '/blog'"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; BLOG</div>
+    <div class="sidebaritem" onclick="location.href = '/info'"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; INTRODUCE</div>
+    <div class="sidebaritem" onclick="location.href = '/board'"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; BOARD</div>
   </div>
 
   </div>

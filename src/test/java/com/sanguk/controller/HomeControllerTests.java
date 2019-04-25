@@ -53,5 +53,11 @@ public class HomeControllerTests{
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
         .andDo(print());
     }
+
+    @Test
+    public void blogmethodTest() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/blog?pageNo=2"))
+        .andDo(print());
+    }
     
 }

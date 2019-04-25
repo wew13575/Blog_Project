@@ -85,7 +85,7 @@ request.setCharacterEncoding("UTF-8");
         <div class="contentBox">
           <div class="contentItem">
             <div class="ThumnailBox" style="
-        background-image: url('image/144396_66012_628.jpg');"></div>
+        background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
             <div class="contentTitle">
               장정
             </div>
@@ -100,7 +100,7 @@ request.setCharacterEncoding("UTF-8");
         <div class="contentBox">
           <div class="contentItem">
             <div class="ThumnailBox" style="
-        background-image: url('image/144396_66012_628.jpg');"></div>
+        background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
             <div class="contentTitle">
               장정
             </div>
@@ -115,7 +115,7 @@ request.setCharacterEncoding("UTF-8");
         <div class="contentBox">
           <div class="contentItem">
             <div class="ThumnailBox" style="
-        background-image: url('image/144396_66012_628.jpg');"></div>
+        background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
             <div class="contentTitle">
               장정
             </div>
@@ -146,7 +146,7 @@ request.setCharacterEncoding("UTF-8");
         <div class="contentBox">
           <div class="contentItem">
             <div class="ThumnailBox" style="
-          background-image: url('image/144396_66012_628.jpg');"></div>
+          background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
             <div class="contentTitle">
               장정wfwefewf
             </div>
@@ -163,7 +163,7 @@ request.setCharacterEncoding("UTF-8");
         <div class="contentBox">
           <div class="contentItem">
             <div class="ThumnailBox" style="
-            background-image: url('image/144396_66012_628.jpg');"></div>
+            background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
             <div class="contentTitle">
               장정
             </div>

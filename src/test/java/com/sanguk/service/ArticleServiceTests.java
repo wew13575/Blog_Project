@@ -43,6 +43,6 @@ public class ArticleServiceTests{
 
     @Test
     public void Taglisttest(){
-        articleService.registerTag(1,"");
+        log.info(articleService.getArticleList(1));
     }
 }

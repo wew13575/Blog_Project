@@ -19,5 +19,4 @@ public class CommentVO {
     private UserVO uservo;
     
     private Date regDate;
-    private Date updateDate;
 }

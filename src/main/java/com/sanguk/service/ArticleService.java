@@ -15,5 +15,7 @@ public interface ArticleService{
     public void updateArticle(ArticleVO articleVO);
     public void deleteArticle(int articleid);
     public void deleteTag(int articleId);
+    public void addViewcnt(int articleId);
+    public List<ArticleVO> getArticleList(int boardType);
 
 }

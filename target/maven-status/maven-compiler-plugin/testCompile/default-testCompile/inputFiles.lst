@@ -2,6 +2,7 @@ C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\co
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\configTest\MapperTests.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\configTest\DataSourceTests.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\service\ArticleServiceTests.java
+C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\service\CommentServiceTests.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\controller\UserControllerTests.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\controller\HomeControllerTests.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\service\UserServiceTests.java
@@ -11,4 +12,3 @@ C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\co
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\mapper\UserMapperTests.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\security\PasswordEncoderTests.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\security\CustomUserDetailsServiceTests.java
-C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\test\java\com\sanguk\controller\BoardControllerTests.java

@@ -85,10 +85,11 @@ request.setCharacterEncoding("UTF-8");
         </div>
         <div id="commentcontainer">
           <c:forEach var="comment" items="${articlevo.commentlist}">
+
             <div class="commententity">
               <div class="commentorprofile">
-                <image class="userimage" src="/upload/image/${comment.uservo.profilePath}">
-                </image>
+                <img class="userimage" src="/upload/image/${comment.uservo.profilePath}">
+                </img>
               </div>
               <div class="comment">
                 <div class="commentboxtop">
@@ -96,40 +97,43 @@ request.setCharacterEncoding("UTF-8");
                     ${comment.uservo.userName}
                   </div>
                   <div class="commentdate">
-                    ${comment.updateDate}
+                    ${comment.regDate}
                   </div>
                 </div>
-                  <div class="commentcontent">
-                    ${comment.content}
-                  </div>
-                  <div class="commentboxbutton">
-                      <button class="commentbutton">Edit</button>
-                      <button class="commentbutton">Delete</button>
+                <div class="commentcontent">
+                  ${comment.content}
+                </div>
+                <div class="commentboxbutton">
+                  <button class="commentbutton commentdelete"  value="${comment.id}">Delete</button>
 
-                  </div>
+                </div>
               </div>
+
             </div>
           </c:forEach>
         </div>
         <sec:authorize access="isAuthenticated()">
-          <form id="commenteditor">
-            <input type="hidden" id="PARAM_userid" value="${uservo.userName}">
-            <textarea id=commentformtext></textarea>
+          <div id="commenteditor">
+            <input type="hidden" id="PARAM_userid" value="${uservo.userid}">
+            <input type="hidden" id="PARAM_articleid" value="${articlevo.id}">
+            <textarea id="commentformtext"></textarea>
             <div id="formbuttonbox">
 
-            <button class="commentbutton" id=commentformsubmit>
-              Write
-            </button>
+              <button class="commentbutton" id=commentformsubmit>
+                Write
+              </button>
+            </div>
           </div>
-          </form>
         </sec:authorize>
         <div id="articlebuttonbox">
-          <form style="display: hidden" action="/article/delete?articleid=${articlevo.id}" method="post" id="articledeleteform">
-          <button id="articledeletebutton" class="commentbutton articlebutton">
-            Delete
-          </button>
-        </form>
-          <button onclick = "location.href = '/article/modify?articleid=${articlevo.id}' " class="commentbutton articlebutton">
+          <form style="display: hidden" action="/article/delete?articleid=${articlevo.id}" method="post"
+            id="articledeleteform">
+            <button id="articledeletebutton" class="commentbutton articlebutton">
+              Delete
+            </button>
+          </form>
+          <button onclick="location.href = '/article/modify?articleid=${articlevo.id}' "
+            class="commentbutton articlebutton">
             Edit
           </button>
         </div>

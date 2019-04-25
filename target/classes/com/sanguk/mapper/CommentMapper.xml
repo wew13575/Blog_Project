@@ -6,7 +6,7 @@
         <result property="id" column="commentid" />
         <result property="author" column="commentauthor" />
         <result property="content" column="commentcontent" />
-        <result property="updateDate" column="commentregdate" />
+        <result property="regDate" column="commentregdate" />
         <association property="uservo" resultMap="cauthorMap"></association>
     </resultMap>
 
@@ -15,7 +15,7 @@
         <result property="userName" column="username" />
     </resultMap>
 
-	<select id="getcomment" resultMap ="commentMap">
+	<select id="getCommentList" resultMap ="commentMap">
 		SELECT 
 			c.commentid, c.commentauthor, c.commentcontent, c.commentregdate, u.profilepath, u.username
 		FROM 
@@ -25,12 +25,28 @@
 	</select>
 
 
-    <insert id="registerComment">
+    <select id="getComment" resultMap ="commentMap">
+		SELECT 
+			c.commentid, c.commentauthor, c.commentcontent, c.commentregdate, u.profilepath, u.username
+		FROM 
+			comments c
+			INNER JOIN users u ON c.commentauthor = u.userid
+		WHERE c.commentid = #{commentid}
+	</select>
+
+    <insert id="registerComment"  useGeneratedKeys="true" keyProperty="id" >
 		INSERT INTO COMMENTS
-		 	(articleid, id, author, content)
+		 	(articleid, commentauthor, commentcontent)
 		values
-			(#{articleid},#{id},#{author},#{content})
+			(#{articleid} ,#{author},#{content})
     </insert>
+
+    <delete id="deleteComment">
+        DELETE 
+        FROM COMMENTS
+        WHERE 
+            commentid = #{commentId}
+    </delete>
 
 		
 

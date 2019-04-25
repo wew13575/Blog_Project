@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.annotation.PostConstruct;
+
 import com.sanguk.domain.ArticleVO;
 import com.sanguk.domain.TagVO;
 import com.sanguk.mapper.ArticleMapper;
@@ -32,7 +34,7 @@ public class ArticleServiceimpl implements ArticleService {
 	@Autowired
 	ArticleMapper articleMapper;
 	@Autowired
-	CommentMapper commentMapper;
+	CommentServiceimpl commentService;
 	@Autowired
 	TagMapper tagMapper;
 	@Autowired
@@ -40,7 +42,10 @@ public class ArticleServiceimpl implements ArticleService {
 	@Autowired
 	String thumnailPath;
 
-	
+
+
+
+
 	@Override
 	public void registerArticle(ArticleVO articleVO) {
 
@@ -98,7 +103,8 @@ public class ArticleServiceimpl implements ArticleService {
 		if (articleVO == null) {
 			return null;
 		}
-		articleVO.setCommentlist(commentMapper.getcomment(articleVO.getId()));
+		articleVO.setCommentlist(commentService.getCommentList(articleVO.getId()));
+		addViewcnt(articleid);
 		return articleVO;
 	}
 
@@ -121,7 +127,17 @@ public class ArticleServiceimpl implements ArticleService {
 
 
 	@Override
-	public void deleteArticle(int articleid) {
-			articleMapper.deleteArticle(articleid);
+	public void deleteArticle(int articleId) {
+			articleMapper.deleteArticle(articleId);
+	}
+
+	@Override
+	public void addViewcnt(int articleId){
+		articleMapper.addViewcnt(articleId);
+	}
+
+	@Override
+	public List<ArticleVO> getArticleList(int boardType) {
+		return boardType==0?articleMapper.getBlogList():articleMapper.getBoardList();
 	}
 }
