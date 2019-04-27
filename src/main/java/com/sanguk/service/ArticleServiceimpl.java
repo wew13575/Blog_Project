@@ -49,7 +49,6 @@ public class ArticleServiceimpl implements ArticleService {
 	@Override
 	public void registerArticle(ArticleVO articleVO) {
 
-
 		articleVO = ArticleUtils.getArticleThumnail(articleVO,uploadPath,thumnailPath);
 		articleVO = ArticleUtils.initArticleTitle(articleVO);
 
@@ -103,7 +102,6 @@ public class ArticleServiceimpl implements ArticleService {
 		if (articleVO == null) {
 			return null;
 		}
-		articleVO.setCommentlist(commentService.getCommentList(articleVO.getId()));
 		addViewcnt(articleid);
 		return articleVO;
 	}
@@ -138,6 +136,6 @@ public class ArticleServiceimpl implements ArticleService {
 
 	@Override
 	public List<ArticleVO> getArticleList(int boardType) {
-		return boardType==0?articleMapper.getBlogList():articleMapper.getBoardList();
+		return articleMapper.getArticleList(boardType);
 	}
 }

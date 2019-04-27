@@ -9,19 +9,14 @@
         <result property="viewcnt" column="viewcnt" />
         <result property="Thumnailpath" column="thumnailpath" />
         <result property="boardType" column="boardtype" />
-        <result property="regDate" column="regdate" />
-        <result property="updateDate" column="updateDate" />
-        <association property="uservo" resultMap="authorMap"></association>
-        <collection property="taglist" resultMap="tagMap"></collection>
+        <result property="updateDate" column="updatedate" />
+        <association property="uservo" column="author" select="com.sanguk.mapper.UserMapper.getUserByAuthor"></association>
+        <collection property="taglist" column="id" javaType="java.util.ArrayList" ofType="com.sanguk.domain.TagVO" select="com.sanguk.mapper.TagMapper.getTagListById"></collection>
+        <collection property="commentlist" column="id" javaType="java.util.ArrayList" ofType="com.sanguk.mapper.CommentMapper.commentMap" select="com.sanguk.mapper.CommentMapper.getCommentList"></collection>
     </resultMap>
-    <resultMap id="tagMap" type="com.sanguk.domain.TagVO">
-        <result property="tag" column="tag" />
-    </resultMap>
-    <resultMap id="authorMap" type="com.sanguk.domain.UserVO">
-        <result property="profilePath" column="profilepath" />
-        <result property="userinfo" column="userinfo" />
-        <result property="userName" column="username" />
-    </resultMap>
+
+
+
 
     <insert id="registerArticle" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO ARTICLES
@@ -59,32 +54,20 @@
 
     <select id="getArticle" resultMap="articleMap">
         SELECT 
-            a.id, a.author, a.title, a.content, a.updatedate, t.tag, u.userinfo, u.profilepath, u.username
+            id,  title , author, content, updatedate
         FROM 
-            articles a 
-	    INNER JOIN users u on a.author = u.userid
-	    LEFT OUTER JOIN tags t on a.id = t.articleid
-        WHERE a.id = #{articleid}
+            articles 
+        WHERE id = #{articleid}
     </select>
 
-        <select id="getBlogList" resultMap="articleMap">
+        <select id="getArticleList" resultMap="articleMap">
         SELECT 
-            a.id, a.author, a.title, a.content, a.updatedate, t.tag, u.userinfo, u.profilepath, u.username
+            id, author, title, viewcnt,  thumnailpath, updatedate
         FROM 
-            articles a 
-	    INNER JOIN users u on a.author = u.userid
-	    LEFT OUTER JOIN tags t on a.id = t.articleid
-        WHERE a.boardtype =0
-        ORDER BY a.id DESC
+            articles 
+        WHERE boardtype = #{boardType}
+        ORDER BY id DESC
     </select>
-    <select id="getBoardList" resultMap="articleMap">
-        SELECT 
-            a.id, a.author, a.title, a.content, a.updatedate, t.tag, u.userinfo, u.profilepath, u.username
-        FROM 
-            articles a 
-	    INNER JOIN users u on a.author = u.userid
-	    LEFT OUTER JOIN tags t on a.id = t.articleid
-        WHERE a.boardtype =1
-        ORDER BY a.id DESC
-    </select>
+
+
 </mapper>

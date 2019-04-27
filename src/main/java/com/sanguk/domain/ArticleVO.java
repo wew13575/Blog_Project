@@ -18,22 +18,19 @@ public class ArticleVO {
     private int viewcnt;  //default 0
     private String Thumnailpath; //1 or not
     private int contentimgcnt; //default 0
-
     private int boardType; //mapping in controller
-    
+    private Date updateDate;
     
 
     private List<TagVO> taglist;
-    private List<CommentVO> commentlist;
     private UserVO uservo;
     
     
 
     //get from mapper resulttype
     
-    private Date regDate;
-    private Date updateDate;
     
+    private List<CommentVO> commentlist;
     
     
     

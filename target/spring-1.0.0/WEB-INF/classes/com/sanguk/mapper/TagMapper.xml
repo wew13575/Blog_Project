@@ -5,9 +5,7 @@
 
 
 
-
-
-
+	
 
     <insert id="registerTag">
 		INSERT IGNORE INTO TAGS
@@ -23,5 +21,12 @@
 			WHERE 
 				articleid = #{articleid}
 		</delete>
-
+    <select id="getTagListById" resultType="com.sanguk.domain.TagVO">
+		SELECT 
+			articleid, tag
+		FROM
+			TAGS
+		WHERE articleid = #{id}
+	</select>
+	
 </mapper>

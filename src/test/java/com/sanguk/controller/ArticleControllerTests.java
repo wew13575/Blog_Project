@@ -62,7 +62,7 @@ public class ArticleControllerTests{
     @Test
     @WithUserDetails("dntkddnr123")
     public void initialDisplay() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/board/editor"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/article/post?articleid=8"))
         .andDo(print());
     }
     
@@ -70,7 +70,7 @@ public class ArticleControllerTests{
     @Test
     @WithUserDetails("wew1355")
     public void articleListTest() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/article/list?boardType=1&pageNum=0"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/article/list?type=1&pageNo=0"))
         .andDo(print());
     }
 }

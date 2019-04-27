@@ -43,6 +43,6 @@ public class ArticleServiceTests{
 
     @Test
     public void Taglisttest(){
-        log.info(articleService.getArticleList(1));
+        log.info(articleService.getArticle(8));
     }
 }

@@ -77,7 +77,7 @@ public class UploadFileUtils {
 
         
         // 썸네일의 너비와 높이 입니다.
-        int dw = 320, dh = 260;
+        int dw = 320, dh = 240;
         // 원본 이미지의 너비와 높이 입니다.
         int ow = srcImg.getWidth();
         int oh = srcImg.getHeight();

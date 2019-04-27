@@ -7,31 +7,24 @@
         <result property="author" column="commentauthor" />
         <result property="content" column="commentcontent" />
         <result property="regDate" column="commentregdate" />
-        <association property="uservo" resultMap="cauthorMap"></association>
-    </resultMap>
-
-    <resultMap id="cauthorMap" type="com.sanguk.domain.UserVO">
-        <result property="profilePath" column="profilepath" />
-        <result property="userName" column="username" />
+        <association property="uservo" column="commentauthor" select="com.sanguk.mapper.UserMapper.getUserByAuthor"></association>
     </resultMap>
 
 	<select id="getCommentList" resultMap ="commentMap">
 		SELECT 
-			c.commentid, c.commentauthor, c.commentcontent, c.commentregdate, u.profilepath, u.username
+			commentid, commentauthor, commentcontent, commentregdate
 		FROM 
-			comments c
-			INNER JOIN users u ON c.commentauthor = u.userid
-		WHERE c.articleid = #{articleid}
+			comments 
+		WHERE articleid = #{articleid}
 	</select>
 
 
     <select id="getComment" resultMap ="commentMap">
 		SELECT 
-			c.commentid, c.commentauthor, c.commentcontent, c.commentregdate, u.profilepath, u.username
+			commentid, commentauthor, commentcontent, commentregdate
 		FROM 
-			comments c
-			INNER JOIN users u ON c.commentauthor = u.userid
-		WHERE c.commentid = #{commentid}
+			comments
+		WHERE commentid = #{commentid}
 	</select>
 
     <insert id="registerComment"  useGeneratedKeys="true" keyProperty="id" >

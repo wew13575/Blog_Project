@@ -29,4 +29,5 @@ public interface UserMapper {
     void resetFailcnt(String userid);
 
     void setUserDisable(String userid);
+    UserVO getUserByAuthor(String author);
 }

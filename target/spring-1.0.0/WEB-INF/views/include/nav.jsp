@@ -58,7 +58,7 @@
 <nav id="mySidenav" class="sidenav">
   <div class="sidebarContent">
     <a href="#" id="logoBox">
-      우 산 국
+      우산국
     </a>
     <sec:authorize access="isAnonymous()">
       <div class="row no-gutters" id="loginBox">

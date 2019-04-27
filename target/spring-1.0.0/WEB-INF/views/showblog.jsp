@@ -20,7 +20,8 @@ request.setCharacterEncoding("UTF-8");
 
 
 
-<body>
+<body style="
+background: rgb(241, 241, 241) !important;">
 
 
 
@@ -65,7 +66,7 @@ request.setCharacterEncoding("UTF-8");
     <header>
 
 
-        <%@ include file="include/header.jsp" %>
+      <%@ include file="include/header.jsp" %>
     </header>
 
     <!--   -----------                       헤  더        --------------->
@@ -76,106 +77,95 @@ request.setCharacterEncoding("UTF-8");
 
 
     <div class="container-fluid">
+      <input type="hidden" id="pageNo" value="${pageno}">
 
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
 
       <div class="content contentcontainer">
+
+
+
+
         <div class="contentBox">
-          <div class="contentItem">
-            <div class="ThumnailBox" style="
-        background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
-            <div class="contentTitle">
-              장정
-            </div>
-            <div class="contentDay">
-              2019년 3월 29일
-            </div>
-            <div class="contentHashtag">
-              dddddddddd
+          <div class="contentthumnail" style="
+          background: 
+          linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.4)
+          ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
+  background-repeat: no-repeat;
+  background-size: 320px 240px;">
+
+            <div class="contentinfobox">
+              <div class="contentTitle">
+                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+              </div>
+              <div class="contentDay">
+                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
+              </div>
+              <div class="contentauthor">
+                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
+                dddddddddd
+              </div>
             </div>
           </div>
         </div>
+
+
         <div class="contentBox">
-          <div class="contentItem">
-            <div class="ThumnailBox" style="
-        background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
-            <div class="contentTitle">
-              장정
-            </div>
-            <div class="contentDay">
-              2019년 3월 29일
-            </div>
-            <div class="contentHashtag">
-              dddddddddd
-            </div>
-          </div>
-        </div>
-        <div class="contentBox">
-          <div class="contentItem">
-            <div class="ThumnailBox" style="
-        background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
-            <div class="contentTitle">
-              장정
-            </div>
-            <div class="contentDay">
-              2019년 3월 29일
-            </div>
-            <div class="contentHashtag">
-              dddddddddd
-            </div>
-          </div>
-        </div>
-        <div class="contentBox">
-          <div class="contentItem">
-            <div class="ThumnailBox" style="
-        background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
-            <div class="contentTitle">
-              장정
-            </div>
-            <div class="contentDay">
-              2019년 3월 29일
-            </div>
-            <div class="contentHashtag">
-              dddddddddd
+          <div class="contentthumnail" style="
+            background: 
+            linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0),
+              rgba(0, 0, 0, 0.4)
+            ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
+    background-repeat: no-repeat;
+    background-size: 320px 240px;">
+
+            <div class="contentinfobox">
+              <div class="contentTitle">
+                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+              </div>
+              <div class="contentDay">
+                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
+              </div>
+              <div class="contentauthor">
+                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
+                dddddddddd
+              </div>
             </div>
           </div>
         </div>
 
         <div class="contentBox">
-          <div class="contentItem">
-            <div class="ThumnailBox" style="
-          background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
-            <div class="contentTitle">
-              장정wfwefewf
-            </div>
-            <div class="contentDay">
-              2019년 3월 29일
-            </div>
-            <div class="contentHashtag">
-              dddddddddd
-            </div>
+          <div class="contentthumnail" style="
+            background: 
+            linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0),
+              rgba(0, 0, 0, 0.4)
+            ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
+    background-repeat: no-repeat;
+    background-size: 320px 240px;">
 
-
-          </div>
-        </div>
-        <div class="contentBox">
-          <div class="contentItem">
-            <div class="ThumnailBox" style="
-            background-image: url('upload/image/1ba93c849df54380baa0d4c536613f36.png');"></div>
-            <div class="contentTitle">
-              장정
-            </div>
-            <div class="contentDay">
-              2019년 3월 29일
-            </div>
-            <div class="contentHashtag">
-              dddddddddd
+            <div class="contentinfobox">
+              <div class="contentTitle">
+                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+              </div>
+              <div class="contentDay">
+                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
+              </div>
+              <div class="contentauthor">
+                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
+                dddddddddd
+              </div>
             </div>
           </div>
         </div>
-
 
 
 
@@ -183,7 +173,7 @@ request.setCharacterEncoding("UTF-8");
 
       <div class="pagination-wrapper">
         <div class="pagination">
-          <svg class="btn btn--prev" height="96" viewBox="0 0 24 24" width="96" xmlns="http://www.w3.org/2000/svg">
+          <svg class="btn btn--prev" height="96" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
             <path d="M0-.5h24v24H0z" fill="none" />
           </svg>
@@ -198,7 +188,7 @@ request.setCharacterEncoding("UTF-8");
             <div class="little-dot  little-dot--last"></div>
           </div>
 
-          <svg class="btn btn--next" height="96" viewBox="0 0 24 24" width="96" xmlns="http://www.w3.org/2000/svg">
+          <svg class="btn btn--next" height="96" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg">
             <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
             <path d="M0-.25h24v24H0z" fill="none" />
           </svg>
@@ -223,7 +213,7 @@ request.setCharacterEncoding("UTF-8");
       <!--   -----------                       푸터        --------------->
       <footer class="blog-footer">
 
-          <%@ include file="include/footer.jsp" %>
+        <%@ include file="include/footer.jsp" %>
 
       </footer>
     </div>
@@ -236,8 +226,29 @@ request.setCharacterEncoding("UTF-8");
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
- 
+
   <%@ include file="include/script.jsp" %>
+
+
+  <script>
+
+    var pageNo;
+    var boardType = 0;
+    $(document).ready(function () {
+      this.pageNo = $("#pageNo").val();
+
+      $.get('/article/list?type=0&pageNo='+this.pageNo, function (data) {
+           
+           console.log(data);
+           });
+    })
+
+
+
+
+
+
+  </script>
   <!--   -----------                       푸터        --------------->
   <!--   -----------                       푸터        --------------->
   <!--   -----------                       푸터        --------------->

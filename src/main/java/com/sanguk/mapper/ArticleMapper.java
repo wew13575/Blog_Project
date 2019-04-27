@@ -15,8 +15,7 @@ public interface ArticleMapper {
     void updateArticle(ArticleVO articleVO);
     void deleteArticle(int articleid);
     void addViewcnt(int articleid);
-    List<ArticleVO> getBlogList();
-    List<ArticleVO> getBoardList();
+    List<ArticleVO> getArticleList(int boardType);
 
 
 }

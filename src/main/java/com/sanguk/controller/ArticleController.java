@@ -161,21 +161,21 @@ public class ArticleController {
 
 	@GetMapping("/list") // TODO 게시물 검색 목록 요청
 	@ResponseBody
-	public ResponseEntity<?> getArticleList(int boardType, int pageNum) {
+	public ResponseEntity<?> getArticleList(int type, int pageNo) {
 		
 		
-		log.info(boardType+""+pageNum);
+		log.info(type+""+pageNo);
 		
-		if(!(boardType==1||boardType==0)){
+		if(!(type==1||type==0)){
 			return ResponseEntity.badRequest().build();
 		}
 		
-		List<ArticleVO> articleList =  articleService.getArticleList(boardType);
+		List<ArticleVO> articleList =  articleService.getArticleList(type);
 		int Listlength = articleList.size();
-		int fromIndex = 6*pageNum;
-		int toIndex = 6+6*pageNum;
+		int fromIndex = 6*pageNo;
+		int toIndex = 6+6*pageNo;
 
-		if(pageNum<0){
+		if(pageNo<0){
 			return ResponseEntity.badRequest().build();
 		}
 

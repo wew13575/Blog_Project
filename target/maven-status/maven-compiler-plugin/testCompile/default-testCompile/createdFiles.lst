@@ -5,6 +5,7 @@ com\sanguk\controller\HomeControllerTests.class
 com\sanguk\controller\ArticleControllerTests.class
 com\sanguk\configTest\CommonTests.class
 com\sanguk\util\MediaUtilTests.class
+com\sanguk\mapper\ArticleMapperTests.class
 com\sanguk\util\UploadUtilTests.class
 com\sanguk\security\CustomUserDetailsServiceTests.class
 com\sanguk\mapper\UserMapperTests.class
