@@ -83,94 +83,58 @@ background: rgb(241, 241, 241) !important;">
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
 
-      <div class="content contentcontainer">
+      <div class="content contentcontainer" style="margin-top: 55px;">
 
-
-
-
-        <div class="contentBox">
-          <div class="contentthumnail" style="
-          background: 
-          linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0.4)
-          ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-  background-repeat: no-repeat;
-  background-size: 320px 240px;">
-
-            <div class="contentinfobox">
-              <div class="contentTitle">
-                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+        <div class="boardentity">
+          <div class="boardthumnail">
+            
+          </div>
+          <div class="boardboxright">
+            <div class="boardboxtitle">
+                줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈
+            </div>
+            
+            <div class="boardboxetc">
+                <div class="contentDay boardinfo" style="padding-left: 10px !important;">
+                  <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
+                </div>
+              <div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;">
+                  <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
+                  dddd
               </div>
-              <div class="contentDay">
-                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-              </div>
-              <div class="contentauthor">
-                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                dddddddddd
-              </div>
+              <div class="hashtags">dddd</div>
+              <div class="hashtags">dddd</div>
+              <div class="hashtags">dddd</div>
+              <div class="hashtags">dddd</div>
+              <div class="hashtags">dddd</div>
+              <div class="hashtags">dddd</div>
+              <div class="hashtags">dddd</div>
+              <div class="hashtags">dddd</div>
             </div>
           </div>
+
         </div>
-
-
-        <div class="contentBox">
-          <div class="contentthumnail" style="
-            background: 
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0),
-              rgba(0, 0, 0, 0.4)
-            ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-    background-repeat: no-repeat;
-    background-size: 320px 240px;">
-
-            <div class="contentinfobox">
-              <div class="contentTitle">
-                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-              </div>
-              <div class="contentDay">
-                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-              </div>
-              <div class="contentauthor">
-                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                dddddddddd
-              </div>
-            </div>
-          </div>
+        <div class="boardentity">
+        
         </div>
-
-        <div class="contentBox">
-          <div class="contentthumnail" style="
-            background: 
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0),
-              rgba(0, 0, 0, 0.4)
-            ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-    background-repeat: no-repeat;
-    background-size: 320px 240px;">
-
-            <div class="contentinfobox">
-              <div class="contentTitle">
-                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-              </div>
-              <div class="contentDay">
-                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-              </div>
-              <div class="contentauthor">
-                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                dddddddddd
-              </div>
-            </div>
-          </div>
+        <div class="boardentity">
+        
         </div>
-
-
+        <div class="boardentity">
+        
+        </div>
+        <div class="boardentity">
+        
+        </div>
+        <div class="boardentity">
+        
+        </div>
 
       </div>
 
+
+
+      
       <div class="pagination-wrapper">
         <div class="pagination">
           <svg class="btn btn--prev" height="96" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg">

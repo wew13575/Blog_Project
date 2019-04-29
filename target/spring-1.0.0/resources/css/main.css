@@ -210,7 +210,7 @@ body {
 #loginBox form {
   margin: 30px 0px 0px 10px;
   height: 120px;
-  width: 150px;
+  width: 160px;
 }
 
 .sidebaritem {
@@ -672,7 +672,7 @@ small {
 .contentcontainer {
   margin-top: 45px;
   width: 100%;
-  height: calc(100% - 45px);
+  min-height: 550px;
   background: rgb(241, 241, 241);
   padding: 0px;
 }
@@ -1016,6 +1016,7 @@ footer p {
 .btn--prev {
   float: left;
 }
+
 
 #summernotecontainer {
   margin: 45px auto 0px auto;

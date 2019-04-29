@@ -210,7 +210,7 @@ body {
 #loginBox form {
   margin: 30px 0px 0px 10px;
   height: 120px;
-  width: 150px;
+  width: 160px;
 }
 
 .sidebaritem {
@@ -672,7 +672,8 @@ small {
 .contentcontainer {
   margin-top: 45px;
   width: 100%;
-  height: calc(100% - 45px);
+  display: block;
+  height: calc(100% - 141px);  
   background: rgb(241, 241, 241);
   padding: 0px;
 }
@@ -681,6 +682,7 @@ small {
   width: 360px;
   height: 280px;
   float: left;
+  
 }
 
 .contentthumnail {
@@ -788,7 +790,7 @@ small {
   height: 20px;
   margin-top: 10px;
   font-weight: 600;
-  width: 155px;
+  width: 105px;
   float: left;
   font-size: 14px;
   margin-left: 5px;
@@ -833,15 +835,17 @@ footer p {
 .pagination-wrapper {
   width: 100%;
   height: 96px;
-  vertical-align: bottom;
+  display: block;
+  float: left;
 }
 
 .pagination {
   width: 200px;
   height: 96px;
   font-size: 0;
-  margin-left: calc(50% - 100px);
+  margin: 0 auto;
   text-align: center;
+  display: block !important;
 }
 
 .pagination-container {
@@ -1016,6 +1020,7 @@ footer p {
 .btn--prev {
   float: left;
 }
+
 
 #summernotecontainer {
   margin: 45px auto 0px auto;
@@ -1232,4 +1237,71 @@ footer p {
   margin-left: 5px;
   background: rgb(133, 133, 133);
 
+}
+
+.boardentity{
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 92px;
+  background: white;
+  border: rgba(117, 117, 117, 0.493) solid 1px;
+  border-width: 0px 1px 1px 1px;
+}
+.boardentity:first-child{
+  border-top:  rgba(117, 117, 117, 0.493) solid 1px;
+}
+
+.boardthumnail{
+  height: 100%;
+  width: 90px;
+  background: rgba(0, 0, 0, 0.432);
+  float: left;
+}
+.boardboxright{
+  display: inline-block;
+  width: calc(100% - 90px);
+  height: 100%;
+}
+.boardboxtitle{
+
+  width: 100%;
+  height: 50%;
+  float: left;
+  padding-left: 10px;
+  padding-top: 8px;
+  color: black;
+  font-weight: 700;
+  line-height: 45px;
+  overflow: hidden;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.boardboxetc{
+  width: 100%;
+  height: 50%;
+  float: left;
+  overflow: hidden;
+  display: inline;
+}
+.hashtags{
+  display: inline-block;
+  height: 60%;
+  margin: 4px 3px 14px 3px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 27px;
+  color: white;
+  padding: 0px 4px;
+  border-radius: 5%;
+  
+  background: rgb(66, 151, 207);
+  box-shadow: 0px 0px 2px 0px black;
+}
+.boardinfo{
+  color: black;
+  margin-top: 7px;
+  margin-bottom: 18px;
 }
