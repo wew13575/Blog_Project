@@ -36,7 +36,7 @@ public class ArticleController {
 	@GetMapping("/write") // TODO 게시글 에디터 요청 articleid 있으면 수정
 	public String getregisterView() {
 		
-	   	return "showeditor";// 수정시
+	   	return "article/showeditor";// 수정시
 	}
 
 
@@ -57,7 +57,7 @@ public class ArticleController {
 		}
 		articleService.registerArticle(articleVO);
 		articleService.registerTag(articleVO.getId(), tag);
-		return "redirect:/";
+		return "redirect:/article/post?articleid="+articleVO.getId();
 	}
 
 
@@ -71,14 +71,14 @@ public class ArticleController {
 	public String getupdateView(Model model,@RequestParam(value = "articleid", defaultValue = "-1") String articleid) {
 		
 		if(articleid.equals("-1")){
-			return "redirect:/";
+			return "redirect:/";     //TODO 잘못된 접근
 		}
 
 		UserVO userVO = ProfileUtils.getProfile(userMapper);
 		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleid));
 
 		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){
-			return "redirect:/";
+			return "redirect:/"; //TODO 작성자와 일치x 잘못된 접근임
 		}
 
 		String tagstring =" ";
@@ -88,7 +88,7 @@ public class ArticleController {
 
 		model.addAttribute("articlevo", articleVO);  
 		model.addAttribute("tagstring", tagstring);
-		return "showmodify";// 수정가능
+		return "article/showmodify";// 수정가능
 	}
 
 
@@ -98,7 +98,7 @@ public class ArticleController {
 		
 		UserVO userVO = ProfileUtils.getProfile(userMapper);
 
-		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){
+		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){ //TODO 잘못된 접근
 			return "redirect:/";
 		}
 
@@ -116,19 +116,19 @@ public class ArticleController {
 	@Transactional
 	public String deleteArticle(@RequestParam(value = "articleid", defaultValue = "-1") String articleId) {
 		
-		if(articleId.equals("-1")){
+		if(articleId.equals("-1")){ //TODO 잘못된 접근
 			return "redirect:/";
 		}
 
 		UserVO userVO = ProfileUtils.getProfile(userMapper);
 		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleId));
 
-		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){
+		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){  //TODO 잘못된 접근
 			return "redirect:/";
 		}
 
 
-		articleService.deleteArticle(articleVO.getId());
+		articleService.deleteArticle(articleVO.getId()); 
 		return "redirect:/";// 수정시
 	}
 
@@ -137,19 +137,21 @@ public class ArticleController {
 	@GetMapping("/post")
 	public String getArticle(Model model, @RequestParam(value = "articleid", defaultValue = "-1") String articleId) {
 		
-		if(articleId.equals("-1")){
+
+		//TODO 잘못된 접근
+		if(articleId.equals("-1")){  
 			log.info("이게떴니?");
 			return "redirect:/";
 		}
 
 		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleId));
 		if(articleVO==null){
-			return "redirect:/"; //TODO 없는 글 처리 페이지 만들기~~
+			return "redirect:/"; //TODO 404not found
 		}
 
 		model.addAttribute("articlevo", articleVO);
 		log.info(articleVO);
-		return "showarticle";
+		return "article/showarticle";
 	}
 
 

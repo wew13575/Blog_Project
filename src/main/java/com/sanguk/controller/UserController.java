@@ -60,13 +60,8 @@ public class UserController{
 	@PostMapping("/saveprofile")
     @ResponseBody
     public ResponseEntity<?> saveprofile(@RequestParam("file") MultipartFile file) {
-		try {
-			 log.info(file.getOriginalFilename());
+			log.info(file.getOriginalFilename());
 			return ResponseEntity.ok().body(uploadService.saveProfile(file));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.badRequest().build();
-        }
     }
 
 
@@ -90,7 +85,7 @@ public class UserController{
 
 
 	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
-	 public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception 
+	 public String logout(HttpServletRequest request, HttpServletResponse response) throws ClassCastException 
 	 {
 		  Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		   if (auth != null){ new SecurityContextLogoutHandler().logout(request, response, auth);

@@ -83,122 +83,91 @@ background: rgb(241, 241, 241) !important;">
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
 
-      <div class="content contentcontainer">
+      <div id="homecontainer">
+      <div id="homeCarousel">
+          <div id="mycarousel" class="carousel slide" data-ride="carousel">
 
-
-
-
-        <div class="contentBox">
-          <div class="contentthumnail" style="
-          background: 
-          linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0.4)
-          ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-  background-repeat: no-repeat;
-  background-size: 320px 240px;">
-
-            <div class="contentinfobox">
-              <div class="contentTitle">
-                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+              <!-- Indicators -->
+              <ul class="carousel-indicators">
+                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#mycarousel" data-slide-to="1"></li>
+                <li data-target="#mycarousel" data-slide-to="2"></li>
+              </ul>
+            
+              <!-- The slideshow -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img data-src="holder.js/800x330/text:First slide">
+                  <div class="carousel-caption">
+                    <h3>Los Angeles</h3>
+                    <p>We had such a great time in LA!</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img data-src="holder.js/800x330/text:First slide">
+                  <div class="carousel-caption">
+                    <h3>Los Angeles</h3>
+                    <p>We had such a great time in LA!</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img data-src="holder.js/800x330/text:First slide">
+                  <div class="carousel-caption">
+                    <h3>Los Angeles</h3>
+                    <p>We had such a great time in LA!</p>
+                  </div>
+                </div>
               </div>
-              <div class="contentDay">
-                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-              </div>
-              <div class="contentauthor">
-                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                dddddddddd
-              </div>
+            
+              <!-- Left and right controls -->
+              <a class="carousel-control-prev" href="#mycarousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#mycarousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            
             </div>
-          </div>
-        </div>
-
-
-        <div class="contentBox">
-          <div class="contentthumnail" style="
-            background: 
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0),
-              rgba(0, 0, 0, 0.4)
-            ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-    background-repeat: no-repeat;
-    background-size: 320px 240px;">
-
-            <div class="contentinfobox">
-              <div class="contentTitle">
-                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-              </div>
-              <div class="contentDay">
-                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-              </div>
-              <div class="contentauthor">
-                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                dddddddddd
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contentBox">
-          <div class="contentthumnail" style="
-            background: 
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0),
-              rgba(0, 0, 0, 0.4)
-            ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-    background-repeat: no-repeat;
-    background-size: 320px 240px;">
-
-            <div class="contentinfobox">
-              <div class="contentTitle">
-                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-              </div>
-              <div class="contentDay">
-                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-              </div>
-              <div class="contentauthor">
-                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                dddddddddd
-              </div>
-            </div>
-          </div>
-        </div>
-
 
 
       </div>
 
-      <div class="pagination-wrapper">
-        <div class="pagination">
-          <svg class="btn btn--prev" height="96" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
-            <path d="M0-.5h24v24H0z" fill="none" />
-          </svg>
+      <div class="homeBox">
 
-          <div class="pagination-container">
-            <div class="little-dot  little-dot--first"></div>
-            <div class="little-dot">
-              <div class="big-dot-container">
-                <div class="big-dot"></div>
-              </div>
-            </div>
-            <div class="little-dot  little-dot--last"></div>
+        <div class="homeBoxcontent">
+          <p>Latest <a href="#">Blog</a> Post</p>
+          <div class="homeBoxrow">
+              <img class="homeBoxthum" data-src="holder.js/73x73/text:First slide">
+              <div class="homeBoxtitle">제목입니다제목입니다제목입니다제목입니다제목입니다제목입니다</div>
           </div>
+          <div class="homeBoxrow">
 
-          <svg class="btn btn--next" height="96" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            <path d="M0-.25h24v24H0z" fill="none" />
-          </svg>
+          </div>
+          <div class="homeBoxrow">
+
+          </div>
         </div>
+        
+      
+      
       </div>
+      <div class="homeBox">
+        <div class="homeBoxcontent">
+            <p>Latest <a href="#">Board</a> Post</p>
+            <div class="homeBoxrow">
 
+            </div>
+            <div class="homeBoxrow">
 
+            </div>
+            <div class="homeBoxrow">
 
-
-
+            </div>
+          </div>
+      
+      
+      </div>
+    </div>
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
@@ -237,10 +206,11 @@ background: rgb(241, 241, 241) !important;">
     $(document).ready(function () {
       this.pageNo = $("#pageNo").val();
 
-      $.get('/article/list?type=0&pageNo='+this.pageNo, function (data) {
-           
-           console.log(data);
-           });
+      $('#mycarousel').carousel()
+      $.get('/article/list?type=0&pageNo=' + this.pageNo, function (data) {
+
+        console.log(data);
+      });
     })
 
 //둘다 조금씩 요청하자 뷰카운트 높은거로

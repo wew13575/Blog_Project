@@ -1,5 +1,7 @@
 package com.sanguk.controller;
 
+import java.io.IOException;
+
 import com.sanguk.service.UploadServiceimpl;
 import com.sanguk.util.MediaUtils;
 
@@ -42,8 +44,7 @@ public class UploadController {
 		try {
 			 
 			return ResponseEntity.ok().body("/upload/image/" + uploadService.saveImage(file));
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
             return ResponseEntity.badRequest().build();
         }
     }
@@ -70,8 +71,7 @@ public class UploadController {
 
             return ResponseEntity.ok().headers(headers).body(resource);
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
             return ResponseEntity.badRequest().build();
         }
     }

@@ -27,10 +27,10 @@ public class UploadServiceimpl implements UploadService{
 
 
     @Override
-    public String saveImage(MultipartFile file) throws Exception {
+    public String saveImage(MultipartFile file) throws IOException {
         try {
             if (file.isEmpty()) {
-                throw new Exception("Failed to store empty file " + file.getOriginalFilename());
+                throw new IOException("Failed to store empty file " + file.getOriginalFilename());
             }
             
             String saveFileName = UploadFileUtils.fileSave(rootLocation.toString(), file);
@@ -42,12 +42,12 @@ public class UploadServiceimpl implements UploadService{
             
             return saveFileName;
         } catch (IOException e) {
-            throw new Exception("Failed to store file " + file.getOriginalFilename(), e);
+            throw new IOException("Failed to store file " + file.getOriginalFilename(), e);
         }
     }
 
     @Override
-    public Resource loadAsResource(String fileName,String loadPath) throws Exception {
+    public Resource loadAsResource(String fileName,String loadPath) throws IOException {
         try {
             
             Path file = loadPath(loadPath+fileName);
@@ -56,10 +56,10 @@ public class UploadServiceimpl implements UploadService{
                 System.out.println("awddddddddddd");
                 return resource;
             } else {
-                throw new Exception("Could not read file: " + fileName);
+                throw new IOException("Could not read file: " + fileName);
             }
-        } catch (Exception e) {
-            throw new Exception("Could not read file: " + fileName);
+        } catch (IOException e) {
+            throw new IOException("Could not read file: " + fileName);
         }
     }
     
@@ -69,26 +69,26 @@ public class UploadServiceimpl implements UploadService{
 
     
 	@Override
-	public String saveProfile(MultipartFile profile)  throws Exception{
+	public String saveProfile(MultipartFile profile){
 		String profilePath;
 
 		try {
 			if (profile.isEmpty()) {
-				throw new Exception();
+				throw new IOException();
 			}
 			String fileName = profile.getOriginalFilename();
 			String extension = fileName.split("\\.")[1];
 			if (!MediaUtils.containsImageMediaType(extension)) {
-				throw new Exception();
+				throw new IOException();
 			}
 			profilePath = UploadFileUtils.fileSave(rootLocation.toString(), profile);
 			if (profilePath.toCharArray()[0] == '/') {
 				profilePath = profilePath.substring(1);
 			}
 
-		} catch (Exception e) {
+		} catch (IOException e) {
 			profilePath = "basicprofile.jpg";
-			throw new Exception("Failed to store file " + profile.getOriginalFilename(), e);
+			
 		}
 
 		return profilePath;

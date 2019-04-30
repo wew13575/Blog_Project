@@ -57,9 +57,8 @@
 
 <nav id="mySidenav" class="sidenav">
   <div class="sidebarContent">
-    <a href="#" id="logoBox">
-      우산국
-    </a>
+    <img id="logoBox" src="/resources/image/logo.png">
+      
     <sec:authorize access="isAnonymous()">
       <div class="row no-gutters" id="loginBox">
         <form action="/user/login.do" method="POST">

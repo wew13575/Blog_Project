@@ -16,7 +16,6 @@
 
 
 
-
   //VIEW PROCESSING
   $(document).ready(function () {
     windowWidth = $(window).width();

@@ -83,7 +83,7 @@ background: rgb(241, 241, 241) !important;">
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
 
-
+      <div id="homecontainer">
       <div id="homeCarousel">
           <div id="mycarousel" class="carousel slide" data-ride="carousel">
 
@@ -97,21 +97,21 @@ background: rgb(241, 241, 241) !important;">
               <!-- The slideshow -->
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="la.jpg" alt="Los Angeles">
+                  <img data-src="holder.js/800x330/text:First slide">
                   <div class="carousel-caption">
                     <h3>Los Angeles</h3>
                     <p>We had such a great time in LA!</p>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="chicago.jpg" alt="Chicago">
+                  <img data-src="holder.js/800x330/text:First slide">
                   <div class="carousel-caption">
                     <h3>Los Angeles</h3>
                     <p>We had such a great time in LA!</p>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="ny.jpg" alt="New York">
+                  <img data-src="holder.js/800x330/text:First slide">
                   <div class="carousel-caption">
                     <h3>Los Angeles</h3>
                     <p>We had such a great time in LA!</p>
@@ -129,9 +129,45 @@ background: rgb(241, 241, 241) !important;">
             
             </div>
 
+
       </div>
 
+      <div class="homeBox">
 
+        <div class="homeBoxcontent">
+          <p>Latest <a href="#">Blog</a> Post</p>
+          <div class="homeBoxrow">
+              <img class="homeBoxthum" data-src="holder.js/73x73/text:First slide">
+              <div class="homeBoxtitle">제목입니다제목입니다제목입니다제목입니다제목입니다제목입니다</div>
+          </div>
+          <div class="homeBoxrow">
+
+          </div>
+          <div class="homeBoxrow">
+
+          </div>
+        </div>
+        
+      
+      
+      </div>
+      <div class="homeBox">
+        <div class="homeBoxcontent">
+            <p>Latest <a href="#">Board</a> Post</p>
+            <div class="homeBoxrow">
+
+            </div>
+            <div class="homeBoxrow">
+
+            </div>
+            <div class="homeBoxrow">
+
+            </div>
+          </div>
+      
+      
+      </div>
+    </div>
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->

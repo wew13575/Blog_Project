@@ -83,21 +83,74 @@ background: rgb(241, 241, 241) !important;">
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
 
-      <div class="content contentcontainer">
+      <div class="contentcontainer">
 
+
+
+          <div class="contentBox">
+              <div class="contentthumnail" style="
+                  background: 
+                  linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0),
+                    rgba(0, 0, 0, 0.4)
+                  ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
+          background-repeat: no-repeat;
+          background-size: 320px 240px;">
+    
+                <div class="contentinfobox">
+                  <div class="contentTitle">
+                    KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+                  </div>
+                  <div class="contentDay">
+                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
+                  </div>
+                  <div class="contentauthor">
+                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
+                    dddddddddd
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div class="contentBox">
+              <div class="contentthumnail" style="
+                  background: 
+                  linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0),
+                    rgba(0, 0, 0, 0.4)
+                  ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
+          background-repeat: no-repeat;
+          background-size: 320px 240px;">
+    
+                <div class="contentinfobox">
+                  <div class="contentTitle">
+                    KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+                  </div>
+                  <div class="contentDay">
+                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
+                  </div>
+                  <div class="contentauthor">
+                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
+                    dddddddddd
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
 
         <div class="contentBox">
           <div class="contentthumnail" style="
-          background: 
-          linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0.4)
-          ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-  background-repeat: no-repeat;
-  background-size: 320px 240px;">
+              background: 
+              linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 0.4)
+              ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
+      background-repeat: no-repeat;
+      background-size: 320px 240px;">
 
             <div class="contentinfobox">
               <div class="contentTitle">
@@ -113,60 +166,6 @@ background: rgb(241, 241, 241) !important;">
             </div>
           </div>
         </div>
-
-
-        <div class="contentBox">
-          <div class="contentthumnail" style="
-            background: 
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0),
-              rgba(0, 0, 0, 0.4)
-            ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-    background-repeat: no-repeat;
-    background-size: 320px 240px;">
-
-            <div class="contentinfobox">
-              <div class="contentTitle">
-                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-              </div>
-              <div class="contentDay">
-                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-              </div>
-              <div class="contentauthor">
-                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                dddddddddd
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contentBox">
-          <div class="contentthumnail" style="
-            background: 
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0),
-              rgba(0, 0, 0, 0.4)
-            ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-    background-repeat: no-repeat;
-    background-size: 320px 240px;">
-
-            <div class="contentinfobox">
-              <div class="contentTitle">
-                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-              </div>
-              <div class="contentDay">
-                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-              </div>
-              <div class="contentauthor">
-                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                dddddddddd
-              </div>
-            </div>
-          </div>
-        </div>
-
 
 
       </div>
@@ -237,10 +236,10 @@ background: rgb(241, 241, 241) !important;">
     $(document).ready(function () {
       this.pageNo = $("#pageNo").val();
 
-      $.get('/article/list?type=0&pageNo='+this.pageNo, function (data) {
-           
-           console.log(data);
-           });
+      $.get('/article/list?type=0&pageNo=' + this.pageNo, function (data) {
+
+        console.log(data);
+      });
     })
 
 

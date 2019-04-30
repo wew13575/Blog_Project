@@ -7,9 +7,9 @@
     <div class="line"></div>
   </div>
   <div class="headerItem">
-    우산국
-
-
+    
+    <img src="/resources/image/logo.png" width="80" height="27">
+      
   </div>
   <form class="searchform">
     <input type="text" name="input" class="input">
