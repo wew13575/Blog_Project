@@ -1,8 +1,10 @@
+com\sanguk\exception\IncorrectAuthorException.class
 com\sanguk\config\SecurityConfig.class
 com\sanguk\service\CommentServiceimpl.class
 com\sanguk\controller\HomeController.class
 com\sanguk\service\CommentService.class
 com\sanguk\config\ServletConfig.class
+com\sanguk\exception\ArticleNotPoundException.class
 com\sanguk\mapper\UserMapper.class
 com\sanguk\controller\UploadController.class
 com\sanguk\domain\UserVO.class
@@ -34,4 +36,5 @@ com\sanguk\domain\TagVO.class
 com\sanguk\util\ArticleUtils.class
 com\sanguk\domain\AuthVO.class
 com\sanguk\mapper\TagMapper.class
+com\sanguk\aop\ControllerAdvisor.class
 com\sanguk\util\ProfileUtils.class

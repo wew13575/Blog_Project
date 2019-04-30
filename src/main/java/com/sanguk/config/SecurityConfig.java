@@ -62,7 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     .antMatchers("/article/modify").access("hasRole('ROLE_MEMBER')")
     .antMatchers("/article/delete").access("hasRole('ROLE_MEMBER')")
     .antMatchers("/comment/**").access("hasRole('ROLE_MEMBER')")
-      .anyRequest().permitAll() //TODO 마이페이지 제한할것
+      .anyRequest().permitAll() 
     .and()
     .formLogin().loginProcessingUrl("/user/login.do").loginPage("/").usernameParameter("loginid").passwordParameter("loginpw")
     .successHandler(loginSuccessHandler())

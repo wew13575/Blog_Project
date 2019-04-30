@@ -57,7 +57,7 @@
 
 <nav id="mySidenav" class="sidenav">
   <div class="sidebarContent">
-    <img id="logoBox" src="/resources/image/logo.png">
+    <img id="logoBox" onclick="location.href = '/'" src="/resources/image/logo.png">
       
     <sec:authorize access="isAnonymous()">
       <div class="row no-gutters" id="loginBox">

@@ -9,7 +9,7 @@ request.setCharacterEncoding("UTF-8");
 
 <head>
   <!--   -----------            헤드        --------------->
-  <%@ include file="include/head.jsp" %>
+  <%@ include file="../include/head.jsp" %>
   <!--   -----------            헤드        --------------->
 </head>
 
@@ -31,7 +31,7 @@ background: rgb(241, 241, 241) !important;">
     <!--   -----------            사이드바        --------------->
     <!--   -----------            사이드바        --------------->
 
-    <%@ include file="include/nav.jsp" %>
+    <%@ include file="../include/nav.jsp" %>
     <!--   -----------            사이드바        --------------->
     <!--   -----------            사이드바        --------------->
     <!--   -----------            사이드바        --------------->
@@ -66,7 +66,7 @@ background: rgb(241, 241, 241) !important;">
     <header>
 
 
-      <%@ include file="include/header.jsp" %>
+      <%@ include file="../include/header.jsp" %>
     </header>
 
     <!--   -----------                       헤  더        --------------->
@@ -91,7 +91,7 @@ background: rgb(241, 241, 241) !important;">
 
       <div class="errorcontainer">
 
-
+<p>잘못된 접근</p>
 
 
 
@@ -115,7 +115,7 @@ background: rgb(241, 241, 241) !important;">
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
 
-  <%@ include file="include/script.jsp" %>
+  <%@ include file="../include/script.jsp" %>
 
 
   <script>

@@ -5,11 +5,14 @@ C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\co
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\service\CommentServiceimpl.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\domain\CommentVO.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\util\ArticleUtils.java
+C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\exception\IncorrectAuthorException.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\controller\HomeController.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\service\ArticleService.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\service\UserService.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\service\CommentService.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\mapper\CommentMapper.java
+C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\exception\ArticleNotPoundException.java
+C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\aop\ControllerAdvisor.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\util\UploadFileUtils.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\util\CommentUtils.java
 C:\Users\sanguk\Documents\workspace-sts-3.9.7.RELEASE\SpringApp\src\main\java\com\sanguk\config\RootConfig.java

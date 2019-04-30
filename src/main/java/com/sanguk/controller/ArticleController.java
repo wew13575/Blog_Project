@@ -7,6 +7,8 @@ import java.util.List;
 import com.sanguk.domain.ArticleVO;
 import com.sanguk.domain.TagVO;
 import com.sanguk.domain.UserVO;
+import com.sanguk.exception.ArticleNotPoundException;
+import com.sanguk.exception.IncorrectAuthorException;
 import com.sanguk.mapper.UserMapper;
 import com.sanguk.service.ArticleServiceimpl;
 import com.sanguk.util.ArticleUtils;
@@ -33,9 +35,8 @@ public class ArticleController {
 	@Autowired
 	ArticleServiceimpl articleService;
 
-	@GetMapping("/write") // TODO 게시글 에디터 요청 articleid 있으면 수정
+	@GetMapping("/write") 
 	public String getregisterView() {
-		
 	   	return "article/showeditor";// 수정시
 	}
 
@@ -48,8 +49,6 @@ public class ArticleController {
 	@Transactional
 	public String registerArticle(ArticleVO articleVO, String tag) {
 		log.info(articleVO.toString());
-
-		
 
 		if (articleVO.getBoardType() == 2) {
 			articleService.setInfo(articleVO);
@@ -68,17 +67,17 @@ public class ArticleController {
 
 
 	@GetMapping("/modify") 
-	public String getupdateView(Model model,@RequestParam(value = "articleid", defaultValue = "-1") String articleid) {
+	public String getupdateView(Model model,@RequestParam(value = "articleid", defaultValue = "-1") String articleid) throws IncorrectAuthorException {
 		
 		if(articleid.equals("-1")){
-			return "redirect:/";     //TODO 잘못된 접근
+			throw new IncorrectAuthorException("잘못된 접근");
 		}
 
 		UserVO userVO = ProfileUtils.getProfile(userMapper);
 		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleid));
 
 		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){
-			return "redirect:/"; //TODO 작성자와 일치x 잘못된 접근임
+			throw new IncorrectAuthorException("잘못된 접근");
 		}
 
 		String tagstring =" ";
@@ -94,12 +93,12 @@ public class ArticleController {
 
 	@PostMapping("/modify") 
 	@Transactional
-	public String updateArticle(ArticleVO articleVO, String tag) {
+	public String updateArticle(ArticleVO articleVO, String tag) throws IncorrectAuthorException {
 		
 		UserVO userVO = ProfileUtils.getProfile(userMapper);
 
-		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){ //TODO 잘못된 접근
-			return "redirect:/";
+		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){ 
+			throw new IncorrectAuthorException("잘못된 접근");
 		}
 
 		articleService.updateArticle(articleVO);
@@ -114,17 +113,17 @@ public class ArticleController {
 
 	@PostMapping("/delete")
 	@Transactional
-	public String deleteArticle(@RequestParam(value = "articleid", defaultValue = "-1") String articleId) {
+	public String deleteArticle(@RequestParam(value = "articleid", defaultValue = "-1") String articleId) throws IncorrectAuthorException{
 		
-		if(articleId.equals("-1")){ //TODO 잘못된 접근
-			return "redirect:/";
+		if(articleId.equals("-1")){ 
+			throw new IncorrectAuthorException("잘못된 접근");
 		}
 
 		UserVO userVO = ProfileUtils.getProfile(userMapper);
 		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleId));
 
-		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){  //TODO 잘못된 접근
-			return "redirect:/";
+		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){ 
+			throw new IncorrectAuthorException("잘못된 접근");
 		}
 
 
@@ -135,18 +134,17 @@ public class ArticleController {
 
 
 	@GetMapping("/post")
-	public String getArticle(Model model, @RequestParam(value = "articleid", defaultValue = "-1") String articleId) {
+	public String getArticle(Model model, @RequestParam(value = "articleid", defaultValue = "-1") String articleId)throws IncorrectAuthorException,ArticleNotPoundException {
 		
 
-		//TODO 잘못된 접근
+		
 		if(articleId.equals("-1")){  
-			log.info("이게떴니?");
-			return "redirect:/";
+			throw new IncorrectAuthorException("잘못된 접근");
 		}
 
 		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleId));
 		if(articleVO==null){
-			return "redirect:/"; //TODO 404not found
+			throw new ArticleNotPoundException("잘못된 접근");
 		}
 
 		model.addAttribute("articlevo", articleVO);
@@ -194,7 +192,7 @@ public class ArticleController {
 			log.info("없다이기야");
 		}
 	
-		return ResponseEntity.ok().body(articleList);
+		return ResponseEntity.ok().body(responseList);
 	}
 
 
