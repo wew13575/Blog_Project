@@ -67,7 +67,8 @@ request.setCharacterEncoding("UTF-8");
             <image class="userimage" src="/upload/image/${articlevo.uservo.profilePath}" style="float:left;">
             </image>
             <div class="infobox" id="articleinfoname">${articlevo.uservo.userName}</div>
-            <div class="infobox" id="articleinfodate">${articlevo.updateDate}</div>
+            <input type="hidden" id="articledate" value="${articlevo.millis}">
+            <div class="infobox" id="articleinfodate"></div>
 
           </div>
           <div id="exportBox">
@@ -172,6 +173,13 @@ request.setCharacterEncoding("UTF-8");
   <%@ include file="../include/script.jsp" %>
   <!--   -----------                       푸터        --------------->
   <!--   -----------                       푸터        --------------->
+
+  <script>
+  $(document).ready(function () {
+    var date = Number($("#articledate").val()); 
+        $("#articleinfodate").text(millisToDate(date,"#hh#:#mm# #DD##th#, #MMMM#, #YYYY#"));
+      })
+  </script>
 </body>
 
 </html>

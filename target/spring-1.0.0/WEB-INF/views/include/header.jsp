@@ -8,7 +8,7 @@
   </div>
   <div class="headerItem">
     
-    <img src="/resources/image/logo.png" width="80" height="27">
+    <img src="/resources/image/logo.png" onclick="location.href = '/'" width="80" height="27">
       
   </div>
   <form class="searchform">

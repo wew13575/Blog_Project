@@ -83,201 +83,9 @@ background: rgb(241, 241, 241) !important;">
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
 
-      <div class="content contentcontainer" style="margin-top: 50px; padding: 0px 5px;">
+      <div class="content contentcontainer" style="margin-top: 60px; padding: 0px 5px;">
 
 
-        <!-- entity -->
-        <div class="boardentity">
-            <div class="boardthumnail">
-              
-            </div>
-            <div class="boardboxright">
-              <div class="boardboxtitle">
-                  줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈
-              </div>
-              
-              <div class="boardboxetc">
-                  <div class="contentDay boardinfo" style="padding-left: 10px !important;">
-                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-                  </div>
-                <div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;">
-                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                    dddd
-                </div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-              </div>
-            </div>
-  
-          </div>
-  
-          <!-- entity -->
-        <!-- entity -->
-        <div class="boardentity">
-            <div class="boardthumnail">
-              
-            </div>
-            <div class="boardboxright">
-              <div class="boardboxtitle">
-                  줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈
-              </div>
-              
-              <div class="boardboxetc">
-                  <div class="contentDay boardinfo" style="padding-left: 10px !important;">
-                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-                  </div>
-                <div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;">
-                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                    dddd
-                </div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-              </div>
-            </div>
-  
-          </div>
-  
-          <!-- entity -->
-        <!-- entity -->
-        <div class="boardentity">
-            <div class="boardthumnail">
-              
-            </div>
-            <div class="boardboxright">
-              <div class="boardboxtitle">
-                  줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈
-              </div>
-              
-              <div class="boardboxetc">
-                  <div class="contentDay boardinfo" style="padding-left: 10px !important;">
-                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-                  </div>
-                <div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;">
-                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                    dddd
-                </div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-              </div>
-            </div>
-  
-          </div>
-  
-          <!-- entity -->
-        <!-- entity -->
-        <div class="boardentity">
-            <div class="boardthumnail">
-              
-            </div>
-            <div class="boardboxright">
-              <div class="boardboxtitle">
-                  줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈
-              </div>
-              
-              <div class="boardboxetc">
-                  <div class="contentDay boardinfo" style="padding-left: 10px !important;">
-                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-                  </div>
-                <div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;">
-                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                    dddd
-                </div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-              </div>
-            </div>
-  
-          </div>
-  
-          <!-- entity -->
-        <!-- entity -->
-        <div class="boardentity">
-            <div class="boardthumnail">
-              
-            </div>
-            <div class="boardboxright">
-              <div class="boardboxtitle">
-                  줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈
-              </div>
-              
-              <div class="boardboxetc">
-                  <div class="contentDay boardinfo" style="padding-left: 10px !important;">
-                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-                  </div>
-                <div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;">
-                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                    dddd
-                </div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-              </div>
-            </div>
-  
-          </div>
-  
-          <!-- entity -->
-        <!-- entity -->
-        <div class="boardentity">
-            <div class="boardthumnail">
-              
-            </div>
-            <div class="boardboxright">
-              <div class="boardboxtitle">
-                  줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈줄바꿈
-              </div>
-              
-              <div class="boardboxetc">
-                  <div class="contentDay boardinfo" style="padding-left: 10px !important;">
-                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-                  </div>
-                <div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;">
-                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                    dddd
-                </div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-                <div class="hashtags">dddd</div>
-              </div>
-            </div>
-  
-          </div>
-  
-          <!-- entity -->
 
 
 
@@ -286,7 +94,7 @@ background: rgb(241, 241, 241) !important;">
 
 
 
-      
+
       <div class="pagination-wrapper">
         <div class="pagination">
           <svg class="btn btn--prev" height="96" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg">
@@ -349,15 +157,43 @@ background: rgb(241, 241, 241) !important;">
   <script>
 
     var pageNo;
-    var boardType = 1;
     $(document).ready(function () {
       this.pageNo = $("#pageNo").val();
-
-      $.get('/article/list?type=0&pageNo='+this.pageNo, function (data) {
-           
-           console.log(data);
-           });
+      roadList(1, this.pageNo);
     })
+
+
+
+    roadList = function (boardType, pageNo) {
+      $.get('/article/list?type=' + boardType + '&pageNo=' + pageNo, function (data) {
+        console.log(data);
+
+        data.forEach(element => {
+          var $boardentity = $('<div class="boardentity"></div>');
+          var $boardthumnail = $('<img class="boardthumnail" onclick="location.href = \'/article/post?articleid='+element.id+'\'" src="/upload/image/' + element.thumnailpath + '"></img>');
+          var $boardboxright = $('<div class="boardboxright"></div>');
+          var $boardboxtitle = $('<div class="boardboxtitle" onclick="location.href = \'/article/post?articleid='+element.id+'\'" >' + element.title + '</div>');
+          var $boardboxetc = $('<div class="boardboxetc"></div>');
+          var $boardinfo = $('<div class="contentDay boardinfo" style="padding-left: 10px !important;"><i class="far fa-calendar-alt"></i>&nbsp; ' + element.updateDate + '</div>');
+          var $contentauthor = $('<div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;"><img class="contentauthorimage" src="upload/image/' + element.uservo.profilePath + '">' + element.uservo.userName + '</div>');
+
+
+          $boardentity.append($boardthumnail);
+          $boardentity.append($boardboxright);
+          $boardboxright.append($boardboxtitle);
+          $boardboxright.append($boardboxetc);
+          $boardboxetc.append($boardinfo);
+          $boardboxetc.append($contentauthor);
+          element.taglist.forEach(tag => {
+            var $tag = ('<div class="hashtags">' + tag.tag + '</div>');
+            $boardboxetc.append($tag);
+          })
+
+          $(".contentcontainer").append($boardentity);
+        });
+
+      });
+    }
 
 
 

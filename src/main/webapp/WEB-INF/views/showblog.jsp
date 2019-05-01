@@ -87,85 +87,6 @@ background: rgb(241, 241, 241) !important;">
 
 
 
-          <div class="contentBox">
-              <div class="contentthumnail" style="
-                  background: 
-                  linear-gradient(
-                    to bottom,
-                    rgba(0, 0, 0, 0),
-                    rgba(0, 0, 0, 0.4)
-                  ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-          background-repeat: no-repeat;
-          background-size: 320px 240px;">
-    
-                <div class="contentinfobox">
-                  <div class="contentTitle">
-                    KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-                  </div>
-                  <div class="contentDay">
-                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-                  </div>
-                  <div class="contentauthor">
-                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                    dddddddddd
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          <div class="contentBox">
-              <div class="contentthumnail" style="
-                  background: 
-                  linear-gradient(
-                    to bottom,
-                    rgba(0, 0, 0, 0),
-                    rgba(0, 0, 0, 0.4)
-                  ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-          background-repeat: no-repeat;
-          background-size: 320px 240px;">
-    
-                <div class="contentinfobox">
-                  <div class="contentTitle">
-                    KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-                  </div>
-                  <div class="contentDay">
-                    <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-                  </div>
-                  <div class="contentauthor">
-                    <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                    dddddddddd
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-        <div class="contentBox">
-          <div class="contentthumnail" style="
-              background: 
-              linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0),
-                rgba(0, 0, 0, 0.4)
-              ), url('upload/image/1ba93c849df54380baa0d4c536613f36.png');
-      background-repeat: no-repeat;
-      background-size: 320px 240px;">
-
-            <div class="contentinfobox">
-              <div class="contentTitle">
-                KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-              </div>
-              <div class="contentDay">
-                <i class="far fa-calendar-alt"></i>&nbsp; 2019년 3월 29일
-              </div>
-              <div class="contentauthor">
-                <img class="contentauthorimage" src="upload/image/1ba93c849df54380baa0d4c536613f36.png">
-                dddddddddd
-              </div>
-            </div>
-          </div>
-        </div>
 
 
       </div>
@@ -229,25 +150,49 @@ background: rgb(241, 241, 241) !important;">
   <%@ include file="include/script.jsp" %>
 
 
+
   <script>
 
-    var pageNo;
-    var boardType = 0;
-    $(document).ready(function () {
-      this.pageNo = $("#pageNo").val();
+      var pageNo;
+      $(document).ready(function () {
+        this.pageNo = $("#pageNo").val();
+        roadList(0, this.pageNo);
+      })
+  
+  
+  
+      roadList = function (boardType, pageNo) {
+        $.get('/article/list?type=' + boardType + '&pageNo=' + pageNo, function (data) {
+          console.log(data);
+          
+          data.forEach(element => {
+            var $contentBox = $('<div class="contentBox"></div>');
+            var $contentthumnail = $('<div class="contentthumnail" onclick="location.href = \'/article/post?articleid='+element.id+'\'" style="background: linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.3)), url(\'/upload/image/' + element.thumnailpath + '\');background-repeat: no-repeat;background-size: 320px 240px;"></div>');
+            var $contentinfobox = $('<div class="contentinfobox"></div>');
+            var $contentTitle = $('<div class="contentTitle" onclick="location.href = \'/article/post?articleid='+element.id+'\'" >' + element.title + '</div>');
+            var $contentDay = $(' <div class="contentDay"><i class="far fa-calendar-alt"></i>&nbsp; ' + millisToDate(element.updateDate,"#DD#, #MMM#, #YYYY#") + '</div>');
+            var $contentauthor = $('<div class="contentauthor"><img class="contentauthorimage" src="upload/image/' + element.uservo.profilePath + '">' + element.uservo.userName + '</div>');
+            
+  
+            $contentBox.append($contentthumnail);
+            $contentthumnail.append($contentinfobox);
+            $contentinfobox.append($contentTitle);
+            $contentinfobox.append($contentDay);
+            $contentinfobox.append($contentauthor);
 
-      $.get('/article/list?type=0&pageNo=' + this.pageNo, function (data) {
-
-        console.log(data);
-      });
-    })
-
-
-
-
-
-
-  </script>
+  
+            $(".contentcontainer").append($contentBox);
+          });
+  
+        });
+      }
+  
+  
+  
+  
+  
+  
+    </script>
   <!--   -----------                       푸터        --------------->
   <!--   -----------                       푸터        --------------->
   <!--   -----------                       푸터        --------------->

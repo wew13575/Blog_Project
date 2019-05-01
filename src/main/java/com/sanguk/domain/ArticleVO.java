@@ -20,6 +20,7 @@ public class ArticleVO {
     private int contentimgcnt; //default 0
     private int boardType; //mapping in controller
     private Date updateDate;
+    private long millis;
     
 
     private List<TagVO> taglist;

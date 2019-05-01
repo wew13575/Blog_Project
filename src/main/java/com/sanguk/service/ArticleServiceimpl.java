@@ -103,6 +103,7 @@ public class ArticleServiceimpl implements ArticleService {
 			return null;
 		}
 		addViewcnt(articleid);
+		articleVO.setMillis(articleVO.getUpdateDate().getTime());
 		return articleVO;
 	}
 

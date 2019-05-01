@@ -57,7 +57,7 @@
 
 <nav id="mySidenav" class="sidenav">
   <div class="sidebarContent">
-    <img id="logoBox" src="/resources/image/logo.png">
+    <img id="logoBox" onclick="location.href = '/'" src="/resources/image/logo.png">
       
     <sec:authorize access="isAnonymous()">
       <div class="row no-gutters" id="loginBox">
@@ -91,8 +91,8 @@
         </div>
 
         <div id="userbuttonbox">
-          <a href="#" class="userbutton write">WRITE</a>
-          <a href="#" class="userbutton logout">LOGOUT</a>
+          <a href="#" onclick="location.href = '/article/write'" class="userbutton write">WRITE</a>
+          <a href="#" onclick="location.href = '/user/logout.do'" class="userbutton logout">LOGOUT</a>
         </div>
       </div>
     </sec:authorize>

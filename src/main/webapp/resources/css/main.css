@@ -707,6 +707,11 @@ small {
   color: white;
 }
 
+.contentthumnail:hover, .contentTitle:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 @media (max-width: 768px) {
   .sidenav {
     margin-left: -220px;
@@ -1226,7 +1231,7 @@ footer p {
   max-width: 800px;
   margin: 0 auto;
   height: 92px;
-  background: white;
+  background: rgb(245, 245, 245);
   border: rgba(141, 141, 141, 0.281) solid 1px;
   border-width: 0px 1px 1px 1px;
 }
@@ -1284,7 +1289,7 @@ footer p {
   padding: 0px 4px;
   border-radius: 5%;
   
-  background: rgb(66, 151, 207);
+  background: rgb(255, 158, 47);
   box-shadow: 0px 0px 2px 0px black;
 }
 .boardinfo{
@@ -1360,8 +1365,38 @@ footer p {
 
 
 
-
-
+.errorcontainer{
+  max-width: 720px;
+  margin: 0px auto;
+  margin-top: 105px;
+}
+.errorheader{
+  font-size: 80px;
+  font-weight: 700;
+  color: rgb(71, 71, 71);
+}
+.errorcontenttop{
+  
+  font-size: 25px;
+  font-weight: 600;
+  color: rgb(102, 102, 102);
+  text-align: left;
+  padding-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.errormessege{
+  width: 360px;
+  margin:0 auto;
+  float: left;
+}
+.errorcontentbottom{
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
 
 
 
