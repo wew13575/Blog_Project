@@ -109,22 +109,7 @@ background: rgb(241, 241, 241) !important;">
   
           </div>
           <div class="errormessege">
-  
-            <p class ="errorheader"> 
-              Sorry!
-            </p>
-            <p class ="errorcontenttop">
-              We can not find the page you want. 
-            </p>
-            <p class ="errorcontentbottom" style="
-            color: rgb(150, 63, 63);">
-              Error Code = 404 
-            </p>
-            <p class ="errorcontentbottom" style="
-            color: rgb(80, 80, 80);">
-  
-  If this problem persists without a specific reason, please send an e-mail to <a href="#">wew13575@naver.com.</a></p>
-  
+            <img id="errorcharactor" src="/resources/image/character.png" >
           </div>
         
       </div>

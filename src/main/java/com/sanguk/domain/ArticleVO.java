@@ -1,6 +1,7 @@
 package com.sanguk.domain;
 
 import java.util.List;
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Data;
@@ -9,7 +10,7 @@ import lombok.Data;
  * AuthVO
  */
 @Data
-public class ArticleVO {
+public class ArticleVO implements Serializable {
 
     private int id; //default generated sequence
     private String author;

@@ -1,5 +1,6 @@
 package com.sanguk.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import lombok.*;
 
 
 @Data
-public class UserVO{
+public class UserVO implements Serializable{
 
     private String userid;
     private String userpw;

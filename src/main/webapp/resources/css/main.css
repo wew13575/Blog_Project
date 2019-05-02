@@ -106,10 +106,6 @@ body {
   font-size: 16px;
   vertical-align: middle;
   font-weight: bold;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-in-out;
-  -webkit-transition-delay: 0.4s, 0s, 0.4s;
-  transition-delay: 0.4s, 0s, 0.4s;
 }
 .headerItem img{
   margin-bottom: 6px;
@@ -120,12 +116,7 @@ body {
 }
 
 .onSearchForm {
-  width: 0px;
-  text-indent: -800px;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-in-out;
-  -webkit-transition-delay: 0.4s, 0s, 0.4s;
-  transition-delay: 0.4s, 0s, 0.4s;
+  display:none;
 }
 
 #loginBox {
@@ -454,22 +445,8 @@ input:focus~.highlight {
   margin-right: 10px;
   top: 0%;
   left: 0%;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-in-out;
-  -webkit-transition-delay: 0.4s, 0s, 0.4s;
-  transition-delay: 0.4s, 0s, 0.4s;
 }
 
-.searchform.on {
-  -webkit-animation-name: in-out;
-  animation-name: in-out;
-  -webkit-animation-duration: 0.7s;
-  animation-duration: 0.7s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
 
 .opensearch {
   -webkit-transition: 0.4s ease-in-out;
@@ -492,10 +469,6 @@ input:focus~.highlight {
   font-weight: 400;
   font-family: Roboto;
   outline: 0;
-  -webkit-transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
-  transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
-  -webkit-transition-delay: 0.4s;
-  transition-delay: 0.4s;
 }
 
 .searchform .search {
@@ -509,8 +482,6 @@ input:focus~.highlight {
   border: 0;
   color: inherit;
   cursor: pointer;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-in-out;
 }
 
 .searchform .search:before {
@@ -525,15 +496,9 @@ input:focus~.highlight {
   transform: rotate(45deg);
   margin-top: 11px;
   margin-left: 6px;
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-in-out;
 }
 
 .searchform .close {
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
 }
 
 .searchform .close:before {
@@ -547,8 +512,6 @@ input:focus~.highlight {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-  -webkit-transition: 0.4s ease-in-out;
-  transition: 0.4s ease-in-out;
 }
 
 .searchform .close:after {
@@ -1389,6 +1352,7 @@ footer p {
   width: 360px;
   margin:0 auto;
   float: left;
+  margin-bottom: 20px;
 }
 .errorcontentbottom{
   font-size: 15px;
@@ -1396,6 +1360,10 @@ footer p {
   text-align: left;
   padding-left: 40px;
   margin-bottom: 20px;
+}
+#errorcharactor{
+  width: 200px;
+  margin-left: calc(50% - 100px);
 }
 
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import com.sanguk.aop.ExeTimeAspect;
 import com.sanguk.mapper.UserMapper;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -105,4 +107,9 @@ public class RootConfig {
     resolver.setMaxUploadSize(200000000);
     return resolver;
   }
+/* 
+  @Bean
+  public ExeTimeAspect timeAspect(){
+    return new ExeTimeAspect();
+  } */
 }

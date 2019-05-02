@@ -2,6 +2,7 @@ com\sanguk\exception\IncorrectAuthorException.class
 com\sanguk\controller\HomeController$1.class
 com\sanguk\config\SecurityConfig.class
 com\sanguk\service\CommentServiceimpl.class
+com\sanguk\aop\ExeTimeAspect.class
 com\sanguk\controller\HomeController.class
 com\sanguk\service\CommentService.class
 com\sanguk\config\ServletConfig.class

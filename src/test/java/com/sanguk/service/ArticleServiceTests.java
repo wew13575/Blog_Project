@@ -45,4 +45,20 @@ public class ArticleServiceTests{
     public void Taglisttest(){
         log.info(articleService.getArticle(8));
     }
+
+    @Test
+    public void getArticleListTest(){
+        long start=System.nanoTime();
+        articleService.getArticleList(0);
+        Long temp=System.nanoTime()-start;
+        log.info((temp)+"ms");
+        start=System.nanoTime();
+        articleService.getArticleList(0);
+        temp=System.nanoTime()-start;
+        log.info((temp)+"ms");
+        start=System.nanoTime();
+        articleService.getArticleList(0);
+        temp=System.nanoTime()-start;
+        log.info((temp)+"ms");
+    }
 }
