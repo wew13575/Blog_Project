@@ -96,31 +96,31 @@ background: rgb(241, 241, 241) !important;">
             
               <!-- The slideshow -->
               <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img data-src="holder.js/800x330/text:First slide">
+                <div class="carousel-item active" onclick="location.href = '/article/post?articleid=${bestlist[0].id}'">
+                  <img src="/upload/image/${bestlist[0].thumnailpath}">
                   <div class="carousel-caption">
-                    <h3>Los Angeles</h3>
-                    <p>We had such a great time in LA!</p>
+                    <h3>${bestlist[0].title}</h3>
+                      <p>${bestlist[0].uservo.userName}</p>
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <img data-src="holder.js/800x330/text:First slide">
+                <div class="carousel-item" onclick="location.href = '/article/post?articleid=${bestlist[1].id}'">
+                  <img src="/upload/image/${bestlist[1].thumnailpath}">
                   <div class="carousel-caption">
-                    <h3>Los Angeles</h3>
-                    <p>We had such a great time in LA!</p>
+                    <h3>${bestlist[1].title}</h3>
+                      <p>${bestlist[1].uservo.userName}</p>
                   </div>
                 </div>
-                <div class="carousel-item">
-                  <img data-src="holder.js/800x330/text:First slide">
+                <div class="carousel-item" onclick="location.href = '/article/post?articleid=${bestlist[2].id}'">
+                  <img src="/upload/image/${bestlist[2].thumnailpath}">
                   <div class="carousel-caption">
-                    <h3>Los Angeles</h3>
-                    <p>We had such a great time in LA!</p>
+                    <h3>${bestlist[2].title}</h3>
+                      <p>${bestlist[2].uservo.userName}</p>
                   </div>
                 </div>
               </div>
             
               <!-- Left and right controls -->
-              <a class="carousel-control-prev" href="#mycarousel" data-slide="prev">
+              <a class="carousel-control-prev"   href="#mycarousel" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
               </a>
               <a class="carousel-control-next" href="#mycarousel" data-slide="next">
@@ -135,16 +135,18 @@ background: rgb(241, 241, 241) !important;">
       <div class="homeBox">
 
         <div class="homeBoxcontent">
-          <p>Latest <a href="#">Blog</a> Post</p>
-          <div class="homeBoxrow">
-              <img class="homeBoxthum" data-src="holder.js/73x73/text:First slide">
-              <div class="homeBoxtitle">제목입니다제목입니다제목입니다제목입니다제목입니다제목입니다</div>
+          <p><a href="/blog">Latest Post</a></p>
+          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${bloglist[0].id}'">
+              <img class="homeBoxthum" src="/upload/image/${bloglist[0].thumnailpath}">
+              <div class="homeBoxtitle">${bloglist[0].title}</div>
           </div>
-          <div class="homeBoxrow">
-
+          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${bloglist[1].id}'">
+              <img class="homeBoxthum" src="/upload/image/${bloglist[1].thumnailpath}">
+              <div class="homeBoxtitle">${bloglist[1].title}</div>
           </div>
-          <div class="homeBoxrow">
-
+          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${bloglist[2].id}'">
+              <img class="homeBoxthum" src="/upload/image/${bloglist[2].thumnailpath}">
+              <div class="homeBoxtitle">${bloglist[2].title}</div>
           </div>
         </div>
         
@@ -153,16 +155,19 @@ background: rgb(241, 241, 241) !important;">
       </div>
       <div class="homeBox">
         <div class="homeBoxcontent">
-            <p>Latest <a href="#">Board</a> Post</p>
-            <div class="homeBoxrow">
-
-            </div>
-            <div class="homeBoxrow">
-
-            </div>
-            <div class="homeBoxrow">
-
-            </div>
+          <p><a href="/board">Latest Question</a></p>
+          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${boardlist[0].id}'">
+              <img class="homeBoxthum" src="/upload/image/${boardlist[0].thumnailpath}">
+              <div class="homeBoxtitle">${boardlist[0].title}</div>
+          </div>
+          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${boardlist[1].id}'">
+              <img class="homeBoxthum" src="/upload/image/${boardlist[1].thumnailpath}">
+              <div class="homeBoxtitle">${boardlist[1].title}</div>
+          </div>
+          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${boardlist[2].id}'">
+              <img class="homeBoxthum" src="/upload/image/${boardlist[2].thumnailpath}">
+              <div class="homeBoxtitle">${boardlist[2].title}</div>
+          </div>
           </div>
       
       
