@@ -84,139 +84,144 @@ background: rgb(241, 241, 241) !important;">
       <!--   -----------                       컨텐츠        --------------->
 
       <div id="homecontainer">
-      <div id="homeCarousel">
+        <div id="homeCarousel">
           <div id="mycarousel" class="carousel slide" data-ride="carousel">
 
-              <!-- Indicators -->
-              <ul class="carousel-indicators">
-                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#mycarousel" data-slide-to="1"></li>
-                <li data-target="#mycarousel" data-slide-to="2"></li>
-              </ul>
-            
-              <!-- The slideshow -->
-              <div class="carousel-inner">
-                <div class="carousel-item active" onclick="location.href = '/article/post?articleid=${bestlist[0].id}'">
-                  <img src="/upload/image/${bestlist[0].thumnailpath}">
-                  <div class="carousel-caption">
-                    <h3>${bestlist[0].title}</h3>
-                      <p>${bestlist[0].uservo.userName}</p>
-                  </div>
-                </div>
-                <div class="carousel-item" onclick="location.href = '/article/post?articleid=${bestlist[1].id}'">
-                  <img src="/upload/image/${bestlist[1].thumnailpath}">
-                  <div class="carousel-caption">
-                    <h3>${bestlist[1].title}</h3>
-                      <p>${bestlist[1].uservo.userName}</p>
-                  </div>
-                </div>
-                <div class="carousel-item" onclick="location.href = '/article/post?articleid=${bestlist[2].id}'">
-                  <img src="/upload/image/${bestlist[2].thumnailpath}">
-                  <div class="carousel-caption">
-                    <h3>${bestlist[2].title}</h3>
-                      <p>${bestlist[2].uservo.userName}</p>
-                  </div>
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#mycarousel" data-slide-to="1"></li>
+              <li data-target="#mycarousel" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active" onclick="location.href = '/article/post?articleid=${bestlist[0].id}'">
+                <img src="/upload/image/${bestlist[0].thumnailpath}">
+                <div class="carousel-caption">
+                  <h3>${bestlist[0].title}</h3>
+                  <p>${bestlist[0].uservo.userName}</p>
                 </div>
               </div>
-            
-              <!-- Left and right controls -->
-              <a class="carousel-control-prev"   href="#mycarousel" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-              </a>
-              <a class="carousel-control-next" href="#mycarousel" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-              </a>
-            
+              <div class="carousel-item" onclick="location.href = '/article/post?articleid=${bestlist[1].id}'">
+                <img src="/upload/image/${bestlist[1].thumnailpath}">
+                <div class="carousel-caption">
+                  <h3>${bestlist[1].title}</h3>
+                  <p>${bestlist[1].uservo.userName}</p>
+                </div>
+              </div>
+              <div class="carousel-item" onclick="location.href = '/article/post?articleid=${bestlist[2].id}'">
+                <img src="/upload/image/${bestlist[2].thumnailpath}">
+                <div class="carousel-caption">
+                  <h3>${bestlist[2].title}</h3>
+                  <p>${bestlist[2].uservo.userName}</p>
+                </div>
+              </div>
             </div>
 
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#mycarousel" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#mycarousel" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
 
-      </div>
-
-      <div class="homeBox">
-
-        <div class="homeBoxcontent">
-          <p><a href="/blog">Latest Post</a></p>
-          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${bloglist[0].id}'">
-              <img class="homeBoxthum" src="/upload/image/${bloglist[0].thumnailpath}">
-              <div class="homeBoxtitle">${bloglist[0].title}</div>
           </div>
-          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${bloglist[1].id}'">
-              <img class="homeBoxthum" src="/upload/image/${bloglist[1].thumnailpath}">
-              <div class="homeBoxtitle">${bloglist[1].title}</div>
+
+
+        </div>
+
+        <div class="homeBox">
+
+          <div class="homeBoxcontent">
+            <p><a href="/blog">Latest Post</a></p>
+
+            <c:forEach var="article" items="${bloglist}">
+              <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${article.id}'">
+                <img class="homeBoxthum" src="/upload/image/${article.thumnailpath}">
+                <div class="homeBoxtitle">${article.title}</div>
+              </div>
+            </c:forEach>
           </div>
-          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${bloglist[2].id}'">
-              <img class="homeBoxthum" src="/upload/image/${bloglist[2].thumnailpath}">
-              <div class="homeBoxtitle">${bloglist[2].title}</div>
+
+
+
+        </div>
+        <div class="homeBox">
+          <div class="homeBoxcontent">
+            <p><a href="/board">Latest Question</a></p>
+            <c:forEach var="article" items="${boardlist}">
+              <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${article.id}'">
+                <img class="homeBoxthum" src="/upload/image/${article.thumnailpath}">
+                <div class="homeBoxtitle">${article.title}</div>
+              </div>
+            </c:forEach>
           </div>
         </div>
-        
-      
-      
-      </div>
-      <div class="homeBox">
-        <div class="homeBoxcontent">
-          <p><a href="/board">Latest Question</a></p>
-          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${boardlist[0].id}'">
-              <img class="homeBoxthum" src="/upload/image/${boardlist[0].thumnailpath}">
-              <div class="homeBoxtitle">${boardlist[0].title}</div>
-          </div>
-          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${boardlist[1].id}'">
-              <img class="homeBoxthum" src="/upload/image/${boardlist[1].thumnailpath}">
-              <div class="homeBoxtitle">${boardlist[1].title}</div>
-          </div>
-          <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${boardlist[2].id}'">
-              <img class="homeBoxthum" src="/upload/image/${boardlist[2].thumnailpath}">
-              <div class="homeBoxtitle">${boardlist[2].title}</div>
-          </div>
-          </div>
-      
-      
+
+        <div id="tagcirclecontainer">
+            <svg width="320" height="320" viewBox="0 0 320 320">
+
+
+                <circle r="160" cx="160" cy="160"/>
+                <foreignObject id="text" width="320" height="320">
+                    <div class="shape shape-left"></div>
+                    <div class="shape shape-right"></div>
+                    <div class="shapedtext">
+                        <p><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a></p>  
+                    </div> 
+                </foreignObject>
+
+            </svg>
+
+
+
+        </div>
+        <!--   -----------                       컨텐츠        --------------->
+        <!--   -----------                       컨텐츠        --------------->
+        <!--   -----------                       컨텐츠        --------------->
+        <!--   -----------                       컨텐츠        --------------->
+
+
+
+
+
+        <!--   -----------                       푸터        --------------->
+        <!--   -----------                       푸터        --------------->
+        <!--   -----------                       푸터        --------------->
+        <footer class="blog-footer">
+
+          <%@ include file="include/footer.jsp" %>
+
+        </footer>
       </div>
     </div>
-      <!--   -----------                       컨텐츠        --------------->
-      <!--   -----------                       컨텐츠        --------------->
-      <!--   -----------                       컨텐츠        --------------->
-      <!--   -----------                       컨텐츠        --------------->
 
 
 
 
 
-      <!--   -----------                       푸터        --------------->
-      <!--   -----------                       푸터        --------------->
-      <!--   -----------                       푸터        --------------->
-      <footer class="blog-footer">
-
-        <%@ include file="include/footer.jsp" %>
-
-      </footer>
-    </div>
-  </div>
-
-
-
-
-
-  <!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript
     ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Placed at the end of the document so the pages load faster -->
 
-  <%@ include file="include/script.jsp" %>
+    <%@ include file="include/script.jsp" %>
 
 
-  <script>
+    <script>
 
-    var pageNo;
-    var boardType = 0;
-    $(document).ready(function () {
-      this.pageNo = $("#pageNo").val();
+      var pageNo;
+      var boardType = 0;
+      $(document).ready(function () {
+        this.pageNo = $("#pageNo").val();
 
-      $('#mycarousel').carousel()
-      $.get('/article/list?type=0&pageNo=' + this.pageNo, function (data) {
+        $('#mycarousel').carousel()
+        $.get('/article/list?type=0&pageNo=' + this.pageNo, function (data) {
 
-        console.log(data);
-      });
-    })
+          console.log(data);
+        });
+      })
 
 //둘다 조금씩 요청하자 뷰카운트 높은거로
 
@@ -224,10 +229,10 @@ background: rgb(241, 241, 241) !important;">
 
 
 
-  </script>
-  <!--   -----------                       푸터        --------------->
-  <!--   -----------                       푸터        --------------->
-  <!--   -----------                       푸터        --------------->
+    </script>
+    <!--   -----------                       푸터        --------------->
+    <!--   -----------                       푸터        --------------->
+    <!--   -----------                       푸터        --------------->
 
 </body>
 

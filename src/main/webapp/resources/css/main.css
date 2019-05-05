@@ -1279,11 +1279,6 @@ footer p {
   height: 280px;
   float: left;
 }
-#homecontainer:after {
-  content: "";
-  clear: both;
-  display: block;
-}
 .homeBoxcontent{
   width: 320px;
   height: 260px;
@@ -1401,6 +1396,78 @@ padding: 10px;
 .carousel-item:hover{
   opacity: 0.7;
   cursor: pointer;
+}
+
+
+
+#tagcirclecontainer{
+  display: inline-block;
+  width: 100%;
+  height: 360px;
+}
+#tagcirclecontainer svg {
+  margin: auto;
+  width: 100%;
+  min-width: 320px;
+  max-height: 100%;
+}
+
+#tagcirclecontainer svg circle {
+  fill: rgba(255, 255, 255, 0); 
+  mix-blend-mode: multiply;
+}
+
+#text .shape {
+  height: 100%;
+  width: 320px;
+  shape-margin: 2.6px;
+}
+
+#text .shape-left {
+  float: left;
+  shape-outside: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/circle-left.svg);
+  width: 50%;
+}
+
+#text .shape-right {
+  float: right;
+  shape-outside: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/circle-right.svg);
+  width: 50%;
+}
+
+.shapedtext {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 2;
+  color: white;
+  font-family: 'Lato';
+  hyphens: auto;
+}
+.shapedtext p { 
+  width: 320px;
+  height: 320px;
+  margin: 0; 
+  text-align: justify;
+  text-align-last: center;
+  font-size: 14px;
+}
+.shapedtext p a{ 
+  color: rgb(102, 102, 102);
+}
+
+
+
+
+
+
+
+
+
+#homecontainer:after {
+  content: "";
+  clear: both;
+  display: block;
 }
 
 

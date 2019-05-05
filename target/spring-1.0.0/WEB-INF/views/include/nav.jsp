@@ -100,9 +100,9 @@
 
   <div class="sidebarnav">
     <div class="sidebaritem" onclick="location.href = '/'"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; HOME</div>
-    <div class="sidebaritem" onclick="location.href = '/blog'"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; BLOG</div>
-    <div class="sidebaritem" onclick="location.href = '/info'"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; INTRODUCE</div>
-    <div class="sidebaritem" onclick="location.href = '/board'"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; BOARD</div>
+    <div class="sidebaritem" style="margin-left:36px;" onclick="location.href = '/blog'"><i class="far fa-newspaper"></i>&nbsp; &nbsp; ALL POSTS</div>
+    <div class="sidebaritem" style="margin-left:36px;" onclick="location.href = '/info'"><i class="fas fa-user-tie"></i>&nbsp; &nbsp; &nbsp;ABOUT ME</div>
+    <div class="sidebaritem" style="margin-left:36px;" onclick="location.href = '/board'"><i class="fas fa-comments"></i>&nbsp; &nbsp; QUESTION</div>
   </div>
 
   </div>

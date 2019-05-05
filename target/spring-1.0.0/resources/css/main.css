@@ -220,17 +220,16 @@ body {
   width: 220px;
   height: 30px;
   margin-left: 37px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 30px;
   vertical-align: middle;
   color: rgb(41, 41, 41);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .sidebaritem:hover {
   color: rgb(131, 131, 131);
   cursor: pointer;
-  margin-left: 47px;
 }
 
 ul {
@@ -1194,9 +1193,8 @@ footer p {
   max-width: 800px;
   margin: 0 auto;
   height: 92px;
-  background: rgb(245, 245, 245);
   border: rgba(141, 141, 141, 0.281) solid 1px;
-  border-width: 0px 1px 1px 1px;
+  border-width: 0px 0px 1px 0px;
 }
 .boardentity:first-child{
   border-top:  rgba(141, 141, 141, 0.281) solid 1px;
@@ -1205,7 +1203,7 @@ footer p {
 .boardthumnail{
   height: 100%;
   width: 90px;
-  background: rgba(0, 0, 0, 0.432);
+  padding: 3px;
   float: left;
 }
 .boardboxright{
@@ -1244,21 +1242,23 @@ footer p {
 .hashtags{
   display: inline-block;
   height: 50%;
-  margin: 6px 3px 16px 3px;
-  font-size: 13px;
+  margin: 5px 3px 10px 3px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 23px;
-  color: white;
-  padding: 0px 4px;
-  border-radius: 5%;
+  vertical-align: top;
+  color: rgb(155, 155, 155);
+}
+.tagicon{
+  color: rgb(155, 155, 155);
+  margin-top: 10px;
   
-  background: rgb(255, 158, 47);
-  box-shadow: 0px 0px 2px 0px black;
 }
 .boardinfo{
-  color: rgb(126, 126, 126);
+  color: #585858;
   margin-top: 7px;
   margin-bottom: 18px;
+  width: 120px;
 }
 
 #homeCarousel{
@@ -1279,11 +1279,6 @@ footer p {
   height: 280px;
   float: left;
 }
-#homecontainer:after {
-  content: "";
-  clear: both;
-  display: block;
-}
 .homeBoxcontent{
   width: 320px;
   height: 260px;
@@ -1293,21 +1288,22 @@ footer p {
 .homeBoxcontent .homeBoxrow{
   height: 75px;
   border: rgba(163, 163, 163, 0.171) solid 1px;
-  border-width: 0px 1px 1px 1px;
+  border-width: 0px 0px 1px 0px;
 }
 .homeBoxcontent p{
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(90, 90, 90, 0.925);
   border-bottom: rgba(163, 163, 163, 0.171) solid 1px;
 }
 .homeBoxcontent p a{
+  font-size: 14px;
   font-weight: 700;
-  color: rgba(65, 65, 65, 0.925);
+  color: rgba(97, 97, 97, 0.925);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .homeBoxrow .homeBoxthum{
-  
+  width: 73px;
+  height: 73px;
   float: left;
+  padding: 3px;
 }
 .homeBoxrow .homeBoxtitle{
   width: 245px;
@@ -1365,10 +1361,114 @@ footer p {
   width: 200px;
   margin-left: calc(50% - 100px);
 }
+.carousel-item img{
+width: 100%;
+padding: 10px;
+}
+.carousel-item{
+  overflow: hidden;
+  height: 330px;
+}
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='999999' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='999999' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e");
+}
+.carousel-caption h3{
+  color: rgb(73, 73, 73);
+  font-weight: 700;
+  overflow: hidden;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.carousel-caption p{
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+}
+.carousel-caption{
+  padding: 40px 0px 0px 0px;
+}
+.carousel-item:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+
+
+#tagcirclecontainer{
+  display: inline-block;
+  width: 100%;
+  height: 360px;
+}
+#tagcirclecontainer svg {
+  margin: auto;
+  width: 100%;
+  min-width: 320px;
+  max-height: 100%;
+}
+
+#tagcirclecontainer svg circle {
+  fill: rgba(255, 255, 255, 0); 
+  mix-blend-mode: multiply;
+}
+
+#text .shape {
+  height: 100%;
+  width: 320px;
+  shape-margin: 2.6px;
+}
+
+#text .shape-left {
+  float: left;
+  shape-outside: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/circle-left.svg);
+  width: 50%;
+}
+
+#text .shape-right {
+  float: right;
+  shape-outside: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/18515/circle-right.svg);
+  width: 50%;
+}
+
+.shapedtext {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 2;
+  color: white;
+  font-family: 'Lato';
+  hyphens: auto;
+}
+.shapedtext p { 
+  width: 320px;
+  height: 320px;
+  margin: 0; 
+  text-align: justify;
+  text-align-last: center;
+  font-size: 14px;
+}
+.shapedtext p a{ 
+  color: rgb(102, 102, 102);
+}
 
 
 
 
+
+
+
+
+
+#homecontainer:after {
+  content: "";
+  clear: both;
+  display: block;
+}
 
 
 

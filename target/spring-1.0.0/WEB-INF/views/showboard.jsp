@@ -174,9 +174,9 @@ background: rgb(241, 241, 241) !important;">
           var $boardboxright = $('<div class="boardboxright"></div>');
           var $boardboxtitle = $('<div class="boardboxtitle" onclick="location.href = \'/article/post?articleid='+element.id+'\'" >' + element.title + '</div>');
           var $boardboxetc = $('<div class="boardboxetc"></div>');
-          var $boardinfo = $('<div class="contentDay boardinfo" style="padding-left: 10px !important;"><i class="far fa-calendar-alt"></i>&nbsp; ' + element.updateDate + '</div>');
-          var $contentauthor = $('<div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;"><img class="contentauthorimage" src="upload/image/' + element.uservo.profilePath + '">' + element.uservo.userName + '</div>');
-
+          var $boardinfo = $('<div class="contentDay boardinfo" style="padding-left: 10px !important;"><i class="far fa-calendar-alt"></i>&nbsp; ' + millisToDate(element.updateDate,"#DD#, #MMM#, #YYYY#") + '</div>');
+          var $contentauthor = $('<div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;"><img class="contentauthorimage" src="/upload/image/' + element.uservo.profilePath + '">' + element.uservo.userName + '</div>');
+          var $tagicon =  $('<i class="fas fa-tags tagicon"></i>');
 
           $boardentity.append($boardthumnail);
           $boardentity.append($boardboxright);
@@ -184,8 +184,9 @@ background: rgb(241, 241, 241) !important;">
           $boardboxright.append($boardboxetc);
           $boardboxetc.append($boardinfo);
           $boardboxetc.append($contentauthor);
+          $boardboxetc.append($tagicon);
           element.taglist.forEach(tag => {
-            var $tag = ('<div class="hashtags">' + tag.tag + '</div>');
+            var $tag = ('<a href="#" class="hashtags">' + tag.tag + '</a>');
             $boardboxetc.append($tag);
           })
 

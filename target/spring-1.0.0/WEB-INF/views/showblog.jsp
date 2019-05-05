@@ -171,7 +171,7 @@ background: rgb(241, 241, 241) !important;">
             var $contentinfobox = $('<div class="contentinfobox"></div>');
             var $contentTitle = $('<div class="contentTitle" onclick="location.href = \'/article/post?articleid='+element.id+'\'" >' + element.title + '</div>');
             var $contentDay = $(' <div class="contentDay"><i class="far fa-calendar-alt"></i>&nbsp; ' + millisToDate(element.updateDate,"#DD#, #MMM#, #YYYY#") + '</div>');
-            var $contentauthor = $('<div class="contentauthor"><img class="contentauthorimage" src="upload/image/' + element.uservo.profilePath + '">' + element.uservo.userName + '</div>');
+            var $contentauthor = $('<div class="contentauthor"><img class="contentauthorimage" src="/upload/image/' + element.uservo.profilePath + '">' + element.uservo.userName + '</div>');
             
   
             $contentBox.append($contentthumnail);
