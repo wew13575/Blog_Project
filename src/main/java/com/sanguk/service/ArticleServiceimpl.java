@@ -77,7 +77,7 @@ public class ArticleServiceimpl implements ArticleService {
 			extractHashTag = sepcialCharacter_replace(m.group());
 
 			if (extractHashTag != null) {
-				TagVO tagvo = new TagVO(articleid, extractHashTag);
+				TagVO tagvo = new TagVO(articleid,extractHashTag);
 				tagMapper.registerTag(tagvo);
 			}
 		}
@@ -138,5 +138,10 @@ public class ArticleServiceimpl implements ArticleService {
 	@Override
 	public List<ArticleVO> getArticleList(int boardType) {
 		return articleMapper.getArticleList(boardType);
+	}
+
+	@Override
+    public List<TagVO> getTagRankedList(){
+		return tagMapper.getTagRankedList();
 	}
 }

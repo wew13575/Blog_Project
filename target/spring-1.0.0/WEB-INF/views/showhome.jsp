@@ -169,7 +169,13 @@ background: rgb(241, 241, 241) !important;">
                     <div class="shape shape-left"></div>
                     <div class="shape shape-right"></div>
                     <div class="shapedtext">
-                        <p><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a><a href="#">This technique uses two shapes set as s</a></p>  
+                        <p><!-- 
+                            <c:forEach var="tag" items="${taglist}">
+                                <c:if test="${tag.cnt ge 2}">
+                                  <a href="#">dddd</a>
+                                </c:if>
+                            </c:forEach> -->
+                        </p>  
                     </div> 
                 </foreignObject>
 

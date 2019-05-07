@@ -55,7 +55,7 @@ request.setCharacterEncoding("UTF-8");
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
 
-      <div id="articlecontainer">
+      <div class="articlecontainer">
         <div id="articletitle">
           ${articlevo.title}
         </div>

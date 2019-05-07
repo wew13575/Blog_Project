@@ -2,11 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sanguk.mapper.TagMapper">
 
-
-
-
-	
-
     <insert id="registerTag">
 		INSERT IGNORE INTO TAGS
 		 	(articleid, tag)
@@ -27,6 +22,15 @@
 		FROM
 			TAGS
 		WHERE articleid = #{id}
+	</select>
+	
+	<select id="getTagRankedList" resultType="com.sanguk.domain.TagVO">
+		SELECT
+			count(tag) as articleid, tag
+		FROM
+			TAGS
+		GROUP BY tag
+		ORDER BY articleid DESC
 	</select>
 	
 </mapper>

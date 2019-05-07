@@ -89,7 +89,7 @@ background: rgb(241, 241, 241) !important;">
       <!--   -----------                       컨텐츠        --------------->
 
 
-      <div class="errorcontainer">
+      <div id="errorcontainer">
           <div class="errormessege">
   
             <p class ="errorheader"> 

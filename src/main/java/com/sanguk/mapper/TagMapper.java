@@ -12,5 +12,6 @@ public interface TagMapper {
     void registerTag(TagVO TagVO);
     void deleteTag(int articleid);
     List<TagVO> getTagListById(int id);
+    List<TagVO> getTagRankedList();
 
 }

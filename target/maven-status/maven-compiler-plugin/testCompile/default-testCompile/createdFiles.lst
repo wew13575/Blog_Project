@@ -1,4 +1,5 @@
 com\sanguk\controller\UserControllerTests.class
+com\sanguk\mapper\TagMapperTests.class
 com\sanguk\service\CommentServiceTests.class
 com\sanguk\configTest\DataSourceTests.class
 com\sanguk\controller\HomeControllerTests.class

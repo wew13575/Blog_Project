@@ -978,7 +978,7 @@ footer p {
   background: rgb(241, 241, 241);
 }
 
-#articlecontainer {
+.articlecontainer {
   margin: 45px auto 0px auto;
   max-width: 900px;
   background: rgb(241, 241, 241);
@@ -1324,10 +1324,10 @@ footer p {
 
 
 
-.errorcontainer{
-  max-width: 720px;
+#errorcontainer{
   margin: 0px auto;
   margin-top: 105px;
+  max-width: 720px;
 }
 .errorheader{
   font-size: 80px;
@@ -1346,8 +1346,7 @@ footer p {
 }
 .errormessege{
   width: 360px;
-  margin:0 auto;
-  float: left;
+  margin-left: calc(50% - 180px);
   margin-bottom: 20px;
 }
 .errorcontentbottom{
@@ -1361,6 +1360,10 @@ footer p {
   width: 200px;
   margin-left: calc(50% - 100px);
 }
+
+
+
+
 .carousel-item img{
 width: 100%;
 padding: 10px;
@@ -1517,4 +1520,18 @@ padding: 10px;
   .homeBox{
     width: 50%;
   }
+}
+@media (min-width: 940px) {
+  .errormessege{
+    margin:0px auto;
+    float: left;
+  }
+  
+
+
+#errorcontainer:after {
+  content: "";
+  clear: both;
+  display: block;
+}
 }

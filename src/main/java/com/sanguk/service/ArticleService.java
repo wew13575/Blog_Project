@@ -17,5 +17,6 @@ public interface ArticleService{
     public void deleteTag(int articleId);
     public void addViewcnt(int articleId);
     public List<ArticleVO> getArticleList(int boardType);
+    public List<TagVO> getTagRankedList();
 
 }

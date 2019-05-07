@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.sanguk.domain.ArticleVO;
+import com.sanguk.domain.TagVO;
 import com.sanguk.service.ArticleServiceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,7 @@ public class HomeController {
 
 		List<ArticleVO> blogList = articleService.getArticleList(0);
 		List<ArticleVO> boardList = articleService.getArticleList(1);
+		List<TagVO> taglist = articleService.getTagRankedList();
  
 		if (!blogList.isEmpty()) {
 			List<ArticleVO> subList = new ArrayList<>(blogList.size() <= 3 ? blogList : blogList.subList(0, 3));
@@ -58,6 +60,9 @@ public class HomeController {
 		 if (!boardList.isEmpty()) {
 			model.addAttribute("boardlist", boardList.size() <= 3 ? boardList : boardList.subList(0, 3));
 		}  
+		if(!taglist.isEmpty()){
+			model.addAttribute("taglist", taglist);
+		}
 
 
 		return "showhome";
@@ -81,5 +86,7 @@ public class HomeController {
 
 		return "showinfo";
 	}
+
+
 
 }

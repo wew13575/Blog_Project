@@ -36,7 +36,13 @@ public class ArticleController {
 	ArticleServiceimpl articleService;
 
 	@GetMapping("/write") 
-	public String getregisterView() {
+	public String getregisterView(Model model) {
+		
+		List<TagVO> taglist = articleService.getTagRankedList();
+		if(!taglist.isEmpty()){
+			model.addAttribute("taglist", taglist);
+		}
+
 	   	return "article/showeditor";// 수정시
 	}
 
@@ -85,6 +91,10 @@ public class ArticleController {
 			tagstring = tagstring +" #"+ tag.getTag();
 		}
 
+		List<TagVO> taglist = articleService.getTagRankedList();
+		if(!taglist.isEmpty()){
+			model.addAttribute("taglist", taglist);
+		}
 		model.addAttribute("articlevo", articleVO);  
 		model.addAttribute("tagstring", tagstring);
 		return "article/showmodify";// 수정가능
@@ -197,10 +207,10 @@ public class ArticleController {
 
 
 	
-	@GetMapping("/search") // TODO 게시물 검색 목록 요청
-	public String getSearchArticles(String keyword, int pageNum) {
+	@GetMapping("/search") // TODO 게시물 목록 요청 모델을 받아서 페이지넘이 없으면 0 있으면 고대로 넣어준당
+	public String getSearchResult() {
 
-		return "showindex";
+		return "article/searchresult";
 	}
 
 }
