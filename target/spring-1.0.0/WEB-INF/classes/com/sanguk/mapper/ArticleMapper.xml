@@ -56,7 +56,7 @@
 
     <select id="getArticle" resultMap="articleMap">
         SELECT 
-            id,  title , author, content, updatedate
+            id,  title , author, content, updatedate, boardtype
         FROM 
             articles 
         WHERE id = #{articleid}

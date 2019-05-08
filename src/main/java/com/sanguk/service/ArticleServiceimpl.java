@@ -144,4 +144,5 @@ public class ArticleServiceimpl implements ArticleService {
     public List<TagVO> getTagRankedList(){
 		return tagMapper.getTagRankedList();
 	}
+
 }

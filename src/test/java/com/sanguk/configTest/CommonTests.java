@@ -36,7 +36,7 @@ public class CommonTests {
         /*
          * Pattern p = Pattern.compile("\\#([0-9a-zA-Z가-힣]*)");
          */
-        Pattern p = Pattern.compile("\\<img src=\"/upload/image/[0-9a-zA-Z]+.(jpg|gif|png|bmp)\"");
+        Pattern p = Pattern.compile("<img src=\"/upload/image/[0-9a-zA-Z]+.(jpg|gif|png|bmp)\"");
         Matcher m = p.matcher(content);
         String extractHashTag = null;
 

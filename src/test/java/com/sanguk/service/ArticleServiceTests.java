@@ -47,18 +47,23 @@ public class ArticleServiceTests{
     }
 
     @Test
-    public void getArticleListTest(){
+    public void getArticleCacheTest(){
         long start=System.nanoTime();
-        articleService.getArticleList(0);
+        articleService.getArticleList(3);
         Long temp=System.nanoTime()-start;
         log.info((temp)+"ms");
         start=System.nanoTime();
-        articleService.getArticleList(0);
+        articleService.getArticleList(3);
         temp=System.nanoTime()-start;
         log.info((temp)+"ms");
         start=System.nanoTime();
-        articleService.getArticleList(0);
+        articleService.getArticleList(3);
         temp=System.nanoTime()-start;
         log.info((temp)+"ms");
+    }
+
+    @Test
+    public void getArticleListTest(){
+        articleService.getArticleList(3);
     }
 }

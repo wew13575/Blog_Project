@@ -73,4 +73,26 @@ public class ArticleControllerTests{
         mockMvc.perform(MockMvcRequestBuilders.get("/article/list?type=1&pageNo=0"))
         .andDo(print());
     }
+     @Test
+    @WithUserDetails("wew1355")
+    public void articleSearchTest() throws Exception {
+
+
+        
+        long start=System.nanoTime();
+        mockMvc.perform(MockMvcRequestBuilders.get("/article/search?type=1&keyword=wgew we"))
+        .andDo(print());
+        Long temp=System.nanoTime()-start;
+        log.info("time:::"+(temp)+"ms");
+        start=System.nanoTime();
+        mockMvc.perform(MockMvcRequestBuilders.get("/article/search?type=1&keyword=wge we"))
+        .andDo(print());
+        temp=System.nanoTime()-start;
+        log.info("time:::"+(temp)+"ms");
+        start=System.nanoTime();
+        mockMvc.perform(MockMvcRequestBuilders.get("/article/search?type=1&keyword=ge we"))
+        .andDo(print());
+        temp=System.nanoTime()-start;
+        log.info("time:::"+(temp)+"ms");
+    }
 }

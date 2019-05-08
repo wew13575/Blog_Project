@@ -55,7 +55,7 @@ request.setCharacterEncoding("UTF-8");
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
 
-      <div id="articlecontainer">
+      <div class="articlecontainer">
         <div id="articletitle">
           ${articlevo.title}
         </div>
@@ -67,7 +67,8 @@ request.setCharacterEncoding("UTF-8");
             <image class="userimage" src="/upload/image/${articlevo.uservo.profilePath}" style="float:left;">
             </image>
             <div class="infobox" id="articleinfoname">${articlevo.uservo.userName}</div>
-            <div class="infobox" id="articleinfodate">${articlevo.updateDate}</div>
+            <input type="hidden" id="articledate" value="${articlevo.millis}">
+            <div class="infobox" id="articleinfodate"></div>
 
           </div>
           <div id="exportBox">
@@ -78,60 +79,7 @@ request.setCharacterEncoding("UTF-8");
         <div id="articlecontent">
           ${articlevo.content}
         </div>
-        <div id="articletag">
-          <c:forEach var="tag" items="${articlevo.taglist}">
-            <a href="/search?keyword=${tag.tag}">${tag.tag}</a>
-          </c:forEach>
-        </div>
-        <div id="commentcontainer">
-          <c:forEach var="comment" items="${articlevo.commentlist}">
-
-            <div class="commententity">
-              <div class="commentorprofile">
-                <img class="userimage" src="/upload/image/${comment.uservo.profilePath}">
-                </img>
-              </div>
-              <div class="comment">
-                <div class="commentboxtop">
-                  <div class="commentorname">
-                    ${comment.uservo.userName}
-                  </div>
-                  <div class="commentdate">
-                    ${comment.regDate}
-                  </div>
-                </div>
-                <div class="commentcontent">
-                  ${comment.content}
-                </div>
-                <div class="commentboxbutton">
-                  <button class="commentbutton commentdelete"  value="${comment.id}">Delete</button>
-
-                </div>
-              </div>
-
-            </div>
-          </c:forEach>
-        </div>
-        <sec:authorize access="isAuthenticated()">
-          <div id="commenteditor">
-            <input type="hidden" id="PARAM_userid" value="${uservo.userid}">
-            <input type="hidden" id="PARAM_articleid" value="${articlevo.id}">
-            <textarea id="commentformtext"></textarea>
-            <div id="formbuttonbox">
-
-              <button class="commentbutton" id=commentformsubmit>
-                Write
-              </button>
-            </div>
-          </div>
-        </sec:authorize>
         <div id="articlebuttonbox">
-          <form style="display: hidden" action="/article/delete?articleid=${articlevo.id}" method="post"
-            id="articledeleteform">
-            <button id="articledeletebutton" class="commentbutton articlebutton">
-              Delete
-            </button>
-          </form>
           <button onclick="location.href = '/article/modify?articleid=${articlevo.id}' "
             class="commentbutton articlebutton">
             Edit
@@ -152,12 +100,6 @@ request.setCharacterEncoding("UTF-8");
 
       <!--   -----------                       푸터        --------------->
       <!--   -----------                       푸터        --------------->
-      <!--   -----------                       푸터        --------------->
-      <footer class="blog-footer">
-
-        <%@ include file="include/footer.jsp" %>
-
-      </footer>
     </div>
   </div>
 
@@ -172,6 +114,13 @@ request.setCharacterEncoding("UTF-8");
   <%@ include file="include/script.jsp" %>
   <!--   -----------                       푸터        --------------->
   <!--   -----------                       푸터        --------------->
+
+  <script>
+  $(document).ready(function () {
+    var date = Number($("#articledate").val()); 
+        $("#articleinfodate").text(millisToDate(date,"#hh#:#mm# #DD##th#, #MMMM#, #YYYY#"));
+      })
+  </script>
 </body>
 
 </html>

@@ -91,7 +91,6 @@ request.setCharacterEncoding("UTF-8");
             <option value="1">게시판</option>
             <sec:authorize access="hasRole('ROLE_ADMIN')">
             <option value="0" >블로그</option>
-            <option value="2">소개</option><!-- 계정 권한에 따른 분기 처리할것 -->
           </sec:authorize>
           </select>
           

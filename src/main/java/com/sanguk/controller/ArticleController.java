@@ -47,28 +47,15 @@ public class ArticleController {
 	}
 
 
-
-
-
-
 	@PostMapping("/write")
 	@Transactional
 	public String registerArticle(ArticleVO articleVO, String tag) {
 		log.info(articleVO.toString());
 
-		if (articleVO.getBoardType() == 2) {
-			articleService.setInfo(articleVO);
-			return "redirect:/";
-		}
 		articleService.registerArticle(articleVO);
 		articleService.registerTag(articleVO.getId(), tag);
 		return "redirect:/article/post?articleid="+articleVO.getId();
 	}
-
-
-
-
-
 
 
 
@@ -110,6 +97,11 @@ public class ArticleController {
 		if(!ArticleUtils.isArticleAuthor(articleVO, userVO)){ 
 			throw new IncorrectAuthorException("잘못된 접근");
 		}
+		if (articleVO.getBoardType() == 2) {
+			articleService.setInfo(articleVO);
+			log.info("이거실행됨");
+			return "redirect:/info";
+		}
 
 		articleService.updateArticle(articleVO);
 		articleService.deleteTag(articleVO.getId());
@@ -147,13 +139,16 @@ public class ArticleController {
 	public String getArticle(Model model, @RequestParam(value = "articleid", defaultValue = "-1") String articleId)throws IncorrectAuthorException,ArticleNotPoundException {
 		
 
-		
+		log.info(articleId);
 		if(articleId.equals("-1")){  
 			throw new IncorrectAuthorException("잘못된 접근");
 		}
 
 		ArticleVO articleVO = articleService.getArticle(Integer.parseInt(articleId));
 		if(articleVO==null){
+			throw new ArticleNotPoundException("잘못된 접근");
+		}
+		if(articleVO.getBoardType()==2){
 			throw new ArticleNotPoundException("잘못된 접근");
 		}
 
@@ -199,18 +194,38 @@ public class ArticleController {
 		List<ArticleVO> responseList = articleList.subList(fromIndex, toIndex);
 
 		if(responseList.isEmpty()){
-			log.info("없다이기야");
+			log.info("결과 없음");
 		}
 	
 		return ResponseEntity.ok().body(responseList);
 	}
 
 
-	
-	@GetMapping("/search") // TODO 게시물 목록 요청 모델을 받아서 페이지넘이 없으면 0 있으면 고대로 넣어준당
-	public String getSearchResult() {
 
-		return "article/searchresult";
+
+
+	@GetMapping("/search") // TODO 게시물 검색 목록 요청
+	@ResponseBody
+	public ResponseEntity<?> getSearchResult(int type, String keyword) {
+		
+		///type0 = Tag
+		///type1 = content ,, or title,, or tags..
+		if(!(type==1||type==0)||keyword.equals("")){
+			return ResponseEntity.badRequest().build();
+		}
+
+		List<ArticleVO> articleList =  articleService.getArticleList(3);  //this will return articles of all type
+		List<ArticleVO> responseList = type==0? ArticleUtils.getTagedArticleResult(keyword, articleList) : ArticleUtils.getSearchResult(keyword, articleList);
+		log.info(responseList);
+
+		if(responseList.isEmpty()){
+			log.info("결과 없음");
+		}
+	//검색결과에 대한 페이징 처리는 클라이언트 렌더링.
+		return ResponseEntity.ok().body(responseList);
 	}
+
+	
+
 
 }

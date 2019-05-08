@@ -7,7 +7,9 @@ import java.util.List;
 
 import com.sanguk.domain.ArticleVO;
 import com.sanguk.domain.TagVO;
+import com.sanguk.exception.ArticleNotPoundException;
 import com.sanguk.service.ArticleServiceimpl;
+import com.sanguk.util.ArticleUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -82,11 +84,31 @@ public class HomeController {
 	}
 
 	@GetMapping("/info") // TODO 게시물 목록 요청 모델을 받아서 페이지넘이 없으면 0 있으면 고대로 넣어준당
-	public String getInfoPage() {
+	public String getInfoPage(Model model) {
+
+
+		ArticleVO articleVO = articleService.getArticle(8);
+		if(articleVO==null){
+			throw new ArticleNotPoundException("잘못된 접근");
+		}
+
+		model.addAttribute("articlevo", articleVO);
 
 		return "showinfo";
 	}
 
+	@GetMapping("/search") // TODO 게시물 목록 요청 모델을 받아서 페이지넘이 없으면 0 있으면 고대로 넣어준당
+	public String getSearch(int type, String keyword,@RequestParam(value = "pageNo", defaultValue = "0") int pageNo, Model model) {
 
+
+		if(keyword.trim().equals("")){
+			throw new ArticleNotPoundException("검색어를 입력해주세요.");
+		}
+
+		model.addAttribute("type", type);
+		model.addAttribute("pageno", pageNo);
+		model.addAttribute("keyword", keyword);
+		return "article/searchresult";
+	}
 
 }
