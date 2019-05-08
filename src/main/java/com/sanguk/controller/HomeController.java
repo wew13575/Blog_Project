@@ -101,9 +101,10 @@ public class HomeController {
 	public String getSearch(int type, String keyword,@RequestParam(value = "pageNo", defaultValue = "0") int pageNo, Model model) {
 
 
-		if(keyword.trim().equals("")){
-			throw new ArticleNotPoundException("검색어를 입력해주세요.");
+		if(keyword.trim().equals("") || keyword.trim().length()<2){
+			throw new ArticleNotPoundException("검색어 오류");
 		}
+
 
 		model.addAttribute("type", type);
 		model.addAttribute("pageno", pageNo);

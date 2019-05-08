@@ -84,7 +84,9 @@ request.setCharacterEncoding("UTF-8");
             <!--   -----------                       컨텐츠        --------------->
 
                 <div class="articlecontainer" style="min-height: 550px; max-width: 590px; padding: 0px 20px;">
-                    
+                        <input type="hidden" id="searchtype" value="${type}">
+                        <input type="hidden" id="searchpageno" value="${pageno}">
+                        <input type="hidden" id="searchkeyword" value="${keyword}">
                         <div class="searchresultentity">
                                 <a href="#" class="resulttitle">
                                         제목입니다제목입니다제목입니다제목입니다제목입니다제목입니다
@@ -221,10 +223,17 @@ request.setCharacterEncoding("UTF-8");
     <!--   -----------                       푸터        --------------->
     <!--   -----------                       푸터        --------------->
     <!--   -----------                       푸터        --------------->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
 
     <script>
-
+    var pageNo;
+    var searchtype;
+    var keyword;
+    $(document).ready(function () {
+      pageNo = $("#searchpageno").val();
+      searchtype = $("#searchtype").val();
+      keyword = $("#searchkeyword").val();
+      roadList(searchtype, pageNo, keyword);
+    })
     </script>
 </body>
 

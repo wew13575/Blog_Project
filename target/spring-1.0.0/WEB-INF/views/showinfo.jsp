@@ -80,10 +80,12 @@ request.setCharacterEncoding("UTF-8");
           ${articlevo.content}
         </div>
         <div id="articlebuttonbox">
+          <sec:authorize access="hasRole('ROLE_ADMIN')">
           <button onclick="location.href = '/article/modify?articleid=${articlevo.id}' "
             class="commentbutton articlebutton">
             Edit
           </button>
+          </sec:authorize>
         </div>
       </div>
 

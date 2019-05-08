@@ -157,17 +157,20 @@ background: rgb(241, 241, 241) !important;">
   <script>
 
     var pageNo;
+    var boardType=1;
     $(document).ready(function () {
-      this.pageNo = $("#pageNo").val();
-      roadList(1, this.pageNo);
+      pageNo = $("#pageNo").val();
+      roadList(boardType, pageNo);
     })
 
 
 
-    roadList = function (boardType, pageNo) {
-      $.get('/article/list?type=' + boardType + '&pageNo=' + pageNo, function (data) {
-        console.log(data);
-
+    roadList = function (boardType, No) {
+      $.get('/article/list?type=' + boardType + '&pageNo=' + No, function (response) {
+        if(response[0] === "Result.OK")
+        {
+        $('.contentcontainer').children('.boardentity').remove();
+        var data = response[1];
         data.forEach(element => {
           var $boardentity = $('<div class="boardentity"></div>');
           var $boardthumnail = $('<img class="boardthumnail" onclick="location.href = \'/article/post?articleid='+element.id+'\'" src="/upload/image/' + element.thumnailpath + '"></img>');
@@ -192,6 +195,14 @@ background: rgb(241, 241, 241) !important;">
 
           $(".contentcontainer").append($boardentity);
         });
+        }
+        else if(response[0] === "Result.NODATA"){
+          pageNo--;
+          alert("마지막 페이지 입니다");
+        }
+        else if(response[0] === "Result.WRONGREQUEST"){
+          location.href="/error";
+        }
 
       });
     }

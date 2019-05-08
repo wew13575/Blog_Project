@@ -105,7 +105,10 @@ request.setCharacterEncoding("UTF-8");
                   ${comment.content}
                 </div>
                 <div class="commentboxbutton">
-                  <button class="commentbutton commentdelete"  value="${comment.id}">Delete</button>
+                  <c:if test="${uservo.userid eq comment.author}">
+                    <button class="commentbutton commentdelete" value="${comment.id}">Delete</button>
+                  </c:if>
+
 
                 </div>
               </div>
@@ -129,14 +132,19 @@ request.setCharacterEncoding("UTF-8");
         <div id="articlebuttonbox">
           <form style="display: hidden" action="/article/delete?articleid=${articlevo.id}" method="post"
             id="articledeleteform">
-            <button id="articledeletebutton" class="commentbutton articlebutton">
-              Delete
-            </button>
+
+            <c:if test="${uservo.userid eq articlevo.author}">
+              <button id="articledeletebutton" class="commentbutton articlebutton">
+                Delete
+              </button>
+            </c:if>
           </form>
-          <button onclick="location.href = '/article/modify?articleid=${articlevo.id}' "
-            class="commentbutton articlebutton">
-            Edit
-          </button>
+          <c:if test="${uservo.userid eq articlevo.author}">
+            <button onclick="location.href = '/article/modify?articleid=${articlevo.id}' "
+              class="commentbutton articlebutton">
+              Edit
+            </button>
+          </c:if>
         </div>
       </div>
 
@@ -175,10 +183,10 @@ request.setCharacterEncoding("UTF-8");
   <!--   -----------                       푸터        --------------->
 
   <script>
-  $(document).ready(function () {
-    var date = Number($("#articledate").val()); 
-        $("#articleinfodate").text(millisToDate(date,"#hh#:#mm# #DD##th#, #MMMM#, #YYYY#"));
-      })
+    $(document).ready(function () {
+      var date = Number($("#articledate").val());
+      $("#articleinfodate").text(millisToDate(date, "#hh#:#mm# #DD##th#, #MMMM#, #YYYY#"));
+    })
   </script>
 </body>
 

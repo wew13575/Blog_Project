@@ -2,7 +2,9 @@ package com.sanguk.controller;
 
 import lombok.extern.log4j.Log4j;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.sanguk.domain.ArticleVO;
 import com.sanguk.domain.TagVO;
@@ -170,22 +172,26 @@ public class ArticleController {
 		
 		
 		log.info(type+""+pageNo);
-		
+		Map<Integer,Object> responseResult = new HashMap<>();
+
 		if(!(type==1||type==0)){
-			return ResponseEntity.badRequest().build();
+			responseResult.put(0,"Result.WRONGREQUEST");
+			return ResponseEntity.ok().body(responseResult);
 		}
-		
+
 		List<ArticleVO> articleList =  articleService.getArticleList(type);
 		int Listlength = articleList.size();
 		int fromIndex = 6*pageNo;
 		int toIndex = 6+6*pageNo;
 
 		if(pageNo<0){
-			return ResponseEntity.badRequest().build();
+			responseResult.put(0,"Result.WRONGREQUEST");
+			return ResponseEntity.ok().body(responseResult);
 		}
 
 		if(fromIndex>Listlength){
-			return ResponseEntity.badRequest().build();
+			responseResult.put(0,"Result.NODATA");
+			return ResponseEntity.ok().body(responseResult);
 		}
 		if(toIndex>Listlength){
 			toIndex=Listlength;
@@ -194,10 +200,14 @@ public class ArticleController {
 		List<ArticleVO> responseList = articleList.subList(fromIndex, toIndex);
 
 		if(responseList.isEmpty()){
-			log.info("결과 없음");
+			responseResult.put(0,"Result.NODATA");
+			return ResponseEntity.ok().body(responseResult);
 		}
 	
-		return ResponseEntity.ok().body(responseList);
+		responseResult.put(0,"Result.OK");
+		responseResult.put(1,responseList);
+		
+		return ResponseEntity.ok().body(responseResult);
 	}
 
 
@@ -208,10 +218,12 @@ public class ArticleController {
 	@ResponseBody
 	public ResponseEntity<?> getSearchResult(int type, String keyword) {
 		
+		Map<Integer,Object> responseResult = new HashMap<>();
 		///type0 = Tag
 		///type1 = content ,, or title,, or tags..
 		if(!(type==1||type==0)||keyword.equals("")){
-			return ResponseEntity.badRequest().build();
+			responseResult.put(0,"Result.WRONGREQUEST");
+			return ResponseEntity.ok().body(responseResult);
 		}
 
 		List<ArticleVO> articleList =  articleService.getArticleList(3);  //this will return articles of all type
@@ -219,10 +231,15 @@ public class ArticleController {
 		log.info(responseList);
 
 		if(responseList.isEmpty()){
-			log.info("결과 없음");
+			responseResult.put(0,"Result.NODATA");
+			return ResponseEntity.ok().body(responseResult);
 		}
+
+		
+		responseResult.put(0,"Result.OK");
+		responseResult.put(1,responseList);
 	//검색결과에 대한 페이징 처리는 클라이언트 렌더링.
-		return ResponseEntity.ok().body(responseList);
+		return ResponseEntity.ok().body(responseResult);
 	}
 
 	

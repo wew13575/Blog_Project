@@ -130,10 +130,13 @@
   }
 
   function btnClick() {
+    $('.headerBox').show();
     if (this.classList.contains('btn--prev')) {
       paginationWrapper.classList.add('transition-prev');
+      pagenation(0);
     } else {
       paginationWrapper.classList.add('transition-next');
+      pagenation(1);
     }
 
     var timeout = setTimeout(cleanClasses, 500);
@@ -146,7 +149,21 @@
       paginationWrapper.classList.remove('transition-prev')
     }
   }
-
+  pagenation = function (way) {
+      if (way == 0) {
+        if (pageNo <= 0) {
+          alert("첫 페이지 입니다");
+        }
+        else {
+          pageNo--;
+          roadList(boardType, pageNo)
+        }
+      }
+      else {
+        pageNo++;
+        roadList(boardType, pageNo)
+      }
+    }
   //blogpagenation
 
 

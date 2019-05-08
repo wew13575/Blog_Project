@@ -80,8 +80,8 @@ public class ArticleControllerTests{
 
         
         long start=System.nanoTime();
-        mockMvc.perform(MockMvcRequestBuilders.get("/article/search?type=1&keyword=wgew we"))
-        .andDo(print());
+        mockMvc.perform(MockMvcRequestBuilders.get("/article/search?type=1&keyword=dq"))
+        .andDo(print());/* 
         Long temp=System.nanoTime()-start;
         log.info("time:::"+(temp)+"ms");
         start=System.nanoTime();
@@ -93,6 +93,7 @@ public class ArticleControllerTests{
         mockMvc.perform(MockMvcRequestBuilders.get("/article/search?type=1&keyword=ge we"))
         .andDo(print());
         temp=System.nanoTime()-start;
-        log.info("time:::"+(temp)+"ms");
+        log.info("time:::"+(temp)+"ms"); */
     }
 }
+

@@ -49,4 +49,11 @@ public class CommonTests {
     public void injectTest() {
         log.info(rootLocation.toString());
     }
+    @Test
+    public void replaceTest(){
+                String content = "qwfdijqefjwwe";
+                String word = "jqe";
+                content.replaceAll(word, "");
+                log.info(content);
+    }
 }

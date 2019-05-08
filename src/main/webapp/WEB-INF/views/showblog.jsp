@@ -153,46 +153,58 @@ background: rgb(241, 241, 241) !important;">
 
   <script>
 
-      var pageNo;
-      $(document).ready(function () {
-        this.pageNo = $("#pageNo").val();
-        roadList(0, this.pageNo);
-      })
-  
-  
-  
-      roadList = function (boardType, pageNo) {
-        $.get('/article/list?type=' + boardType + '&pageNo=' + pageNo, function (data) {
-          console.log(data);
-          
-          data.forEach(element => {
-            var $contentBox = $('<div class="contentBox"></div>');
-            var $contentthumnail = $('<div class="contentthumnail" onclick="location.href = \'/article/post?articleid='+element.id+'\'" style="background: linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.3)), url(\'/upload/image/' + element.thumnailpath + '\');background-repeat: no-repeat;background-size: 320px 240px;"></div>');
-            var $contentinfobox = $('<div class="contentinfobox"></div>');
-            var $contentTitle = $('<div class="contentTitle" onclick="location.href = \'/article/post?articleid='+element.id+'\'" >' + element.title + '</div>');
-            var $contentDay = $(' <div class="contentDay"><i class="far fa-calendar-alt"></i>&nbsp; ' + millisToDate(element.updateDate,"#DD#, #MMM#, #YYYY#") + '</div>');
-            var $contentauthor = $('<div class="contentauthor"><img class="contentauthorimage" src="/upload/image/' + element.uservo.profilePath + '">' + element.uservo.userName + '</div>');
-            
-  
-            $contentBox.append($contentthumnail);
-            $contentthumnail.append($contentinfobox);
-            $contentinfobox.append($contentTitle);
-            $contentinfobox.append($contentDay);
-            $contentinfobox.append($contentauthor);
+    var pageNo;
+    var boardType=0;
+    $(document).ready(function () {
+      pageNo = $("#pageNo").val();
+      roadList(boardType, pageNo);
+    })
 
-  
-            $(".contentcontainer").append($contentBox);
-          });
-  
+
+
+
+
+    roadList = function (boardType, No) {
+      $.get('/article/list?type=' + boardType + '&pageNo=' + No, function (response) {
+        if(response[0] === "Result.OK")
+        {
+        $('.contentcontainer').children('.contentBox').remove();
+        var data = response[1];
+        data.forEach(element => {
+          var $contentBox = $('<div class="contentBox"></div>');
+          var $contentthumnail = $('<div class="contentthumnail" onclick="location.href = \'/article/post?articleid=' + element.id + '\'" style="background: linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.3)), url(\'/upload/image/' + element.thumnailpath + '\');background-repeat: no-repeat;background-size: 320px 240px;"></div>');
+          var $contentinfobox = $('<div class="contentinfobox"></div>');
+          var $contentTitle = $('<div class="contentTitle" onclick="location.href = \'/article/post?articleid=' + element.id + '\'" >' + element.title + '</div>');
+          var $contentDay = $(' <div class="contentDay"><i class="far fa-calendar-alt"></i>&nbsp; ' + millisToDate(element.updateDate, "#DD#, #MMM#, #YYYY#") + '</div>');
+          var $contentauthor = $('<div class="contentauthor"><img class="contentauthorimage" src="/upload/image/' + element.uservo.profilePath + '">' + element.uservo.userName + '</div>');
+
+
+          $contentBox.append($contentthumnail);
+          $contentthumnail.append($contentinfobox);
+          $contentinfobox.append($contentTitle);
+          $contentinfobox.append($contentDay);
+          $contentinfobox.append($contentauthor);
+
+
+          $(".contentcontainer").append($contentBox);
         });
-      }
-  
-  
-  
-  
-  
-  
-    </script>
+        }
+        else if(response[0] === "Result.NODATA"){
+          pageNo--;
+          alert("마지막 페이지 입니다");
+        }
+        else if(response[0] === "Result.WRONGREQUEST"){
+          location.href="/error";
+        }
+      });
+    }
+
+
+
+
+
+
+  </script>
   <!--   -----------                       푸터        --------------->
   <!--   -----------                       푸터        --------------->
   <!--   -----------                       푸터        --------------->
