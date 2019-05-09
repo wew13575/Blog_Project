@@ -1,6 +1,5 @@
 body {
   color: #5264AE;
-  background: rgb(219, 219, 219);
 }
 
 .wrapper {
@@ -29,11 +28,11 @@ body {
   left: 0;
   height: 100vh;
   z-index: 1000;
-  background: #f1f1f1;
   color: rgb(0, 0, 0);
   transition: all 0.3s;
   overflow-x: hidden;
-  border-right: 1px solid #b4b4b46c;
+  background: white;
+  box-shadow: 0 0px 1px rgba(129, 129, 129, 0.5);
 }
 
 .sidenav.active {
@@ -54,39 +53,42 @@ body {
 /* 추가된 부분 */
 
 .line {
-  background: gray;
+  background: rgb(70, 70, 70);
   margin-top: 4px;
   margin-bottom: 4px;
   width: 25px;
   height: 4px;
   border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
   position: relative;
+}
+.line:last-child{
+  
+  width: 15px;
 }
 
 .headerBox {
   position: fixed;
   background-color: #ffffff;
-  background: rgb(241, 241, 241);
   width: 100%;
-  height: 45px;
+  height: 44px;
   z-index: 998;
   overflow: hidden;
-  border-bottom: 1px solid #b4b4b46c;
+  box-shadow: 0 0px 1px rgba(129, 129, 129, 0.5);
+  
 }
 
 #logoBox {
   width: 220px;
   color: rgb(0, 0, 0);
-  height: 45px;
+  height: 44px;
   float: left;
   padding: 8px 70px;
-  line-height: 45px;
+  line-height: 44px;
   text-align: center;
-  font-size: 16px;
+  font-size: 16px;  
   vertical-align: middle;
   font-weight: bold;
-  border-bottom: 1px solid #b4b4b46c;
+  box-shadow: 0 0px 1px rgba(129, 129, 129, 0.5);
 }
 #logoBox:hover{
   cursor: pointer;
@@ -256,7 +258,8 @@ input {
   display: block;
   border: none;
   width: 150px;
-  background-color: rgb(190, 190, 190);
+  background-color: white;
+  border-bottom: 2px solid rgb(255, 172, 172);
 }
 
 input:focus {
@@ -266,7 +269,7 @@ input:focus {
 /* LABEL ======================================= */
 
 label {
-  color: rgb(110, 110, 110);
+  color: rgb(255, 172, 172);
   font-size: 13px;
   font-weight: bold;
   position: absolute;
@@ -283,7 +286,7 @@ label {
 input:focus~label, input:valid~label {
   top: -14px;
   font-size: 12px;
-  color: rgb(14, 14, 14);
+  color: rgb(255, 72, 72);
 }
 
 /* BOTTOM BARS ================================= */
@@ -300,7 +303,7 @@ input:focus~label, input:valid~label {
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: rgba(68, 68, 68, 0.692);
+  background: rgb(255, 72, 72);
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -401,9 +404,9 @@ input:focus~.highlight {
 }
 
 .fifth {
-  border-color: rgb(255, 158, 47);
+  border-color: rgb(255, 172, 172);
   border-radius: 0;
-  color: rgb(255, 158, 47);
+  color: rgb(255, 172, 172);
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -420,14 +423,15 @@ input:focus~.highlight {
   transform: translateX(-50%);
   width: 0;
   height: 100%;
-  background: rgb(255, 158, 47);
-  ;
+  background: rgb(255, 72, 72);
+  
   z-index: -1;
   transition: width 150ms ease-in-out;
 }
 
 .fifth:hover {
-  color: #000;
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 72, 72);
 }
 
 .fifth:hover:after {
@@ -459,7 +463,7 @@ input:focus~.highlight {
   box-sizing: border-box;
   width: 25px;
   height: 25px;
-  border: 4px solid rgb(124, 124, 124);
+  border: 4px solid rgb(70, 70, 70);
   border-radius: 50%;
   background: none;
   float: right;
@@ -489,7 +493,7 @@ input:focus~.highlight {
   width: 10px;
   height: 4px;
   margin-left: 250px;
-  background-color: rgb(124, 124, 124);
+  background-color: rgb(70, 70, 70);
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -507,7 +511,7 @@ input:focus~.highlight {
   height: 4px;
   margin-top: 0px;
   margin-left: 211px;
-  background-color: rgb(124, 124, 124);
+  background-color: rgb(70, 70, 70);
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -518,7 +522,7 @@ input:focus~.highlight {
   position: absolute;
   width: 20px;
   height: 4px;
-  background-color: rgb(124, 124, 124);
+  background-color: rgb(70, 70, 70);;
   margin-top: 0px;
   margin-left: 211px;
   cursor: pointer;
@@ -532,7 +536,7 @@ input:focus~.highlight {
   padding: 0 40px 0 10px;
   width: 250px;
   height: 28px;
-  border: 4px solid rgb(124, 124, 124);
+  border: 4px solid rgb(70, 70, 70);;
   border-radius: 0;
   background: none;
   color: #000000;
@@ -648,7 +652,6 @@ small {
   width: 100%;
   display: block;
   height: calc(100% - 141px);  
-  background: rgb(241, 241, 241);
   padding: 0px;
 }
 
@@ -975,14 +978,16 @@ footer p {
   margin: 45px auto 0px auto;
   padding: 0px 7px;
   max-width: 900px;
-  background: rgb(241, 241, 241);
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0px 1px rgba(82, 82, 82, 0.8);
 }
 
 .articlecontainer {
   margin: 45px auto 0px auto;
   max-width: 900px;
-  background: rgb(241, 241, 241);
+  background: #ffffff;
   color: #000;
+  box-shadow: 0 0px 1px rgba(129, 129, 129, 0.3);
 }
 
 #articleinfo {
@@ -997,7 +1002,7 @@ footer p {
   height: 70px;
   display: block;
   margin: 10px 0px;
-  border-bottom: rgba(138, 138, 138, 0.288) solid 1px;
+  box-shadow: 0px 1px rgba(129, 129, 129, 0.1);
 }
 
 #exportBox{
@@ -1061,12 +1066,12 @@ footer p {
   min-height: 45px;
   padding: 10px 20px;
   overflow: hidden;
-  border-bottom: rgba(138, 138, 138, 0.288) solid 1px;
+  box-shadow: 0px 1px rgba(129, 129, 129, 0.1);
   color: #55acee;
 }
 
 .commententity{
-  border-bottom: rgba(138, 138, 138, 0.288) solid 1px;
+  box-shadow: 0px 1px rgba(129, 129, 129, 0.1);
   min-height: 90px;
 }
 .commentboxtop{
@@ -1152,7 +1157,7 @@ footer p {
   width: 100%;
   min-height: 120px;
   padding: 10px; 
-  border-bottom: rgba(138, 138, 138, 0.288) solid 1px;
+  box-shadow: 0px 1px rgba(129, 129, 129, 0.1);
 
 }
 #commentformtext{
@@ -1193,11 +1198,8 @@ footer p {
   max-width: 800px;
   margin: 0 auto;
   height: 92px;
-  border: rgba(141, 141, 141, 0.281) solid 1px;
+  box-shadow: 0 1px 0px rgba(129, 129, 129, 0.1);
   border-width: 0px 0px 1px 0px;
-}
-.boardentity:first-child{
-  border-top:  rgba(141, 141, 141, 0.281) solid 1px;
 }
 
 .boardthumnail{
@@ -1267,10 +1269,12 @@ footer p {
 #mycarousel{
   width: 100%;
   height: 330px;
+  background: white;
+  
 }
 #homecontainer{
   margin: 0 auto;
-  margin-top: 55px;
+  margin-top: 45px;
   max-width: 800px;
   display: block;
 }
@@ -1278,6 +1282,7 @@ footer p {
   width: 360px;
   height: 280px;
   float: left;
+  background: white;
 }
 .homeBoxcontent{
   width: 320px;
@@ -1407,6 +1412,7 @@ padding: 10px;
   display: inline-block;
   width: 100%;
   height: 360px;
+  background: white;
 }
 #tagcirclecontainer svg {
   margin: auto;
@@ -1467,7 +1473,8 @@ padding: 10px;
 .searchresultentity{
   max-width: 550px;
   height: 130px;
-  padding: 0px 5px;
+  padding: 10px 5px 0px 5px;
+  box-shadow: 0 1px 0px rgba(129, 129, 129, 0.1);
 }
 .resulttitle{
   width: 100%;
@@ -1496,14 +1503,17 @@ padding: 10px;
   height: 40px;
   
   line-height: 20px;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
   overflow: hidden;
   word-break: break-all;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   color: rgb(59, 59, 59);
+}
+.searchtag{
+  color: rgb(100, 114, 91);
+  
 }
 
 

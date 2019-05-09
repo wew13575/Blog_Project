@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sanguk.mapper.ArticleMapper">
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache" />
+    <resultMap type="com.sanguk.domain.ArticleVO" id="articleMap">
+        <id property="id" column="id" />
+        <result property="author" column="author" />
+        <result property="title" column="title" />
+        <result property="content" column="content" />
+        <result property="viewcnt" column="viewcnt" />
+        <result property="Thumnailpath" column="thumnailpath" />
+        <result property="boardType" column="boardtype" />
+        <result property="updateDate" column="updatedate" />
+        <association property="uservo" column="author" select="com.sanguk.mapper.UserMapper.getUserByAuthor"></association>
+        <collection property="taglist" column="id" javaType="java.util.ArrayList" ofType="com.sanguk.domain.TagVO" select="com.sanguk.mapper.TagMapper.getTagListById"></collection>
+        <collection property="commentlist" column="id" javaType="java.util.ArrayList" ofType="com.sanguk.mapper.CommentMapper.commentMap" select="com.sanguk.mapper.CommentMapper.getCommentList"></collection>
+    </resultMap>
+    <insert id="registerArticle" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ARTICLES
+		 	(author, title, content, thumnailpath, boardtype)
+		values
+			(#{author},#{title},#{content},#{Thumnailpath},#{boardType})
+    </insert>
+    <update id="setInfo">
+		UPDATE ARTICLES
+        SET title=#{title},content=#{content}
+        WHERE boardType=2
+    </update>
+    <update id="updateArticle">
+		UPDATE 
+            ARTICLES
+        SET title=#{title},content=#{content},thumnailpath=#{thumnailpath},updatedate = CURRENT_TIMESTAMP
+        WHERE id=#{id}
+    </update>
+    <update id="addViewcnt">
+		UPDATE 
+            ARTICLES
+        SET viewcnt = viewcnt+1
+        WHERE id=#{articleid}
+    </update>
+    <delete id="deleteArticle">
+        DELETE 
+        FROM
+            ARTICLES
+        WHERE 
+            id=#{articleid}
+    </delete>
+    <select id="getArticle" resultMap="articleMap">
+        SELECT 
+            id,  title , author, content, updatedate, boardtype
+        FROM 
+            articles 
+        WHERE id = #{articleid}
+    </select>
+    <select id="getArticleList" resultMap="articleMap">
+        SELECT 
+            id, author, title, viewcnt,  thumnailpath, updatedate, content
+        FROM 
+            articles
+        <choose>
+            <when test="_parameter != 3">
+            WHERE boardtype = #{_parameter}
+        </when>
+        <otherwise>
+        WHERE boardtype = 0 OR boardtype = 1
+        </otherwise>
+        </choose>
+        ORDER BY id DESC
+    </select>
+</mapper>

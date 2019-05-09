@@ -11,8 +11,9 @@
     <img src="/resources/image/logo.png" onclick="location.href = '/'" width="80" height="27">
       
   </div>
-  <form class="searchform">
-    <input type="text" name="input" class="input">
+  <form class="searchform" action="/search" method="get">
+    <input type="hidden" name="type" value="1">
+    <input type="text" name="keyword" class="input">
     <button type="reset" class="search"></button>
   </form>
 </div>

@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import com.sanguk.domain.ArticleVO;
+import com.sanguk.domain.TagVO;
 import com.sanguk.domain.UserVO;
 
 import org.springframework.http.MediaType;
@@ -70,20 +72,25 @@ public class ArticleUtils {
 		return true;
 	}
 
-	public static List<ArticleVO> getTagedArticleResult(String keyword, List<ArticleVO> articleList) {
+	public static List<ArticleVO> getTagedArticleResult(String keyword, List<ArticleVO> articles) {
 
 		List<ArticleVO> resultList = new ArrayList<>();
+		List<ArticleVO> articleList = new ArrayList<ArticleVO>(articles);
 		for (ArticleVO article : articleList) {
+			
 			if (article.getTaglist().stream().anyMatch(tag -> tag.getTag().equals(keyword))) {
+				article.setContent(article.getContent().replaceAll("<[^>]*>", ""));
 				resultList.add(article);
 			}
 		}
 		return resultList;
 	}
 
-	public static List<ArticleVO> getSearchResult(String keyword, List<ArticleVO> articleList) {
+	public static List<ArticleVO> getSearchResult(String keyword, List<ArticleVO> articles) {
 
 		List<ArticleVO> resultList = new ArrayList<>();
+		List<ArticleVO> articleList = new ArrayList<ArticleVO>(articles); //카피 x -> 캐쉬 값 조정됨
+
 
 		articleList.removeIf(article -> {
 			if (isMatchTitle(article.getTitle(), keyword)) {
@@ -97,6 +104,11 @@ public class ArticleUtils {
 		articleList.removeIf(article -> {
 			if (article.getTaglist().stream().anyMatch(tag -> isMatchTitle(tag.getTag(), keyword))) {
 				article.setContent(article.getContent().replaceAll("<[^>]*>", ""));
+				List<TagVO> taglist = new ArrayList<TagVO>(article.getTaglist());
+				for(TagVO t : taglist){
+					t.setTag(t.getTag().replaceAll(keyword, "<b>" + keyword + "</b>"));
+				}
+				article.setTaglist(taglist);
 				resultList.add(article);
 				return true;
 			}
@@ -151,6 +163,7 @@ public class ArticleUtils {
 		Matcher m = p.matcher(content.trim());
 
 		while (m.find()) {
+			content = content.replaceAll(keyword, "<b>" + keyword + "</b>");
 			article.setContent(content);
 			return true;
 		}
@@ -168,7 +181,7 @@ public class ArticleUtils {
 				if (matchStart > m.start()) {
 					matchStart = m.start();
 				}
-				content = content.replaceAll(word, "<bold>" + word + "</bold>");
+				content = content.replaceAll(word, "<b>" + word + "</b>");
 				log.info("bold:::" + content);
 				break;
 			}
