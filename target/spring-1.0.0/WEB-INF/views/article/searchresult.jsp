@@ -88,22 +88,6 @@ request.setCharacterEncoding("UTF-8");
 
                         <div class="articlecontainer" style="min-height: 650px; max-width: 590px; padding: 0px 20px;">
 
-                                <div class="searchresultentity">
-                                        <a href="#" class="resulttitle">
-                                                제목입니다제목입니다제목입니다제목입니다제목입니다제목입니다
-                                        </a>
-                                        <div class="resultinfo">
-                                                <i class="far fa-calendar-alt">
-                                                </i> 02, May, 2019 &nbsp;
-                                                <img class="contentauthorimage" src="/upload/image/THUMB_basic.jpg">
-                                                sanguk &nbsp;
-                                                <i class="fas fa-tags"></i>
-                                        </div>
-                                        <div class="resultcontent">
-                                                내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다
-                                        </div>
-
-                                </div>
 
                         </div>
                         <div class="pagination-wrapper" style="
@@ -172,6 +156,7 @@ request.setCharacterEncoding("UTF-8");
                 var searchtype;
                 var keyword;
                 var boardType = 0;
+                var list;
                 var length;
 
 
@@ -179,51 +164,92 @@ request.setCharacterEncoding("UTF-8");
                         pageNo = $("#searchpageno").val();
                         searchtype = $("#searchtype").val();
                         keyword = $("#searchkeyword").val();
-                        
-                        roadSearchList(searchtype, keyword);
-                        roadList(0, pageNo);
+
+                        roadSearchList(searchtype, keyword).then(function (data) {
+                                list = data;
+                                length = data.length;
+                                roadList(0, pageNo);
+                        });
                 })
 
 
 
                 roadSearchList = function (type, word) {
-                        var list = null;
-                        $.get('/article/search?type=' + type + '&keyword=' + word, function (response) {
-                                if (response[0] === "Result.OK") {
-                                        list = response[1];
-                                        console.log(list);
+                        return new Promise(function (resolve, reject) {
+                                $.get('/article/search?type=' + type + '&keyword=' + word, function (response) {
+                                        if (response[0] === "Result.OK") {
+                                                resolve(response[1]);
 
-                                }
-                                else if (response[0] === "Result.NODATA") {
-                                        $(".articlecontainer").text("'" + word + "'에 대한 검색 결과가 없습니다.");
-                                        $(".articlecontainer").css("line-height", "350px");
-                                        $(".articlecontainer").css("text-align", "center");
-                                        $(".articlecontainer").css("font-weight", "700");
-                                        $(".pagination-wrapper").hide();
+                                        }
+                                        else if (response[0] === "Result.NODATA") {
+                                                var $img = $('<img id="searchcharactor" src="/resources/image/character.png" >')
+                                                $(".articlecontainer").text("'" + word + "'에 대한 검색 결과가 없습니다.");
+                                                $(".articlecontainer").css("line-height", "50px");
+                                                $(".articlecontainer").css("text-align", "center");
+                                                $(".articlecontainer").css("font-weight", "700");
+                                                $(".articlecontainer").css("padding-top", "100px");
+                                                $(".articlecontainer").append($img);
+                                                $(".pagination-wrapper").hide();
 
-                                }
-                                else if (response[0] === "Result.WRONGREQUEST") {
-                                        location.href = "/error";
-                                }
-                        });
-                        console.log(list);
-                        
-                        return list;
+                                        }
+                                        else if (response[0] === "Result.WRONGREQUEST") {
+                                                location.href = "/error";
+                                        }
+                                });
+                        })
+
                 }
-                
+
 
                 roadList = function (type, no) {
                         var fromindex;
                         var toindex;
 
-                        if ((no * 5) > 0) {
+                        fromindex = no * 5;
+                        toindex = (no + 1) * 5;
+                        if (fromindex > length - 1) {
                                 alert("마지막 페이지 입니다.");
                                 pageNo--;
                         }
-                        fromindex = no * 5;
-                        toindex = (no + 1) * 5 > 0 ? 0 : (no + 1) * 5;
-                        console.log("from :" + fromindex + "to :" + toindex + "list :" + 0);
+                        else {
+                                toindex = toindex > length - 1 ? length : toindex;
 
+                                renderList = list.slice(fromindex, toindex);
+
+                                $('.articlecontainer').children('.searchresultentity').remove();
+                                renderList.forEach(element => {
+                                        console.log(element);
+
+                                        var $searchresultentity = $('<div class="searchresultentity"></div>');
+                                        var $resulttitle = $('<a href="/article/post?articleid=' + element.id + '" class="resulttitle">' + element.title + '</a>');
+                                        var $resultinfo = $('<div class="resultinfo"><i class="far fa-calendar-alt"></i>&nbsp; ' + millisToDate(element.updateDate, "#DD#, #MMM#, #YYYY#") + ' &nbsp; <img class="contentauthorimage" src="/upload/image/' + element.uservo.profilePath + '">&nbsp;' + element.uservo.userName + ' &nbsp; <i class="fas fa-tags"></i>&nbsp;</div>');
+                                        var $resultcontent = $('<div class="resultcontent">' + element.content + '</div>');
+                                        var $tag = $('<a>gewgerger</a>');
+
+
+
+
+                                        $searchresultentity.append($resulttitle);
+                                        $searchresultentity.append($resultinfo);
+                                        element.taglist.forEach(tag => {
+                                                var $tag = $('<a class="searchtag" href="/search?type=0&keyword='+replaceAll(replaceAll(tag.tag,"</b>",""), "<b>", "")+'">#' + tag.tag + '&nbsp;</a>');
+                                                $resultinfo.append($tag);
+                                        })
+
+
+
+                                        $searchresultentity.append($resultcontent);
+
+                                        $(".articlecontainer").append($searchresultentity);
+
+
+                                });
+
+
+
+
+                        }
+                        console.log("from :" + fromindex + "to :" + toindex + "list :" + length);
                 }
 
 

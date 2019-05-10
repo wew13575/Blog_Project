@@ -177,7 +177,7 @@ request.setCharacterEncoding("UTF-8");
           var $boardboxtitle = $('<div class="boardboxtitle" onclick="location.href = \'/article/post?articleid='+element.id+'\'" >' + element.title + '</div>');
           var $boardboxetc = $('<div class="boardboxetc"></div>');
           var $boardinfo = $('<div class="contentDay boardinfo" style="padding-left: 10px !important;"><i class="far fa-calendar-alt"></i>&nbsp; ' + millisToDate(element.updateDate,"#DD#, #MMM#, #YYYY#") + '</div>');
-          var $contentauthor = $('<div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;"><img class="contentauthorimage" src="/upload/image/' + element.uservo.profilePath + '">' + element.uservo.userName + '</div>');
+          var $contentauthor = $('<div class="contentauthor boardinfo" style="width: auto; margin-right: 10px;"><img class="contentauthorimage" src="/upload/image/' + element.uservo.profilePath + '"><a href="/search?type=2&keyword='+element.author+'">' + element.uservo.userName + '</a></div>');
           var $tagicon =  $('<i class="fas fa-tags tagicon"></i>');
 
           $boardentity.append($boardthumnail);

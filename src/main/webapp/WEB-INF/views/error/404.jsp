@@ -135,23 +135,6 @@ background: rgb(241, 241, 241) !important;">
 
   <script>
 
-    var pageNo;
-    var boardType = 0;
-    $(document).ready(function () {
-      this.pageNo = $("#pageNo").val();
-
-      $('#mycarousel').carousel()
-      $.get('/article/list?type=0&pageNo=' + this.pageNo, function (data) {
-
-        console.log(data);
-      });
-    })
-
-//둘다 조금씩 요청하자 뷰카운트 높은거로
-
-
-
-
 
   </script>
   <!--   -----------                       푸터        --------------->

@@ -66,7 +66,7 @@ request.setCharacterEncoding("UTF-8");
           <div id="articleinfo">
             <image class="userimage" src="/upload/image/${articlevo.uservo.profilePath}" style="float:left;">
             </image>
-            <div class="infobox" id="articleinfoname">${articlevo.uservo.userName}</div>
+            <div class="infobox" id="articleinfoname"><a href="/search?type=2&keyword=${articlevo.author}">${articlevo.uservo.userName}</a></div>
             <input type="hidden" id="articledate" value="${articlevo.millis}">
             <div class="infobox" id="articleinfodate"></div>
 

@@ -152,6 +152,7 @@
     }
   }
   pagenation = function (way) {
+    document.documentElement.scrollTop = 0;
     if (way == 0) {
       if (pageNo <= 0) {
         alert("첫 페이지 입니다");

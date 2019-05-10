@@ -124,8 +124,30 @@ public class ArticleUtils {
 			return false;
 		});
 
+		articleList.removeIf(article -> {
+			if (isMatchTitle(article.getAuthor(), keyword)) {
+				article.setContent(article.getContent().replaceAll("<[^>]*>", ""));
+				resultList.add(article);
+				return true;
+			}
+			return false;
+		});
+		
+
 		log.info(articleList);
 
+		return resultList;
+	}
+
+	public static List<ArticleVO> getAuthorsArticleResult(String keyword, List<ArticleVO> articles) {
+
+		List<ArticleVO> articleList = new ArrayList<ArticleVO>(articles);
+		List<ArticleVO> resultList = new ArrayList<ArticleVO>();
+		resultList = articleList.stream().filter(article -> article.getAuthor().equals(keyword)).collect(Collectors.toList());
+		resultList.forEach(article -> article.setContent(article.getContent().replaceAll("<[^>]*>", "")));
+
+		
+			
 		return resultList;
 	}
 

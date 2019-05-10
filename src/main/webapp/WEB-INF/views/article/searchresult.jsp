@@ -182,10 +182,13 @@ request.setCharacterEncoding("UTF-8");
 
                                         }
                                         else if (response[0] === "Result.NODATA") {
+                                                var $img = $('<img id="searchcharactor" src="/resources/image/character.png" >')
                                                 $(".articlecontainer").text("'" + word + "'에 대한 검색 결과가 없습니다.");
-                                                $(".articlecontainer").css("line-height", "350px");
+                                                $(".articlecontainer").css("line-height", "50px");
                                                 $(".articlecontainer").css("text-align", "center");
                                                 $(".articlecontainer").css("font-weight", "700");
+                                                $(".articlecontainer").css("padding-top", "100px");
+                                                $(".articlecontainer").append($img);
                                                 $(".pagination-wrapper").hide();
 
                                         }
@@ -219,7 +222,7 @@ request.setCharacterEncoding("UTF-8");
 
                                         var $searchresultentity = $('<div class="searchresultentity"></div>');
                                         var $resulttitle = $('<a href="/article/post?articleid=' + element.id + '" class="resulttitle">' + element.title + '</a>');
-                                        var $resultinfo = $('<div class="resultinfo"><i class="far fa-calendar-alt"></i>&nbsp; ' + millisToDate(element.updateDate, "#DD#, #MMM#, #YYYY#") + ' &nbsp; <img class="contentauthorimage" src="/upload/image/' + element.uservo.profilePath + '">&nbsp;' + element.uservo.userName + ' &nbsp; <i class="fas fa-tags"></i>&nbsp;</div>');
+                                        var $resultinfo = $('<div class="resultinfo"><i class="far fa-calendar-alt"></i>&nbsp; ' + millisToDate(element.updateDate, "#DD#, #MMM#, #YYYY#") + ' &nbsp; <img style=""class="contentauthorimage" src="/upload/image/' + element.uservo.profilePath + '">&nbsp;<a href="/search?type=2&keyword='+element.author+'">' + element.uservo.userName + '</a> &nbsp; <i class="fas fa-tags"></i>&nbsp;</div>');
                                         var $resultcontent = $('<div class="resultcontent">' + element.content + '</div>');
                                         var $tag = $('<a>gewgerger</a>');
 

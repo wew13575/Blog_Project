@@ -221,13 +221,13 @@ public class ArticleController {
 		Map<Integer,Object> responseResult = new HashMap<>();
 		///type0 = Tag
 		///type1 = content ,, or title,, or tags..
-		if(!(type==1||type==0)||keyword.equals("")){
+		if(!(type==1||type==0||type==2)||keyword.length()<2){
 			responseResult.put(0,"Result.WRONGREQUEST");
 			return ResponseEntity.ok().body(responseResult);
 		}
 
 		List<ArticleVO> articleList =  articleService.getArticleList(3);  //this will return articles of all type
-		List<ArticleVO> responseList = type==0? ArticleUtils.getTagedArticleResult(keyword, articleList) : ArticleUtils.getSearchResult(keyword, articleList);
+		List<ArticleVO> responseList = type==0? ArticleUtils.getTagedArticleResult(keyword, articleList) : type==1? ArticleUtils.getSearchResult(keyword, articleList) : ArticleUtils.getAuthorsArticleResult(keyword, articleList);
 		log.info(responseList);
 
 		if(responseList.isEmpty()){

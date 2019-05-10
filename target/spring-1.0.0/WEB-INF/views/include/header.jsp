@@ -12,8 +12,8 @@
       
   </div>
   <form class="searchform" action="/search" method="get">
-    <input type="text" name="keyword" class="input">
     <input type="hidden" name="type" value="1">
+    <input type="text" name="keyword" class="input">
     <button type="reset" class="search"></button>
   </form>
 </div>
