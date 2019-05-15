@@ -14,7 +14,7 @@
 		SELECT 
 			commentid, commentauthor, commentcontent, commentregdate
 		FROM 
-			comments 
+			COMMENTS 
 		WHERE articleid = #{articleid}
 	</select>
 
@@ -23,7 +23,7 @@
 		SELECT 
 			commentid, commentauthor, commentcontent, commentregdate
 		FROM 
-			comments
+			COMMENTS
 		WHERE commentid = #{commentid}
 	</select>
 

@@ -87,6 +87,8 @@ request.setCharacterEncoding("UTF-8");
       <div id="summernotecontainer">
         <form action="/article/write" class="boardSubmit" method="post" enctype="multipart/form-data"
           style="padding:5px;">
+          
+          <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>
           <select name="boardType" class="form-control editorcontrol" id="boardselector">
             <option value="1">게시판</option>
             <sec:authorize access="hasRole('ROLE_ADMIN')">

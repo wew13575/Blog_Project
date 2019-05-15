@@ -5,6 +5,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="_csrf" content="${_csrf.token}"/> 
+  <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
   <link rel="icon" href="../../../../favicon.ico">
   <title>여기는.. 우산국..</title>

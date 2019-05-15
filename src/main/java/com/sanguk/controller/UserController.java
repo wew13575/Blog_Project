@@ -84,7 +84,7 @@ public class UserController{
 
 
 
-	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/logout.do", method = RequestMethod.POST)
 	 public String logout(HttpServletRequest request, HttpServletResponse response) throws ClassCastException 
 	 {
 		  Authentication auth = SecurityContextHolder.getContext().getAuthentication();

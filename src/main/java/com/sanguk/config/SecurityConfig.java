@@ -17,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import lombok.extern.log4j.Log4j;
 
@@ -56,12 +57,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   public void configure(HttpSecurity http) throws Exception {
+    
     http
     .authorizeRequests()
-    .antMatchers("/article/write").access("hasRole('ROLE_MEMBER')")
-    .antMatchers("/article/modify").access("hasRole('ROLE_MEMBER')")
-    .antMatchers("/article/delete").access("hasRole('ROLE_MEMBER')")
-    .antMatchers("/comment/**").access("hasRole('ROLE_MEMBER')")
+    .antMatchers("/article/**").authenticated()
+    .antMatchers("/article/list").permitAll()
+    .antMatchers("/article/post").permitAll()
+    .antMatchers("/article/search").permitAll()
+    .antMatchers("/comment/**").authenticated()
       .anyRequest().permitAll() 
     .and()
     .formLogin().loginProcessingUrl("/user/login.do").loginPage("/").usernameParameter("loginid").passwordParameter("loginpw")
@@ -72,7 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     .and()
     .exceptionHandling().accessDeniedPage("/")
     .and()
-    .csrf().ignoringAntMatchers("/**");
+    .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).ignoringAntMatchers("/search");  //ignoringAntMatchers("/**");
   }
 
   @Override

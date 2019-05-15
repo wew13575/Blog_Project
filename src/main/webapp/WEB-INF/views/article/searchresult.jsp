@@ -164,6 +164,7 @@ request.setCharacterEncoding("UTF-8");
                         pageNo = $("#searchpageno").val();
                         searchtype = $("#searchtype").val();
                         keyword = $("#searchkeyword").val();
+                        
 
                         roadSearchList(searchtype, keyword).then(function (data) {
                                 list = data;

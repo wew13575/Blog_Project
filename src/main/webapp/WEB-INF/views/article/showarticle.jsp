@@ -133,6 +133,7 @@ request.setCharacterEncoding("UTF-8");
           <form style="display: hidden" action="/article/delete?articleid=${articlevo.id}" method="post"
             id="articledeleteform">
 
+            <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>
             <c:if test="${uservo.userid eq articlevo.author}">
               <button id="articledeletebutton" class="commentbutton articlebutton">
                 Delete

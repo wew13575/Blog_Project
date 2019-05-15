@@ -76,8 +76,7 @@ request.setCharacterEncoding("UTF-8");
 
 
     <div class="container-fluid">
-      <input type="hidden" id="pageNo" value="${pageno}">
-
+      
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
       <!--   -----------                       컨텐츠        --------------->
@@ -97,6 +96,7 @@ request.setCharacterEncoding("UTF-8");
             <div class="carousel-inner">
               <div class="carousel-item active" onclick="location.href = '/article/post?articleid=${bestlist[0].id}'">
                 <img src="/upload/image/${bestlist[0].thumnailpath}">
+                <div class="caroverlay"></div>
                 <div class="carousel-caption">
                   <h3>${bestlist[0].title}</h3>
                   <p>${bestlist[0].uservo.userName}</p>
@@ -104,6 +104,7 @@ request.setCharacterEncoding("UTF-8");
               </div>
               <div class="carousel-item" onclick="location.href = '/article/post?articleid=${bestlist[1].id}'">
                 <img src="/upload/image/${bestlist[1].thumnailpath}">
+                <div class="caroverlay"></div>
                 <div class="carousel-caption">
                   <h3>${bestlist[1].title}</h3>
                   <p>${bestlist[1].uservo.userName}</p>
@@ -111,6 +112,7 @@ request.setCharacterEncoding("UTF-8");
               </div>
               <div class="carousel-item" onclick="location.href = '/article/post?articleid=${bestlist[2].id}'">
                 <img src="/upload/image/${bestlist[2].thumnailpath}">
+                <div class="caroverlay"></div>
                 <div class="carousel-caption">
                   <h3>${bestlist[2].title}</h3>
                   <p>${bestlist[2].uservo.userName}</p>
@@ -223,10 +225,7 @@ request.setCharacterEncoding("UTF-8");
         this.pageNo = $("#pageNo").val();
 
         $('#mycarousel').carousel()
-        $.get('/article/list?type=0&pageNo=' + this.pageNo, function (data) {
-
-          console.log(data);
-        });
+       
       })
 
 //둘다 조금씩 요청하자 뷰카운트 높은거로

@@ -49,14 +49,14 @@
         SELECT 
             id,  title , author, content, updatedate, boardtype
         FROM 
-            articles 
+            ARTICLES 
         WHERE id = #{articleid}
     </select>
     <select id="getArticleList" resultMap="articleMap">
         SELECT 
             id, author, title, viewcnt,  thumnailpath, updatedate, content
         FROM 
-            articles
+            ARTICLES
         <choose>
             <when test="_parameter != 3">
             WHERE boardtype = #{_parameter}

@@ -74,7 +74,8 @@
             <span class="bar"></span>
             <label>PASSWORD</label>
           </div>
-
+          
+<input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>
           <button type="submit" class="formbtn fifth">Login!</button>
         </form>
       </div>
@@ -91,8 +92,12 @@
         </div>
 
         <div id="userbuttonbox">
-          <a href="#" onclick="location.href = '/article/write'" class="userbutton write">WRITE</a>
-          <a href="#" onclick="location.href = '/user/logout.do'" class="userbutton logout">LOGOUT</a>
+          <Button onclick="location.href = '/article/write'" class="userbutton write">WRITE</Button>
+          <form action="/user/logout.do" method="POST">
+          <Button type="submit" class="userbutton logout">LOGOUT</Button>
+        
+          <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>  
+        </form>
         </div>
       </div>
     </sec:authorize>

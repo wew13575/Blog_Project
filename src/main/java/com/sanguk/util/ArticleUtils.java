@@ -24,12 +24,12 @@ public class ArticleUtils {
 
 		String thumnailContent = null;
 		if (articleVO.getContentimgcnt() != 0) {
-			Pattern p = Pattern.compile("<img src=\"/upload/image/[0-9a-zA-Z]+.(jpg|gif|png|bmp)\"");
+			Pattern p = Pattern.compile("src=\"/upload/image/[0-9a-zA-Z]+.(jpg|gif|png|bmp)\"");
 			Matcher m = p.matcher(articleVO.getContent());
 			String extractHashTag = null;
 
 			while (m.find()) {
-				thumnailContent = m.group().replace("<img src=\"/upload/image/", "").replace("\"", "");
+				thumnailContent = m.group().replace("src=\"/upload/image/", "").replace("\"", "");
 				break;
 			}
 			try {

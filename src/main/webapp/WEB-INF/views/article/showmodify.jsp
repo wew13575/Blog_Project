@@ -87,6 +87,8 @@ request.setCharacterEncoding("UTF-8");
       <div id="summernotecontainer">
         <form action="/article/modify" class="boardSubmit" method="post" enctype="multipart/form-data"
           style="padding:5px;">
+          
+          <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>
             <input type="hidden" name="boardType" id="boardselector" value="${articlevo.boardType}">
           
           <button class="btn btn-primary" id="editorbutton" type="submit">수정하기</button>

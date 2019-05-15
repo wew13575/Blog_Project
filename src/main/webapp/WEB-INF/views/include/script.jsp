@@ -11,7 +11,8 @@
   var lastScrollTop = 0;
   var delta = 5;
   var navbarHeight = 55;
-
+  var token;
+  var header;
 
 
 
@@ -24,8 +25,25 @@
       fg: '#eceeef',
       text: 'Thumbnail'
     });
+    token = $("meta[name='_csrf']").attr("content");
+    header = $("meta[name='_csrf_header']").attr("content");
+    console.log(token + header);
     $('.overlay').hide();
   });
+
+
+  $.ajaxSetup({
+    beforeSend: function (xhr) {
+      if (header && token) {
+        xhr.setRequestHeader(header, token);
+      }
+    }
+  });
+
+
+
+
+
 
   $(window).scroll(function (event) {
     didScroll = true;
