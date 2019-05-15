@@ -503,8 +503,6 @@ input:focus~.highlight {
   margin-left: 6px;
 }
 
-.searchform .close {
-}
 
 .searchform .close:before {
   content: "";
@@ -1419,7 +1417,7 @@ z-index: 1;
 }
 .carousel-control-next, .carousel-control-prev{
   z-index: 6;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .carousel-control-prev-icon {

@@ -285,13 +285,14 @@
         var $commentboxbutton = $('<div class="commentboxbutton"></div>');
 
         var $userimage = $('<img class="userimage" src="/upload/image/' + commentVO.uservo.profilePath + '"></img>');
-        var $commentbutton = $('<button class="commentbutton" id="commentdelete" value="' + commentVO.id + '">Delete</button>');
+        var $commentbutton = $('<button class="commentbutton commentdelete comajax" value="' + commentVO.id + '">Delete</button>');
 
         $commentorprofile.append($userimage);
         $commententity.append($commentorprofile);
 
         $commentboxtop.append($commentorname);
         $commentboxtop.append($commentdate);
+
 
         $commentboxbutton.append($commentbutton);
 
@@ -303,6 +304,14 @@
 
         $("#commentcontainer").append($commententity);
         $("#commentformtext").val("");
+        $(".commentdelete").off("click");
+        
+        $(".commentdelete").click(function (e) {
+          button = $(this);
+          deleteComment(e, button);
+        }); 
+
+
       },
       error: function (request, status, error) {
         console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
@@ -317,13 +326,18 @@
 
 
 
-  $(".commentdelete").click(function (event) {
+  $(".commentdelete").click(function (e) {
+    button = $(this);
+    deleteComment(e, button);
+  });
+
+  function deleteComment(event, button) {
     event.preventDefault;
-    var form = { commentId: Number($(this).val()) };
+    var form = { commentId: Number(button.val()) };
     console.log(form);
     console.log(JSON.stringify(form));
     var thisentity =
-      $(this).closest('.commententity');
+      button.closest('.commententity');
 
     var con_test = confirm("정말 삭제 하시겠습니까?");
 
@@ -348,9 +362,7 @@
       });
     }
 
-  });
-
-
+  }
 
 
 
