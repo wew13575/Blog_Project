@@ -20,6 +20,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
+
+/**
+ * /comment 매핑 컨트롤러 클래스입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
+
 @Controller
 @RequestMapping("/comment")
 @Log4j
@@ -35,6 +44,11 @@ public class CommentController {
     ArticleServiceimpl articleService;
 
 
+    /**
+     * Comment 작성
+     * @param commentVO
+     * @return ResponseEntity<CommentVO>
+     */
     @PostMapping("/write")
     @ResponseBody
     @Transactional
@@ -44,6 +58,11 @@ public class CommentController {
         return ResponseEntity.ok().body(commentVO);
     }
     
+    /**
+     * Comment 삭제
+     * @param objectNode
+     * @return ResponseEntity.state()
+     */
 	@PostMapping("/delete")
     @Transactional
 	public ResponseEntity<?> deleteComment(@RequestBody ObjectNode objectNode) {

@@ -14,9 +14,24 @@ import com.sanguk.domain.UserVO;
 
 import lombok.extern.log4j.Log4j;
 
+/**
+ * Article 처리 유틸 클래스 입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
+
 @Log4j
 public class ArticleUtils {
 
+
+	/**
+	 * Article 썸네일을 추출 후 파일 명을 도메인에 삽입
+	 * @param articleVO
+	 * @param uploadPath
+	 * @param thumnailPath
+	 * @return ArticleVO
+	 */
 	public static ArticleVO getArticleThumnail(ArticleVO articleVO, String uploadPath, String thumnailPath) {
 
 		String thumnailContent = null;
@@ -47,6 +62,11 @@ public class ArticleUtils {
 		return articleVO;
 	}
 
+	/**
+	 * Article 제목의 '<','>' 제거 후 반환
+	 * @param articleVO
+	 * @return ArticleVO
+	 */
 	public static ArticleVO initArticleTitle(ArticleVO articleVO) {
 		String title = articleVO.getTitle().replace("<", "").replace(">", "");
 		if (title.length() == 0) {
@@ -56,6 +76,12 @@ public class ArticleUtils {
 		return articleVO;
 	}
 
+	/**
+	 * 게시글 작성자가 현재 로그인 된 사용자가 맞는 지 확인
+	 * @param articleVO
+	 * @param userVO
+	 * @return boolean
+	 */
 	public static boolean isArticleAuthor(ArticleVO articleVO, UserVO userVO) {
 
 		if (articleVO == null || userVO == null) { // TODO error페이지 처리
@@ -69,6 +95,12 @@ public class ArticleUtils {
 		return true;
 	}
 
+	/**
+	 * 태그(100%일치) 검색 결과 반환
+	 * @param keyword
+	 * @param articles
+	 * @return List<ArticleVO>
+	 */
 	public static List<ArticleVO> getTagedArticleResult(String keyword, List<ArticleVO> articles) {
 
 		List<ArticleVO> resultList = new ArrayList<>();
@@ -83,6 +115,12 @@ public class ArticleUtils {
 		return resultList;
 	}
 
+	/**
+	 * 제목,태그,작성자,내용 순으로 검색 후 결과를 반환
+	 * @param keyword
+	 * @param articles
+	 * @return List<ArticleVO>
+	 */
 	public static List<ArticleVO> getSearchResult(String keyword, List<ArticleVO> articles) {
 
 		List<ArticleVO> resultList = new ArrayList<>();
@@ -136,6 +174,12 @@ public class ArticleUtils {
 		return resultList;
 	}
 
+	/**
+	 * 작성자를 검색한 결과를 반환
+	 * @param keyword
+	 * @param articles
+	 * @return List<ArticleVO>
+	 */
 	public static List<ArticleVO> getAuthorsArticleResult(String keyword, List<ArticleVO> articles) {
 
 		List<ArticleVO> articleList = new ArrayList<ArticleVO>(articles);
@@ -148,6 +192,12 @@ public class ArticleUtils {
 		return resultList;
 	}
 
+	/**
+	 * 두 String을 비교하여 매치 결과를 반환
+	 * @param title
+	 * @param keyword
+	 * @return boolean
+	 */
 	private static boolean isMatchTitle(String title, String keyword) {
 
 		Pattern p = Pattern.compile(keyword.trim());
@@ -159,6 +209,12 @@ public class ArticleUtils {
 		return false;
 	}
 
+	/**
+	 * Article의 Content와 keyword 매치 결과를 반환
+	 * @param article
+	 * @param keyword
+	 * @return boolean
+	 */
 	private static boolean isMatchContent(ArticleVO article, String keyword) {
 
 		String content = article.getContent();

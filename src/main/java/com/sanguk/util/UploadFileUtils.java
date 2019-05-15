@@ -63,6 +63,17 @@ public class UploadFileUtils {
         }
     }
 
+    /**
+     * 파일을 저장하고 파일 명을 반환
+     * 
+     * @param filePath
+     * @param fileExt
+     * @param savePath
+     * @param saveName
+     * @return String 파일 명
+     * @throws IllegalStateException
+     * @throws IOException
+     */
     public static String makeThumbnail(String filePath, String fileExt, String savePath, String saveName) throws IllegalStateException, IOException { // 저장된 원본파일로부터
                                                                                                     // BufferedImage 객체를
                                                                                                     // 생성합니다.

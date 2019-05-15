@@ -27,6 +27,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
+/**
+ * /article 매핑 컨트롤러 클래스입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
+
+
 @Controller
 @RequestMapping("/article")
 @Log4j
@@ -37,6 +46,11 @@ public class ArticleController {
 	@Autowired
 	ArticleServiceimpl articleService;
 
+	/**
+	 * 글 작성 페이지 반환
+	 * @param model
+	 * @return .jsp file
+	 */
 	@GetMapping("/write") 
 	public String getregisterView(Model model) {
 		
@@ -49,6 +63,12 @@ public class ArticleController {
 	}
 
 
+	/**
+	 * Article 등록
+	 * @param articleVO
+	 * @param tag
+	 * @return redirect /article/post
+	 */
 	@PostMapping("/write")
 	@Transactional
 	public String registerArticle(ArticleVO articleVO, String tag) {
@@ -61,6 +81,13 @@ public class ArticleController {
 
 
 
+	/**
+	 * Article 수정 페이지 반환
+	 * @param model
+	 * @param articleid
+	 * @return .jsp file
+	 * @throws IncorrectAuthorException
+	 */
 	@GetMapping("/modify") 
 	public String getupdateView(Model model,@RequestParam(value = "articleid", defaultValue = "-1") String articleid) throws IncorrectAuthorException {
 		
@@ -90,6 +117,14 @@ public class ArticleController {
 	}
 
 
+	
+	/**
+	 * Article 수정
+	 * @param articleVO
+	 * @param tag
+	 * @return redirect /article/post
+	 * @throws IncorrectAuthorException
+	 */
 	@PostMapping("/modify") 
 	@Transactional
 	public String updateArticle(ArticleVO articleVO, String tag) throws IncorrectAuthorException {
@@ -115,6 +150,12 @@ public class ArticleController {
 
 
 
+	/**
+	 * Article 삭제
+	 * @param articleId
+	 * @return redirect /
+	 * @throws IncorrectAuthorException
+	 */
 	@PostMapping("/delete")
 	@Transactional
 	public String deleteArticle(@RequestParam(value = "articleid", defaultValue = "-1") String articleId) throws IncorrectAuthorException{
@@ -137,6 +178,14 @@ public class ArticleController {
 
 
 
+	/**
+	 * Article 등록
+	 * @param model
+	 * @param articleId
+	 * @return .jsp file
+	 * @throws IncorrectAuthorException
+	 * @throws ArticleNotPoundException
+	 */
 	@GetMapping("/post")
 	public String getArticle(Model model, @RequestParam(value = "articleid", defaultValue = "-1") String articleId)throws IncorrectAuthorException,ArticleNotPoundException {
 		
@@ -166,6 +215,12 @@ public class ArticleController {
 
 
 
+	/**
+	 * 게시판 타입에 따른 Article List 반환
+	 * @param type
+	 * @param pageNo
+	 * @return ResponseEntity<Map<Integer,List<ArticleVO>>
+	 */
 	@GetMapping("/list") // TODO 게시물 검색 목록 요청
 	@ResponseBody
 	public ResponseEntity<?> getArticleList(int type, int pageNo) {
@@ -214,6 +269,12 @@ public class ArticleController {
 
 
 
+	/**
+	 * 게시글 검색
+	 * @param type
+	 * @param keyword
+	 * @return ResponseEntity<Map<Integer,ArticleVO>>
+	 */
 	@GetMapping("/search") // TODO 게시물 검색 목록 요청
 	@ResponseBody
 	public ResponseEntity<?> getSearchResult(int type, String keyword) {

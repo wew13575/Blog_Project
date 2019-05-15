@@ -14,6 +14,14 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import lombok.extern.log4j.Log4j;
 
+
+
+/**
+ * 전역 인터셉터 처리를 위한 클래스입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
 @Component
 @Log4j
 public class HttpInterceptor extends HandlerInterceptorAdapter {
@@ -21,11 +29,13 @@ public class HttpInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     UserMapper userMapper;
 
+    
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         return true;
     }
 
+    
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
             ModelAndView modelAndView) {

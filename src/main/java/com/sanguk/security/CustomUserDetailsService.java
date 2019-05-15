@@ -12,8 +12,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import lombok.extern.log4j.Log4j;
 
 /**
- * CustomUserDetailsService
+ * Spring Security CustomUser 처리 클래스 입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
  */
+
 @Log4j
 public class CustomUserDetailsService implements UserDetailsService{
 

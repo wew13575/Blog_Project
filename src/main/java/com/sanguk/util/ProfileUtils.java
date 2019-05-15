@@ -9,10 +9,22 @@ import org.springframework.security.core.userdetails.User;
 
 import lombok.extern.log4j.Log4j;
 
+/**
+ * Profile 처리 유틸 클래스 입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
 @Log4j
 public class ProfileUtils{
 
 
+    /**
+     * 시큐리티 콘텍스트에서 현재 로그인 된 사용자 반환
+     * @param userMapper
+     * @return UserVO
+     * @exception ClassCastException
+     */
     public static UserVO getProfile(UserMapper userMapper){
         try{
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

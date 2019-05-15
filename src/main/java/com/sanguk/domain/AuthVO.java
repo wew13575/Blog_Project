@@ -5,7 +5,10 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * AuthVO
+ * Auth 도메인 클래스입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
  */
 @Data
 public class AuthVO implements Serializable {

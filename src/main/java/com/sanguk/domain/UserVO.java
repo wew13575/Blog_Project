@@ -8,6 +8,12 @@ import java.util.List;
 import lombok.*;
 
 
+/**
+ * User 도메인 클래스입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
 @Data
 public class UserVO implements Serializable{
 

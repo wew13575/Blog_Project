@@ -14,6 +14,13 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 
 import lombok.extern.log4j.Log4j;
 
+/**
+ * Spring Security LoginFailur 처리 클래스 입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
+
 @Log4j
 public class LoginFailureHandler implements AuthenticationFailureHandler {
     

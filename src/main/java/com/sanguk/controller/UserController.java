@@ -25,6 +25,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.log4j.Log4j;
 
+
+/**
+ * /user 매핑 컨트롤러 클래스입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
 @Controller
 @RequestMapping("/user")
 @Log4j
@@ -38,6 +45,11 @@ public class UserController{
 	@Autowired
 	private UploadServiceimpl uploadService;
 	
+
+	/**
+	 * User 등록
+	 * @param userVO
+	 */
 	@PostMapping("/register")
 	@ResponseBody //TODO 테스트 해보고 없앨것!
 	@Transactional
@@ -47,7 +59,11 @@ public class UserController{
 
 
 
-	
+	/**
+	 * Profile 저장
+	 * @param file
+	 * @return ResponseEntity<String>
+	 */
 	@PostMapping("/saveprofile")
     @ResponseBody
     public ResponseEntity<?> saveprofile(@RequestParam("file") MultipartFile file) {
@@ -56,7 +72,11 @@ public class UserController{
     }
 
 
-	
+	/**
+	 * id 중복 체크
+	 * @param id
+	 * @return boolean
+	 */
 	@PostMapping("/checkid")
 	public @ResponseBody boolean checkid(@RequestParam("id") String id) {
 
@@ -64,6 +84,11 @@ public class UserController{
 		return checkStatus;
 	}
 
+	/**
+	 * name 중복 체크
+	 * @param nick
+	 * @return boolean
+	 */
 	@PostMapping("/checknick")
 	public @ResponseBody boolean checknick(@RequestParam("nick") String nick) {
 
@@ -74,7 +99,13 @@ public class UserController{
 
 
 
-
+	/**
+	 * 로그아웃
+	 * @param request
+	 * @param response
+	 * @return redirect /
+	 * @throws ClassCastException
+	 */
 	@RequestMapping(value = "/logout.do", method = RequestMethod.POST)
 	 public String logout(HttpServletRequest request, HttpServletResponse response) throws ClassCastException 
 	 {

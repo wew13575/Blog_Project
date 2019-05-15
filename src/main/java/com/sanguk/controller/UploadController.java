@@ -21,6 +21,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 
+
+/**
+ * /upload 매핑 컨트롤러 클래스입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
 @Controller
 @RequestMapping("/upload")
 public class UploadController {
@@ -35,6 +42,12 @@ public class UploadController {
     @Autowired
     String thumnailPath;
 
+
+    /**
+     * 이미지 업로드
+     * @param file
+     * @return ResponseEntity<String>
+     */
 	@PostMapping("/image.do")
     @ResponseBody
     public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
@@ -47,6 +60,11 @@ public class UploadController {
     }
 
 
+    /**
+     * 이미지 파일 반환
+     * @param fileName
+     * @return ResponseEntity<String>
+     */
     @GetMapping("/image/{fileName:.+}")
     @ResponseBody
     public ResponseEntity<?> serveFile(@PathVariable String fileName) {

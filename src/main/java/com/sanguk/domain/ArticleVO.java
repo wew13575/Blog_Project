@@ -7,7 +7,10 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * AuthVO
+ * Article 도메인 클래스입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
  */
 @Data
 public class ArticleVO implements Serializable {

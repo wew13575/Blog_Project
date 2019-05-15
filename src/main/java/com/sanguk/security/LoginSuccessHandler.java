@@ -14,6 +14,13 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 import lombok.extern.log4j.Log4j;
 
+/**
+ * Spring Security LoginSuccess 처리 클래스 입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
+ */
+
 @Log4j
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     

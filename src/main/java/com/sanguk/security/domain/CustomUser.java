@@ -10,9 +10,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 /**
- * CustomUser
+ * Spring Security CustomUser 도메인 클래스 입니다.
+ * 
+ * @author Sanguk
+ * @version 1.0.0
  */
-
 
 public class CustomUser extends User{
 
@@ -22,10 +24,22 @@ public class CustomUser extends User{
 
     private UserVO userVO;
 
+
+    /**
+     * 
+     * @param username
+     * @param password
+     * @param authorities
+     */
     public CustomUser(String username, String password, Collection<? extends GrantedAuthority> authorities){
         super(username, password, authorities);
     }
 
+
+    /**
+     * 
+     * @param vo
+     */
     public CustomUser(UserVO vo){
         super(vo.getUserid(),vo.getUserpw(),vo.getAuthList().stream().map(auth -> new SimpleGrantedAuthority(auth.getAuth())).collect(Collectors.toList()));
 
