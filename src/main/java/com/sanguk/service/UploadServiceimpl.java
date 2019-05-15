@@ -2,7 +2,6 @@ package com.sanguk.service;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import com.sanguk.util.MediaUtils;
 import com.sanguk.util.UploadFileUtils;

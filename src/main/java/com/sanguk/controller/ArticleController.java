@@ -236,6 +236,7 @@ public class ArticleController {
 		}
 
 		
+		log.info(responseList);
 		responseResult.put(0,"Result.OK");
 		responseResult.put(1,responseList);
 	//검색결과에 대한 페이징 처리는 클라이언트 렌더링.

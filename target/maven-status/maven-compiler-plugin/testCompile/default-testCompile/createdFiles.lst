@@ -1,0 +1,16 @@
+com\sanguk\controller\UserControllerTests.class
+com\sanguk\mapper\TagMapperTests.class
+com\sanguk\service\CommentServiceTests.class
+com\sanguk\configTest\DataSourceTests.class
+com\sanguk\controller\HomeControllerTests.class
+com\sanguk\controller\ArticleControllerTests.class
+com\sanguk\configTest\CommonTests.class
+com\sanguk\util\MediaUtilTests.class
+com\sanguk\mapper\ArticleMapperTests.class
+com\sanguk\util\UploadUtilTests.class
+com\sanguk\security\CustomUserDetailsServiceTests.class
+com\sanguk\mapper\UserMapperTests.class
+com\sanguk\security\PasswordEncoderTests.class
+com\sanguk\configTest\MapperTests.class
+com\sanguk\service\ArticleServiceTests.class
+com\sanguk\service\UserServiceTests.class

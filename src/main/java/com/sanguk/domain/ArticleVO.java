@@ -12,7 +12,8 @@ import lombok.Data;
 @Data
 public class ArticleVO implements Serializable {
 
-    private int id; //default generated sequence
+    private static final long serialVersionUID = -3132587059934975631L;
+    private int id; // default generated sequence
     private String author;
     private String title;
     private String content;

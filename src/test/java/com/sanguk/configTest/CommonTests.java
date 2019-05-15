@@ -1,7 +1,6 @@
 package com.sanguk.configTest;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -1,6 +1,5 @@
 package com.sanguk.controller;
 
-import com.sanguk.domain.UserVO;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
@@ -15,7 +14,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -80,7 +78,7 @@ public class ArticleControllerTests{
 
         
         long start=System.nanoTime();
-        mockMvc.perform(MockMvcRequestBuilders.get("/article/search?type=1&keyword=dq"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/article/search?type=1&keyword=wew"))
         .andDo(print());/* 
         Long temp=System.nanoTime()-start;
         log.info("time:::"+(temp)+"ms");

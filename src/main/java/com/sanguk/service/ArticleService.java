@@ -5,7 +5,6 @@ import java.util.List;
 import com.sanguk.domain.ArticleVO;
 import com.sanguk.domain.TagVO;
 
-import org.springframework.transaction.annotation.Transactional;
 
 public interface ArticleService{
     public void registerArticle(ArticleVO articleVO);

@@ -43,11 +43,11 @@
 	</logger> --><!-- 
 	<logger name="jdbc.resultset">
 		<level value="debug"/>
-	</logger> -->
+	</logger> --><!-- 
 
 	<logger name="jdbc.sqlonly">
 		<level value="debug"/>
-	</logger>
+	</logger> -->
 
 	<!-- <logger name="jdbc.connection">
 		<level value="debug"/>

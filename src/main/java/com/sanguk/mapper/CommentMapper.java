@@ -2,7 +2,6 @@ package com.sanguk.mapper;
 
 import java.util.List;
 
-import com.sanguk.domain.ArticleVO;
 import com.sanguk.domain.CommentVO;
 
 import org.apache.ibatis.annotations.Mapper;

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sanguk.mapper.UserMapper">
+	<resultMap type="com.sanguk.domain.UserVO" id="userMap">
+		<id property="userid" column="userid"/>
+		<result property="userpw" column="userpw"/>
+		<result property="userName" column="username"/>
+		<result property="enabled" column="enabled"/>
+		<result property="regDate" column="regdate"/>
+		<result property="updateDate" column="updatedate"/>
+		<result property="failcnt" column="failcnt"/>
+		<result property="profilePath" column="profilepath"/>
+		<result property="userinfo" column="userinfo"/>
+		<collection property="authList" resultMap="authMap">
+		</collection>
+		</resultMap>
+
+	<resultMap id="authMap" type="com.sanguk.domain.AuthVO">
+		<result property="userid" column="userid"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+
+
+	<select id="read" resultMap="userMap">
+		SELECT
+			user.userid, userpw, username,userinfo, profilepath, enabled, failcnt, regdate, updatedate, auth
+		FROM 
+			USERS user LEFT OUTER JOIN AUTHS auth on user.userid = auth.userid
+		WHERE user.userid = #{userid}
+	</select>
+
+	<select id="checkid" resultType="String" >
+		SELECT
+			userid
+		FROM 
+			USERS
+	</select>
+
+	<select id="checknick" resultType="String" >
+		SELECT
+			username
+		FROM 
+			USERS
+	</select>
+
+	<insert id="registerUsers">
+		INSERT INTO USERS
+		 	(userid, userpw, username, profilepath, userinfo )
+		values
+			(#{userid},#{userpw},#{userName},#{profilePath},#{userinfo})
+
+	</insert>
+
+	<insert id="registerAuths">
+		INSERT INTO AUTHS
+		 	(userid, auth)
+		values
+			(#{userid},#{auth})
+
+	</insert>
+
+	
+	<select id="getFailcnt" resultType="int">
+		SELECT
+			failcnt
+		FROM 
+			USERS
+		WHERE userid = #{userid}
+	</select>
+	
+	<update id="addFailcnt">
+		UPDATE USERS
+
+		SET failcnt = failcnt+1
+
+		WHERE userid = #{userid}
+	</update>
+
+	<update id="resetFailcnt">
+		UPDATE USERS
+
+		SET failcnt = 0
+
+		WHERE userid = #{userid}
+	</update>
+
+	<update id="setUserDisable">
+		UPDATE USERS
+
+		SET enabled = 0
+
+		WHERE userid = #{userid}
+	</update>
+
+	<select id="getUserByAuthor" resultType="com.sanguk.domain.UserVO">
+		SELECT username, profilepath
+
+		FROM USERS
+
+		WHERE userid = #{author}
+	</select>
+
+</mapper>

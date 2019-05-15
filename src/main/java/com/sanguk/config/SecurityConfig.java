@@ -60,10 +60,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     http
     .authorizeRequests()
-    .antMatchers("/article/**").authenticated()
-    .antMatchers("/article/list").permitAll()
-    .antMatchers("/article/post").permitAll()
-    .antMatchers("/article/search").permitAll()
+    .antMatchers("/article/write").authenticated()
+    .antMatchers("/article/modify").authenticated()
+    .antMatchers("/article/delete").authenticated()
     .antMatchers("/comment/**").authenticated()
       .anyRequest().permitAll() 
     .and()
@@ -75,7 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     .and()
     .exceptionHandling().accessDeniedPage("/")
     .and()
-    .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).ignoringAntMatchers("/search");  //ignoringAntMatchers("/**");
+    .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).ignoringAntMatchers("/search").ignoringAntMatchers("/article/search").ignoringAntMatchers("/article/list");  //ignoringAntMatchers("/**");
   }
 
   @Override

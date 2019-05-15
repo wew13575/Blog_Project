@@ -1,6 +1,5 @@
 package com.sanguk.domain;
 
-import java.util.List;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,6 +11,7 @@ import lombok.Data;
 @Data
 public class CommentVO implements Serializable{
 
+    private static final long serialVersionUID = -8300819204804179653L;
     private int articleid;
     private int id;
     private String author;

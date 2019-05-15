@@ -9,17 +9,13 @@ import javax.annotation.PostConstruct;
 import com.sanguk.domain.AuthVO;
 import com.sanguk.domain.UserVO;
 import com.sanguk.mapper.UserMapper;
-import com.sanguk.util.MediaUtils;
-import com.sanguk.util.UploadFileUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
-import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.log4j.Log4j;
 

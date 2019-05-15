@@ -3,7 +3,6 @@ package com.sanguk.util;
 import com.sanguk.domain.UserVO;
 import com.sanguk.mapper.UserMapper;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
