@@ -38,10 +38,11 @@ public class RootConfig {
   public DataSource dataSource() {
     HikariConfig hikariConfig = new HikariConfig();
     hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-    hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/springpj?allowPublicKeyRetrieval=true&serverTimezone=UTC&useSSL=false");
+    hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/blog?allowPublicKeyRetrieval=true&serverTimezone=UTC&useSSL=false");
 
-    hikariConfig.setUsername("root");
-    hikariConfig.setPassword("tfn12127");
+    hikariConfig.setUsername("sanguk");
+    hikariConfig.setPassword("dnTkddnr!1");
+    //blogsangukdnTkddnr!1
 
     //TODO: 서버환경에맞게변경
 
@@ -82,8 +83,8 @@ public class RootConfig {
 
   @Bean
   public String uploadPath() {
-    //return "/usr/local/image/";
-    return "C:/image/";
+    return "/usr/local/image/";
+    //return "C:/image/";
   }
 
   @Bean
@@ -93,8 +94,8 @@ public class RootConfig {
 
   @Bean
   public String thumnailPath() {
-    //return "/usr/local/thumnail/";
-    return "C:/thumnail/";
+    return "/usr/local/thumnail/";
+    //return "C:/thumnail/";
   }
 
   
