@@ -44,7 +44,7 @@ public class RootConfig {
     hikariConfig.setPassword("dnTkddnr!1");
     //blogsangukdnTkddnr!1
 
-    //TODO: 서버환경에맞게변경
+    //TODO: 서버환경에맞게변경!
 
     hikariConfig.setMinimumIdle(5);
     // test Query
