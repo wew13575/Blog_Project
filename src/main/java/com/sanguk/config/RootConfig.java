@@ -40,6 +40,8 @@ public class RootConfig {
     hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
     hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/blog?allowPublicKeyRetrieval=true&serverTimezone=UTC&useSSL=false");
 
+    //hikariConfig.setUsername("root");
+    //hikariConfig.setPassword("tfn12127");
     hikariConfig.setUsername("sanguk");
     hikariConfig.setPassword("dnTkddnr!1");
     //blogsangukdnTkddnr!1
@@ -82,14 +84,14 @@ public class RootConfig {
   }
 
   @Bean
-  public String uploadPath() {
+  public String imagePath() {
     return "/usr/local/image/";
     //return "C:/image/";
   }
 
   @Bean
-  public Path rootLocation(){
-    return Paths.get(uploadPath());
+  public Path imageLocation(){
+    return Paths.get(imagePath());
   }
 
   @Bean
@@ -98,11 +100,28 @@ public class RootConfig {
     //return "C:/thumnail/";
   }
 
-  
   @Bean
   public Path thumnailLocation(){
     return Paths.get(thumnailPath());
   }
+  
+  @Bean
+  public String profilePath() {
+    return "/usr/local/profile/";
+    //return "C:/profile/";
+  }
+
+  @Bean
+  public Path profileLocation() {
+    return Paths.get(profilePath());
+  }
+
+  @Bean
+  public int numOfBasicProfile(){
+    return 3;
+  }
+
+  
 
 
   @Bean
@@ -112,6 +131,8 @@ public class RootConfig {
     resolver.setMaxUploadSize(200000000);
     return resolver;
   }
+
+
 /* 
   @Bean
   public ExeTimeAspect timeAspect(){

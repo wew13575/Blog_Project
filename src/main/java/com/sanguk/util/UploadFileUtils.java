@@ -15,6 +15,8 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 public class UploadFileUtils {
+
+    
     /**
      * @param filePath
      * @param multipartFile
@@ -74,14 +76,13 @@ public class UploadFileUtils {
      * @throws IllegalStateException
      * @throws IOException
      */
-    public static String makeThumbnail(String filePath, String fileExt, String savePath, String saveName) throws IllegalStateException, IOException { // 저장된 원본파일로부터
+    public static String imageCrop(String filePath, String fileExt, String savePath, String saveName,int width, int height, String namePrefix) throws IllegalStateException, IOException { // 저장된 원본파일로부터
                                                                                                     // BufferedImage 객체를
                                                                                                     // 생성합니다.
         BufferedImage srcImg = ImageIO.read(new File(filePath));
-
         
         // 썸네일의 너비와 높이 입니다.
-        int dw = 320, dh = 240;
+        int dw = width, dh = height;
         // 원본 이미지의 너비와 높이 입니다.
         int ow = srcImg.getWidth();
         int oh = srcImg.getHeight();
@@ -99,11 +100,12 @@ public class UploadFileUtils {
         // crop된 이미지로 썸네일을 생성합니다.
         BufferedImage destImg = Scalr.resize(cropImg, dw, dh);
         // 썸네일을 저장합니다. 이미지 이름 앞에 "THUMB_" 를 붙여 표시했습니다.
-        String thumbName =  savePath + "THUMB_" + saveName;
+        String thumbName =  savePath +"/"+ namePrefix + saveName;
         File thumbFile = new File(thumbName);
         log.info(thumbName);
         ImageIO.write(destImg, fileExt.toUpperCase(), thumbFile);
-        return "THUMB_" + saveName;
+        return namePrefix + saveName;
     }
+
 
 }

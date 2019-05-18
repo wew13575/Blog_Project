@@ -52,6 +52,6 @@ public class ControllerAdvisor {
   @ExceptionHandler(IncorrectAuthorException.class)
   public String IncorrectAuthorhandle(Exception e) {
 
-     return "error/404";
+     return "error/403";
  }
 }

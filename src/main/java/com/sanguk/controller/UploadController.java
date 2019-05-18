@@ -1,6 +1,7 @@
 package com.sanguk.controller;
 
 import java.io.IOException;
+import java.nio.file.Path;
 
 import com.sanguk.service.UploadServiceimpl;
 import com.sanguk.util.MediaUtils;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.extern.log4j.Log4j;
+
 
 
 
@@ -30,6 +33,8 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Controller
 @RequestMapping("/upload")
+@Log4j
+
 public class UploadController {
 
 
@@ -37,10 +42,13 @@ public class UploadController {
     UploadServiceimpl uploadService;
 
     @Autowired
-    String uploadPath;
+    Path imageLocation;
 
     @Autowired
-    String thumnailPath;
+    Path thumnailLocation;
+
+    @Autowired
+    Path profileLocation;
 
 
     /**
@@ -69,6 +77,7 @@ public class UploadController {
     @ResponseBody
     public ResponseEntity<?> serveFile(@PathVariable String fileName) {
         try {
+            log.info(fileName+"왜로딩안돼?");
             HttpHeaders headers = new HttpHeaders();
             String extension = fileName.split("\\.")[1];
             
@@ -78,10 +87,13 @@ public class UploadController {
 
             
             if(fileName.startsWith("THUMB_")){
-                resource = uploadService.loadAsResource(fileName,thumnailPath);
+                resource = uploadService.loadAsResource(fileName,thumnailLocation);
+            }
+            else if(fileName.startsWith("PROFILE_")){
+                resource = uploadService.loadAsResource(fileName,profileLocation);
             }
             else{
-                resource = uploadService.loadAsResource(fileName,uploadPath);
+                resource = uploadService.loadAsResource(fileName,imageLocation);
             }
 
             return ResponseEntity.ok().headers(headers).body(resource);

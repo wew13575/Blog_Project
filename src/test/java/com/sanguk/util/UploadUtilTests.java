@@ -59,7 +59,7 @@ public class UploadUtilTests {
     public void makethumnailtest(){
         
 			try {
-				log.info(UploadFileUtils.makeThumbnail("c:/image/c4d6d1ed5e234b5c98ed50fa7bdded40.jpg","jpg", "c:/thumnail/","c4d6d1ed5e234b5c98ed50fa7bdded40.jpg"));
+				log.info(UploadFileUtils.imageCrop("c:/image/c4d6d1ed5e234b5c98ed50fa7bdded40.jpg","jpg", "c:/thumnail/","c4d6d1ed5e234b5c98ed50fa7bdded40.jpg",320,240,"THUMB_"));
 			} catch (Exception e) {
 				log.warn(e.getStackTrace());
 				//articleVO.setThumnailpath("basicthumnail.jpg");

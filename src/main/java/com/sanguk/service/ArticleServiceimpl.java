@@ -1,5 +1,6 @@
 package com.sanguk.service;
 
+import java.nio.file.Path;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,9 +29,9 @@ public class ArticleServiceimpl implements ArticleService {
 	@Autowired
 	TagMapper tagMapper;
 	@Autowired
-	String uploadPath;
+	Path imageLocation;
 	@Autowired
-	String thumnailPath;
+	Path thumnailLocation;
 
 
 
@@ -39,7 +40,7 @@ public class ArticleServiceimpl implements ArticleService {
 	@Override
 	public void registerArticle(ArticleVO articleVO) {
 
-		articleVO = ArticleUtils.getArticleThumnail(articleVO,uploadPath,thumnailPath);
+		articleVO = ArticleUtils.getArticleThumnail(articleVO,imageLocation.toString(),thumnailLocation.toString());
 		articleVO = ArticleUtils.initArticleTitle(articleVO);
 
 		articleMapper.registerArticle(articleVO);
@@ -102,7 +103,7 @@ public class ArticleServiceimpl implements ArticleService {
 	@Override
 	public void updateArticle(ArticleVO articleVO) {
 
-		articleVO = ArticleUtils.getArticleThumnail(articleVO,uploadPath,thumnailPath);
+		articleVO = ArticleUtils.getArticleThumnail(articleVO,imageLocation.toString(),thumnailLocation.toString());
 		articleVO = ArticleUtils.initArticleTitle(articleVO);
 
 		articleMapper.updateArticle(articleVO);

@@ -85,7 +85,7 @@ request.setCharacterEncoding("UTF-8");
 
 
       <div id="summernotecontainer">
-        <form action="/article/modify" class="boardSubmit" method="post" enctype="multipart/form-data"
+        <form action="/article/modify" class="boardSubmit" method="post" 
           style="padding:5px;">
           
           <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>

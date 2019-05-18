@@ -38,7 +38,6 @@ public class ArticleUtils {
 		if (articleVO.getContentimgcnt() != 0) {
 			Pattern p = Pattern.compile("src=\"/upload/image/[0-9a-zA-Z]+.(jpg|gif|png|bmp)\"");
 			Matcher m = p.matcher(articleVO.getContent());
-			String extractHashTag = null;
 
 			while (m.find()) {
 				thumnailContent = m.group().replace("src=\"/upload/image/", "").replace("\"", "");
@@ -46,8 +45,8 @@ public class ArticleUtils {
 			}
 			try {
 				String extension = thumnailContent.split("\\.")[1];
-				articleVO.setThumnailpath(UploadFileUtils.makeThumbnail(uploadPath + thumnailContent, extension,
-						thumnailPath, thumnailContent));
+				articleVO.setThumnailpath(UploadFileUtils.imageCrop(uploadPath+ "/" + thumnailContent, extension,
+						thumnailPath, thumnailContent,320,240,"THUMB_"));
 			} catch (IOException e) {
 				log.warn(e.getMessage());
 				articleVO.setThumnailpath("THUMB_basic.jpg");

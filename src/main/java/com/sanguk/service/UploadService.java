@@ -1,6 +1,7 @@
 package com.sanguk.service;
 
 import java.io.IOException;
+import java.nio.file.Path;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,7 +30,7 @@ public interface UploadService{
      * @return Resource
      * @throws IOException
      */
-    public Resource loadAsResource(String fileName,String loadPath) throws IOException;
+    public Resource loadAsResource(String fileName,Path loadPath) throws IOException;
     
     /**
      * profile 이미지를 저장하고 파일 명을 반환

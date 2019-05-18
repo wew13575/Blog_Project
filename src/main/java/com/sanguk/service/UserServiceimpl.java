@@ -1,7 +1,5 @@
 package com.sanguk.service;
 
-import java.io.IOException;
-import java.nio.file.Path;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -11,11 +9,8 @@ import com.sanguk.domain.UserVO;
 import com.sanguk.mapper.UserMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import lombok.extern.log4j.Log4j;
 
@@ -28,15 +23,6 @@ public class UserServiceimpl implements UserService {
 
 	@Autowired
 	private UserMapper userMapper;
-
-	@Autowired
-	private Path rootLocation;
-
-	@Autowired
-	private String uploadPath;
-
-	@Autowired
-	private DataSourceTransactionManager transactionManager;
 
 	List<String> userIdList;
 	List<String> userNickList;
@@ -60,16 +46,8 @@ public class UserServiceimpl implements UserService {
 		authVO.setUserid(userVO.getUserid());
 		authVO.setAuth("ROLE_ADMIN");
 
-		TransactionStatus txStatus = transactionManager.getTransaction(new DefaultTransactionDefinition());
-		try {
-			userMapper.registerUsers(userVO);
-			userMapper.registerAuths(authVO);
-		} catch (Exception e) {
-			transactionManager.rollback(txStatus);
-			log.info("###########rollback########");
-			log.warn(e.getMessage());
-		}
-		transactionManager.commit(txStatus);
+		userMapper.registerUsers(userVO);
+		userMapper.registerAuths(authVO);
 
 		userList();
 	}
