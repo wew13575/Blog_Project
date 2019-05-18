@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sanguk.mapper.CommentMapper">
+
+    <resultMap id="commentMap" type="com.sanguk.domain.CommentVO">
+        <result property="id" column="commentid" />
+        <result property="author" column="commentauthor" />
+        <result property="content" column="commentcontent" />
+        <result property="regDate" column="commentregdate" />
+        <association property="uservo" column="commentauthor" select="com.sanguk.mapper.UserMapper.getUserByAuthor"></association>
+    </resultMap>
+
+	<select id="getCommentList" resultMap ="commentMap">
+		SELECT 
+			commentid, commentauthor, commentcontent, commentregdate
+		FROM 
+			COMMENTS 
+		WHERE articleid = #{articleid}
+	</select>
+
+
+    <select id="getComment" resultMap ="commentMap">
+		SELECT 
+			commentid, commentauthor, commentcontent, commentregdate
+		FROM 
+			COMMENTS
+		WHERE commentid = #{commentid}
+	</select>
+
+    <insert id="registerComment"  useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO COMMENTS
+		 	(articleid, commentauthor, commentcontent)
+		values
+			(#{articleid} ,#{author},#{content})
+    </insert>
+
+    <delete id="deleteComment">
+        DELETE 
+        FROM COMMENTS
+        WHERE 
+            commentid = #{commentId}
+    </delete>
+
+		
+
+
+
+
+
+
+
+
+
+
+</mapper>
