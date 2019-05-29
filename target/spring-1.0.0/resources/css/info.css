@@ -1,0 +1,863 @@
+/* common */
+
+.animated.bounce {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.animated.tada {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+#fullpagebackground{
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background:url("../../resources/image/background.jpg") no-repeat center center;
+    background-size: auto 100%;
+    vertical-align: middle;
+    visibility: hidden;
+    
+}
+
+#preloadingback {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: white;
+    text-align: center;
+    background:url("../../resources/image/preloading.jpg") no-repeat center center;
+    background-size: auto 100%;
+    vertical-align: middle;
+}
+#preloadingback p{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    color: white;
+    width: 100%;
+    height: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 18px;
+    margin-top: auto;
+    margin-bottom: 150px;
+    
+}
+/* 
+#preloading {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 128px;
+    height: 128px;
+    margin: auto;
+} */
+#fullpage{
+    visibility: hidden;
+}
+.section{
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.459);
+
+}
+#first .fp-tableCell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+#second .fp-tableCell {
+    vertical-align: middle;
+}
+
+#third .fp-tableCell {
+    vertical-align: middle;
+}
+
+#fourth .fp-tableCell {
+    vertical-align: middle;
+}
+
+#fifth .fp-tableCell {
+    height: 100%;
+    position: fixed;
+    background:url("../../resources/image/noeul.jpg") no-repeat center center;
+    background-size: auto 100%;
+    vertical-align: middle;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#menu {
+    background: rgba(0, 0, 0, 0.342);
+    height: 35px;
+    width: 100%;
+    z-index: 5;
+    position: fixed;
+    visibility: hidden;
+}
+
+.menuitem {
+    float: right;
+    width: 75px;
+    height: 100%;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgb(218, 218, 218);
+}
+
+.menuitem:nth-child(5) {
+    width: 50px;
+}
+
+#menulogo {
+    width: 200px;
+    height: 100%;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: 600;
+    float: left;
+    color: rgb(255, 255, 255);
+}
+
+#menu .selected {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+}
+
+.contentbox {
+    background: rgba(255, 255, 255, 0.925);
+    box-shadow: 0 0 5px rgb(73, 73, 73);
+    width: 90%;
+    height: 84%;
+    margin: auto auto;
+    margin-top: 25px;
+    max-width: 500px;
+    min-height: 620px;
+    max-height: 720px;
+}
+
+.arrows {
+    width: 60px;
+    height: 72px;
+    display: block;
+    margin: 0 auto;
+    bottom: 20px;
+    margin-top: 10px;
+}
+
+.arrows path {
+    stroke: rgb(255, 255, 255);
+    fill: transparent;
+    stroke-width: 2px;
+    animation: arrow 2s infinite;
+    -webkit-animation: arrow 2s infinite;
+}
+
+@keyframes arrow {
+    0% {
+        opacity: 0
+    }
+    40% {
+        opacity: 1
+    }
+    80% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@-webkit-keyframes arrow
+/*Safari and Chrome*/
+
+    {
+    0% {
+        opacity: 0
+    }
+    40% {
+        opacity: 1
+    }
+    80% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+.arrows path.a1 {
+    animation-delay: -1s;
+    -webkit-animation-delay: -1s;
+    /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+    animation-delay: -0.5s;
+    -webkit-animation-delay: -0.5s;
+    /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {
+    animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+    /* Safari 和 Chrome */
+}
+
+/* common */
+
+/* 1section */
+
+#frameimg {
+    width: 100%;
+    display: none;
+}
+
+#instaframe {
+    margin: 0 auto;
+    background: white;
+    width: 350px;
+    height: 640px !important;
+    box-shadow: 0 0 3px gray;
+    margin-top: 10px;
+}
+
+#instaframe #boxtop {
+    background: white;
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+}
+
+#boxtop img {
+    background: black;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10 px;
+    float: left;
+}
+
+#instaframe span {
+    line-height: 50px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#instaframe #dotcontainer {
+    width: 50px;
+    height: 50px;
+    float: right;
+    padding-top: 15px;
+}
+
+#dotcontainer .dot {
+    width: 3px;
+    height: 3px;
+    margin: 3px auto;
+    border-radius: 50%;
+    background: rgb(133, 133, 133);
+}
+
+#instaframe #photo {
+    background: gray;
+    height: 440px;
+    width: 350px;
+    display: block;
+}
+
+#instaframe #boxbottom {
+    height: 150px;
+}
+
+#instaframe #boxbottom img {
+    width: 350px;
+}
+
+#instaframe #boxbottom p {
+    margin-top: 0px;
+    padding: 0px 12px;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+#story {
+    font-weight: 600;
+    font-size: 13px;
+    color: white;
+}
+
+/* 1section */
+
+/* 2section */
+
+#greeting {
+    max-width: 800px;
+    height: 190px;
+    margin: auto auto;
+    text-align: left;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: relative;
+}
+
+#welcomeheader {
+    line-height: 60px;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    vertical-align: bottom;
+}
+
+#welcomeheader2 {
+    margin: 0px;
+    font-weight: 100;
+    font-size: 60px;
+    line-height: 50px;
+    vertical-align: top;
+}
+
+#welcomecont {
+    font-size: 19px;
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+#iconbox {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    right: 50px;
+    top: 0px;
+    padding-top: 35px;
+}
+
+.iconset {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin: 5px;
+}
+
+.labelcontainer {
+    position: absolute;
+    width: 100%;
+    height: 15px;
+}
+
+.labelcontainer .line {
+    width: calc((50% - 50px) - 60px);
+    height: 1px;
+    background: rgb(255, 255, 255);
+    margin-top: 7px;
+    float: left;
+}
+
+.labelcontainer #linetext {
+    width: 120px;
+    font-size: 13px;
+    font-weight: 400;
+    float: left;
+    text-align: center;
+    line-height: 15px;
+}
+
+#bottomlabel {
+    top: 230px;
+}
+
+#secondarrows path {
+    stroke: rgb(230, 230, 230);
+}
+
+/* 2section */
+
+/* 3section */
+
+#myface {
+    width: 140px;
+    height: 185px;
+    background: rgb(231, 231, 231);
+    border: 1px solid rgb(121, 121, 121);
+    float: left;
+}
+
+.about {
+    width: calc(100% - 76px);
+    height: 205px;
+    padding: 25px 38px 10px 38px;
+}
+
+.about.expand {
+    width: calc(100% - 76px);
+    height: 565px;
+    padding: 25px 38px 10px 38px;
+    transition: 0.3s ease all;
+}
+
+#profilebox {
+    width: calc(100% - 160px);
+    height: 185px;
+    float: right;
+    padding-left: 10px;
+}
+
+#profilebox .entity {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    width: calc(100% - 60px);
+    height: 28px;
+    display: block;
+    line-height: 28px;
+    margin: 0;
+    word-break: break-all;
+    overflow: hidden;
+    margin-left: 30px;
+    text-align: left;
+    color: rgb(63, 63, 63);
+}
+
+#profilebox #title {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 0px;
+    background: rgb(63, 63, 63);
+    color: rgb(228, 228, 228);
+    width: calc(100% - 60px);
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.bottomline {
+    height: 1px;
+    margin-left: 50px;
+    width: calc(100% - 100px);
+    background: rgba(145, 145, 145, 0.384);
+}
+
+#introduceself {
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    margin-top: 20px;
+    display: none;
+}
+
+#introduceself p {
+    margin: 0px;
+    font-size: 12px;
+    vertical-align: top;
+    line-height: 18px;
+}
+
+#introduceself.expand {
+    display: block;
+}
+
+.contentbox .line {
+    width: calc(100% - 76px);
+    height: 1px;
+    background: rgba(145, 145, 145, 0.384);
+    margin: 2px 0px 2px 38px;
+    position: relative;
+    float: left;
+}
+
+#linecarot {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -10px;
+    left: calc(50% - 25px);
+    z-index: 3;
+}
+#linecarottag{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: calc(50% - 20px);
+    margin: 0px;
+    transform: rotate( -30deg );
+    z-index: 3;
+}
+#linecarottag:hover{
+    cursor: pointer;
+}
+
+#linecarot:hover {
+    cursor: pointer;
+}
+
+.skills {
+    width: 100%;
+    height: 60px;
+    float: left;
+    position: relative;
+    padding: 0px 20px 0px 20px;
+}
+
+.skills:last-child {
+    margin-bottom: 20px;
+}
+
+.skills.expand {
+    display: none;
+}
+
+.skills:nth-child(1) {
+    margin-top: 200px;
+}
+
+.skillsicon {
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    border-radius: 50%;
+    float: left;
+}
+
+.skillslabel {
+    height: 30px;
+    line-height: 40px;
+    width: 140px;
+    margin: 0px 0px 0px 5px;
+    float: left;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(63, 63, 63);
+}
+
+.skillsstars {
+    height: 20px;
+    width: calc(100% - 150px);
+    margin-left: 5px;
+    float: left;
+}
+
+.skillsstars .star {
+    width: 10%;
+    height: 100%;
+    float: left;
+    max-width: 24px;
+}
+
+.skillcarot {
+    position: absolute;
+    height: 55px;
+    width: 30px;
+    right: 70px;
+}
+
+.skillcarot:hover {
+    cursor: pointer;
+}
+
+.starlabel {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0px;
+    display: none;
+}
+
+.mystat {
+    height: 100px;
+    padding: 25px 38px 25px 38px;
+}
+
+#experience {
+    width: calc(100% - 76px);
+    height: 270px;
+    padding: 25px 38px 25px 38px;
+}
+
+#experience .profilebar {
+    width: 4px;
+    height: 270px;
+    background: rgb(63, 63, 63);
+    float: left;
+}
+
+.rightbox .profilebar {
+    width: 4px;
+    height: 100px;
+    background: rgb(63, 63, 63);
+    float: left;
+}
+
+.rightbox .titlebars {
+    float: left;
+    width: 200px;
+    height: 20px;
+    margin: 0px 0px 0px 15px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(63, 63, 63);
+}
+
+.rightbox .profilecontent {
+    float: left;
+    width: calc(100% - 33px);
+    height: 73px;
+    padding-left: 18px;
+    padding-top: 5px;
+}
+
+#profilewithgradu {
+    width: calc(100% - 90px);
+}
+
+.profilecontent p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px 0px 5px 0px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.about #graduscore {
+    float: left;
+    width: 67px;
+    height: 50px;
+    font-size: 13px;
+    color: rgb(63, 63, 63);
+}
+
+.about #graduscore b {
+    font-size: 21px;
+}
+
+.rightbox {
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+/* 3section */
+
+#fifth #textbox{
+    
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    color: white;
+    width: 100%;
+    height: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+#fifth #textbox p{
+    
+    color: white;
+    width: 100%;
+    height: 14px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    margin: 0;
+}
+
+#fifth #textbox p a{
+    
+    color: white;
+}
+
+
+/* 
+#fp-nav span {
+    background: #000 !important;
+}
+
+#fp-nav .fp-tooltip {
+    color: #000 !important;
+}
+
+#fp-nav.changcolor span {
+    background: #fff !important;
+}
+
+#fp-nav.changcolor .fp-tooltip {
+    color: white !important;
+} */
+
+/* medea */
+
+@media (max-width: 971px) {
+    #welcomeheader2, #welcomeheader {
+        font-size: 40px;
+        line-height: 40px;
+    }
+    #welcomecont {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .menuitem {
+        width: 25%;
+    }
+    .menuitem:nth-child(5) {
+        width: 25%;
+    }
+    #menulogo {
+        display: none;
+    }
+    #iconbox {
+        top: 0px;
+        padding-top: 0px;
+    }
+    #bottomlabel {
+        top: 155px;
+    }
+    .labelcontainer #linetext {
+        font-size: 10px;
+        width: 90px;
+    }
+    .labelcontainer .line {
+        width: calc((50% - 50px) - 45px);
+    }
+}
+
+@media (max-width: 650px) {
+    #iconbox {
+        display: none;
+    }
+    #greeting {
+        padding-right: 50px;
+    }
+}
+
+@media (max-width: 350px) {
+    .star {
+        display: none;
+    }
+    .starlabel {
+        display: block;
+        margin-left: 2px;
+    }
+    #profilebox {
+        display: none;
+    }
+    #myface {
+        margin-left: calc(50% - 70px);
+    }
+    .profilecontent p {
+        overflow: hidden;
+        word-break: break-all;
+    }
+}
+
+@media (max-width: 500px) {
+    .contentbox {
+        width: 100%;
+        min-height: 620px;
+        margin-top: 35px;
+        box-shadow: none;
+        overflow: hidden;
+    }
+    .contentbox::after {
+        clear: both;
+    }
+    .contentbox .line {
+        margin-bottom: 30px;
+    }
+    .rightbox {
+        margin-top: 0px;
+    }
+    #preloadingback p{
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 430px) {
+    #instaframe {
+        display: none;
+    }
+    #frameimg {
+        display: block;
+    }
+    .profilecontent p {
+        font-size: 11px;
+    }
+    .about #graduscore {
+        font-size: 11px;
+        width: 50px;
+    }
+    .about #graduscore b {
+        font-size: 15px;
+    }
+    #profilewithgradu {
+        width: calc(100% - 73px);
+    }
+    .mystat {
+        width: calc(100% - 46px);
+        padding: 25px 23px 25px 23px;
+    }
+    #experience{
+        width: calc(100% - 46px);
+        padding: 25px 23px 25px 23px;
+    }
+}
+
+@media (min-width: 1040px) {
+    .contentbox {
+        float: left;
+        margin: auto;
+    }
+    #thirdbox {
+        margin-left: calc(50% - 510px);
+    }
+    #fourthbox {
+        margin-left: calc(50% - 510px);
+    }
+    .rightbox {
+        margin-left: 20px;
+        margin-bottom: auto;
+    }
+    
+#preloadingback {
+    background-size: 100% auto;
+}
+#fullpagebackground{
+    background-size: 100% 100%;
+    
+}
+#fifth .fp-tableCell{
+    
+    background-size: 100% 100%;
+}
+
+#fifth #textbox p{
+    
+    font-size: 14px;
+}
+}
