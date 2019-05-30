@@ -32,13 +32,7 @@
   });
 
 
-  $.ajaxSetup({
-    beforeSend: function (xhr) {
-      if (header && token) {
-        xhr.setRequestHeader(header, token);
-      }
-    }
-  });
+  
 
 
 
