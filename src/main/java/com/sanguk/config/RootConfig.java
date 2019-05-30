@@ -2,12 +2,9 @@ package com.sanguk.config;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.sanguk.aop.ExeTimeAspect;
-import com.sanguk.mapper.UserMapper;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -19,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -38,12 +34,12 @@ public class RootConfig {
   public DataSource dataSource() {
     HikariConfig hikariConfig = new HikariConfig();
     hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-    hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/springpj?allowPublicKeyRetrieval=true&serverTimezone=UTC&useSSL=false");
+    hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/blog?allowPublicKeyRetrieval=true&serverTimezone=UTC&useSSL=false");
 
-    hikariConfig.setUsername("root");
-    hikariConfig.setPassword("tfn12127");
-    //hikariConfig.setUsername("sanguk");
-    //hikariConfig.setPassword("dnTkddnr!1");
+    //hikariConfig.setUsername("root");
+    //hikariConfig.setPassword("tfn12127");
+    hikariConfig.setUsername("sanguk");
+    hikariConfig.setPassword("dnTkddnr!1");
     //blogsangukdnTkddnr!1
 
     //TODO: 서버환경에맞게변경!
@@ -85,8 +81,8 @@ public class RootConfig {
 
   @Bean
   public String imagePath() {
-    //return "/usr/local/image/";
-    return "C:/image/";
+    return "/usr/local/image/";
+    //return "C:/image/";
   }
 
   @Bean
@@ -96,8 +92,8 @@ public class RootConfig {
 
   @Bean
   public String thumnailPath() {
-    //return "/usr/local/thumnail/";
-    return "C:/thumnail/";
+    return "/usr/local/thumnail/";
+    //return "C:/thumnail/";
   }
 
   @Bean
@@ -107,8 +103,8 @@ public class RootConfig {
   
   @Bean
   public String profilePath() {
-    //return "/usr/local/profile/";
-    return "C:/profile/"; 
+    return "/usr/local/profile/";
+    //return "C:/profile/"; 
   }
 
   @Bean

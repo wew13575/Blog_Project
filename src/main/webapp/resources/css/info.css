@@ -1,5 +1,8 @@
 /* common */
-
+body{
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
 .animated.bounce {
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
@@ -14,7 +17,7 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background:url("../../resources/image/background.jpg") no-repeat center center;
+    background:url("/resources/image/background.jpg") no-repeat center center;
     background-size: auto 100%;
     vertical-align: middle;
     visibility: hidden;
@@ -28,7 +31,7 @@
     z-index: 999;
     background: white;
     text-align: center;
-    background:url("../../resources/image/preloading.jpg") no-repeat center center;
+    background:url("/resources/image/preloading.jpg") no-repeat center center;
     background-size: auto 100%;
     vertical-align: middle;
 }
@@ -85,7 +88,7 @@
 #fifth .fp-tableCell {
     height: 100%;
     position: fixed;
-    background:url("../../resources/image/noeul.jpg") no-repeat center center;
+    background:url("/resources/image/noeul.jpg") no-repeat center center;
     background-size: auto 100%;
     vertical-align: middle;
     text-align: center;
@@ -659,7 +662,126 @@
 }
 
 /* 3section */
+/* 4section */
+#fourthbox #monitor{
+    width: calc(100% - 30px);
+    padding: 15px;
 
+}
+#explainbox{
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    padding: 15px;
+    text-align: center;
+}
+#explainbox p {
+    margin: 0px;
+}
+#explainbox p:first-child {
+    width: 100%;
+    color: rgb(228, 228, 228);
+    background: rgb(63, 63, 63);
+    font-size: 23px;
+    margin: 0px;
+    box-shadow: 1px 1px 0px gray;
+    margin-bottom: 20px;
+}
+#fourthbox{
+    overflow: auto;
+}
+#explainbox .devboxs{
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 3px gray;
+    position: relative;
+    margin-bottom: 20px;
+}
+#explainbox .devboxs:nth-child(2){
+    height: 45px;
+    vertical-align: middle;
+}
+#explainbox .devboxs:nth-child(2) p{
+    height: 45px;
+    line-height: 45px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+#explainbox .devboxs:nth-child(3){
+    height: 45px;
+    vertical-align: middle;
+}
+#explainbox .devboxs:nth-child(3) p{
+    height: 45px;
+    line-height: 45px;
+    font-size: 11px;
+    font-weight: 600;
+}
+#explainbox .devboxs:nth-child(4), #explainbox .devboxs:nth-child(5){
+    height: 100px;
+    vertical-align: middle;
+}
+#explainbox .devboxs p{
+    height: 25px;
+    line-height: 25px;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgb(68, 68, 68);
+}
+
+#explainbox .devboxs:nth-child(6){
+    height: 85px;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+#explainbox .devboxs:nth-child(6) p a, #explainbox .devboxs:nth-child(7) p a{
+    color: rgb(88, 88, 88);
+}
+#explainbox .devboxs:nth-child(7){
+    height: 60px;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+
+#explainbox .devboxs .label{
+    position: absolute;
+    width: 60px;
+    height: 25px;
+    color: rgb(228, 228, 228);
+    background: rgb(63, 63, 63);
+    top: -10px;
+    left: 10px;
+    box-shadow: 0 0 3px gray;
+    line-height: 25px;
+    font-size: 11px;
+}
+
+
+
+
+/* 4section */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 5section */
 #fifth #textbox{
     
     position: absolute;
@@ -694,6 +816,7 @@
 }
 
 
+/* 5section */
 /* 
 #fp-nav span {
     background: #000 !important;
@@ -774,6 +897,9 @@
         overflow: hidden;
         word-break: break-all;
     }
+    #explainbox .devboxs p{
+        font-size: 10px !important;
+    }
 }
 
 @media (max-width: 500px) {
@@ -826,6 +952,14 @@
         width: calc(100% - 46px);
         padding: 25px 23px 25px 23px;
     }
+    #fourthbox{
+        height: auto;
+        min-height: 0px;
+    }
+    
+#explainbox p:first-child {
+    font-size: 17px;
+}
 }
 
 @media (min-width: 1040px) {

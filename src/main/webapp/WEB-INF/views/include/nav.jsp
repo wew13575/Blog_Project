@@ -106,10 +106,17 @@
   <div class="sidebarnav">
     <div class="sidebaritem" onclick="location.href = '/'"><i class="fas fa-user-alt"></i>&nbsp; &nbsp; HOME</div>
     <div class="sidebaritem" style="margin-left:36px;" onclick="location.href = '/blog'"><i class="far fa-newspaper"></i>&nbsp; &nbsp; ALL POSTS</div>
-    <div class="sidebaritem" style="margin-left:36px;" onclick="location.href = '/info'"><i class="fas fa-user-tie"></i>&nbsp; &nbsp; &nbsp;ABOUT ME</div>
+    <div class="sidebaritem" style="margin-left:36px;" onclick="location.href = '/info.html'"><i class="fas fa-user-tie"></i>&nbsp; &nbsp; &nbsp;ABOUT ME</div>
     <div class="sidebaritem" style="margin-left:36px;" onclick="location.href = '/board'"><i class="fas fa-comments"></i>&nbsp; &nbsp; QUESTION</div>
   </div>
 
+
+  </div>
+  <div id="sidebarfooter">
+    <img src="/resources/image/facebook.png" width="40px" height="40px" style="margin-bottom: 20px;" onclick="location.href = 'https://www.facebook.com/profile.php?id=100003685953647'">
+    <p>우상욱</p>
+    <p>(+82)10-3901-6316</p>  
+    <p>wew13575@naver.com</p>
   </div>
 
 </nav>
