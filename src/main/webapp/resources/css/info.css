@@ -420,39 +420,59 @@ body{
 }
 
 #profilebox {
-    width: calc(100% - 160px);
-    height: 185px;
+    width: calc(100% - 180px);
+    height: 178px;
     float: right;
-    padding-left: 10px;
+    padding-left: 30px;
+    margin-top: 7px;
+    color: rgb(83, 83, 83);
+
 }
 
 #profilebox .entity {
-    font-size: 14px;
+    font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    width: calc(100% - 60px);
-    height: 28px;
-    display: block;
-    line-height: 28px;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
     margin: 0;
     word-break: break-all;
-    overflow: hidden;
-    margin-left: 30px;
     text-align: left;
+    float:left;
+}
+#profilebox .icons {
+    font-size: 16px;
+    font-weight: 600;
+    width: 26px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+    text-align: center;
     color: rgb(63, 63, 63);
+    float:left;
 }
 
 #profilebox #title {
     font-family: Arial, Helvetica, sans-serif;
-    padding-left: 0px;
-    background: rgb(63, 63, 63);
-    color: rgb(228, 228, 228);
+    color: rgb(88, 88, 88);
     width: calc(100% - 60px);
-    height: 25px;
-    line-height: 25px;
-    text-align: center;
-    margin-left: 30px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    height: 32px;
+    width: 200px;
+    line-height: 32px;
+    text-align: left;
+    margin: 0px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+
+}
+#profilebox #title b{
+    color: rgb(122, 122, 122);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 32px;
+
 }
 
 .bottomline {
@@ -471,10 +491,15 @@ body{
 }
 
 #introduceself p {
+    color:rgb(51, 51, 51);
     margin: 0px;
-    font-size: 12px;
+    font-size: 13px;
     vertical-align: top;
     line-height: 18px;
+}
+#introduceself p b{
+    font-weight: 700;
+    font-size: 14px;
 }
 
 #introduceself.expand {
@@ -590,25 +615,25 @@ body{
 
 .mystat {
     height: 100px;
-    padding: 25px 38px 25px 38px;
+    padding: 10px 38px 10px 38px;
 }
 
 #experience {
     width: calc(100% - 76px);
-    height: 270px;
-    padding: 25px 38px 25px 38px;
+    height: 90px;
+    padding: 15px 38px 15px 38px;
 }
 
 #experience .profilebar {
     width: 4px;
-    height: 270px;
+    height: 90px;
     background: rgb(63, 63, 63);
     float: left;
 }
 
 .rightbox .profilebar {
     width: 4px;
-    height: 100px;
+    height: 85px;
     background: rgb(63, 63, 63);
     float: left;
 }
@@ -736,11 +761,6 @@ body{
 }
 #explainbox .devboxs:nth-child(6) p a, #explainbox .devboxs:nth-child(7) p a{
     color: rgb(88, 88, 88);
-}
-#explainbox .devboxs:nth-child(7){
-    height: 60px;
-    vertical-align: middle;
-    padding-top: 10px;
 }
 
 #explainbox .devboxs .label{
