@@ -153,7 +153,7 @@
                         <!-- 
                             <div class="bottomline"></div> -->
                         <div class="entity">
-                            <i class="fas fa-mobile icons" ></i>010-3901-6316
+                            <i class="fas fa-mobile icons"></i>010-3901-6316
                         </div>
                         <!-- 
                             <div class="bottomline"></div> -->
@@ -176,7 +176,8 @@
 
 
                     <div id="introduceself">
-                        <p style="margin-bottom: 10px; color:rgb(78, 78, 78);"><b style="font-size: 23px;line-height: 23px;">목표</b>
+                        <p style="margin-bottom: 10px; color:rgb(78, 78, 78);"><b
+                                style="font-size: 23px;line-height: 23px;">목표</b>
                         </p>
                         <p style="margin-bottom: 8px;"><b>웹 개발자로써 어떤 업무를 맡더라도 팀에 도움이 되는 존재가 되고싶습니다.</b></p>
                         <p style="margin-bottom: 8px;">기존의 요소들을 완벽하게 다루면서 트렌드의 변화 속도에 늦춰지지 않는 풀스택 개발자가 되는 것이 저의 목표입니다.
@@ -184,15 +185,15 @@
 
 
 
-                        <p style="margin-top:20px; margin-bottom: 10px; color:rgb(78, 78, 78);"><b
-                                style="font-size: 23px;
+                        <p style="margin-top:20px; margin-bottom: 10px; color:rgb(78, 78, 78);"><b style="font-size: 23px;
                                 line-height: 23px;">기술</b></p>
-                        <p style="margin-bottom: 8px;"><b>저는 Spring Legacy프로젝트로 원하는 형태의 웹을 구축 할 수 있습니다.</b> </p>
-                        <p style="margin-bottom: 16px;">Spring Framework가 어떻게 동작하는 지 잘 이해하고 있으므로 새로운 프로젝트를 설계 할 수 있으며, 이미 완성 된 설계도 또한 쉽게 이해 하여 구현 할 수 있습니다.</p>
+                        <p style="margin-bottom: 8px;"><b>저는 Spring Legacy프로젝트로 원하는 형태의 서버를 구축 할 수 있습니다.</b> </p>
+                        <p style="margin-bottom: 16px;">Spring Framework가 어떻게 동작하는 지 잘 이해하고 있으므로 새로운 프로젝트를 설계 할 수 있으며,
+                            이미 완성 된 어플리케이션 또한 빠르게 이해하여 현업에 적응 할 수 있습니다.</p>
                         <p style="margin-bottom: 8px;"><b>저는 html5, css, javascript를 사용해 기본적인 반응형 프론트엔드를 구현 할 수
                                 있습니다.</b> </p>
-                        <p style="margin-bottom: 25px;">디자이너나 고객의 디자인 가이드를 잘 이해할 수 있으며 코드로 쉽게 구현 할 수 있습니다.</p>
-                    
+                        <p style="margin-bottom: 18px;">디자이너나 고객의 디자인 가이드를 잘 이해할 수 있으며 코드로 쉽게 구현 할 수 있습니다.</p>
+
 
                     </div>
 
@@ -375,7 +376,7 @@
 
             <div id="textbox">
 
-                <p>제 포트폴리오 사이트를 봐주셔서 감사합니다!</p>
+                <p>여기까지 페이지를 넘겨주셔서 감사합니다</p>
                 <p></p>
                 <p>우 상 욱</p>
                 <p>(+82)10-3901-6316</p>
@@ -525,17 +526,20 @@
                                 if (i == 5) {
 
                                     statinit = 1;
-                                    
-            $(".skills").addClass("expand");
-            $("#expandable").addClass("expand");
-            $("#introduceself").addClass("expand");
-            expandes = 1;
+
                                 }
                                 if (6 > ++i) {
                                     looper(i);
                                 }
                             }, 270)
                         })(0);
+
+                        setTimeout(function () {
+                            $(".skills").addClass("expand");
+                            $("#expandable").addClass("expand");
+                            $("#introduceself").addClass("expand");
+                            expandes = 1;
+                        }, 500);
                         break;
                     case 3:
                         $(".menuitem:nth-child(3)").addClass("selected");
