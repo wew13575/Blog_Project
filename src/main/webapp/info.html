@@ -526,6 +526,12 @@
                                 if (i == 5) {
 
                                     statinit = 1;
+                        setTimeout(function () {
+                            $(".skills").addClass("expand");
+                            $("#expandable").addClass("expand");
+                            $("#introduceself").addClass("expand");
+                            expandes = 1;
+                        }, 500);
 
                                 }
                                 if (6 > ++i) {
@@ -534,12 +540,6 @@
                             }, 270)
                         })(0);
 
-                        setTimeout(function () {
-                            $(".skills").addClass("expand");
-                            $("#expandable").addClass("expand");
-                            $("#introduceself").addClass("expand");
-                            expandes = 1;
-                        }, 500);
                         break;
                     case 3:
                         $(".menuitem:nth-child(3)").addClass("selected");
