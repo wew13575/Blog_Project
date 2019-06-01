@@ -721,7 +721,6 @@ body{
 #fourth .rightbox .introbox{
     display: block;
     width: calc(100% - 76px);
-    height: 565px;
     padding: 25px 38px 10px 38px;
 }
 
