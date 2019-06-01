@@ -1,7 +1,7 @@
 /* common */
 body{
     
-    font-family: Arial, Helvetica, sans-serif;
+     font-family: Arial, Helvetica, sans-serif;
 }
 .animated.bounce {
     -webkit-animation-iteration-count: infinite;
@@ -300,6 +300,7 @@ body{
     font-size: 10px;
     font-weight: 600;
     line-height: 16px;
+    text-align: left;
 }
 
 #story {
@@ -480,39 +481,41 @@ body{
     background: rgba(145, 145, 145, 0.384);
 }
 
-#introduceself {
+.introbox {
     width: 100%;
     overflow: hidden;
     float: left;
     display: none;
 }
-#introduceself .content{
+.introbox .content{
     width: 100%;
     float: left;
     margin-top: 25px;
 }
-#introduceself p {
-    color:rgb(51, 51, 51);
+.introbox p {
+    color:rgb(49, 49, 49);
     margin: 0px;
-    font-size: 13px;
+    font-size: 14px;
     vertical-align: top;
     line-height: 18px;
-    font-weight: 600;
+    width: calc(100% - 175px);
+    float:left;
+    
+    font-family: 'Do Hyeon', sans-serif;
 }
-#introduceself .title{
+.introbox .title{
     width: 140px;
-    height: 110px;
-    float: left;
 
     margin-bottom: 10px;
     margin-right: 35px;
-     color:rgb(109, 109, 109);
+     color:rgb(70, 70, 70);
      font-size: 20px;
      line-height: 20px;
      text-align: right;
+     font-weight: 700;
 }
 
-#introduceself.expand {
+.introbox.expand {
     display: block;
 }
 
@@ -700,90 +703,39 @@ body{
 /* 4section */
 #fourthbox #monitor{
     width: calc(100% - 30px);
-    padding: 15px;
+    padding: 0px 15px 15px 15px;
 
 }
-#explainbox{
-    width: calc(100% - 30px);
-    height: calc(100% - 30px);
-    padding: 15px 15px 0px 15px;
+#fourthbox p{
+    
+    color:rgb(70, 70, 70);
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 700;
+    font-family: 'Do Hyeon', sans-serif;
     text-align: center;
+    margin: 15px 0px 10px 0px;
+    width: calc(100% - 30px);
+
 }
-#explainbox p {
-    margin: 0px;
-}
-#explainbox p:first-child {
-    width: 100%;
-    color: rgb(228, 228, 228);
-    background: rgb(63, 63, 63);
-    font-size: 23px;
-    margin: 0px;
-    box-shadow: 1px 1px 0px gray;
-    margin-bottom: 20px;
-}
-#fourthbox{
-    overflow: auto;
-}
-#explainbox .devboxs{
-    width: 100%;
-    background: white;
-    box-shadow: 0 0 3px gray;
-    position: relative;
-    margin-bottom: 20px;
-}
-#explainbox .devboxs:nth-child(2){
-    height: 45px;
-    vertical-align: middle;
-}
-#explainbox .devboxs:nth-child(2) p{
-    height: 45px;
-    line-height: 45px;
-    font-size: 11px;
-    font-weight: 600;
+#fourth .rightbox .introbox{
+    display: block;
+    width: calc(100% - 76px);
+    height: 565px;
+    padding: 25px 38px 10px 38px;
 }
 
-#explainbox .devboxs:nth-child(3){
-    height: 45px;
-    vertical-align: middle;
-}
-#explainbox .devboxs:nth-child(3) p{
-    height: 45px;
-    line-height: 45px;
-    font-size: 11px;
-    font-weight: 600;
-}
-#explainbox .devboxs:nth-child(4), #explainbox .devboxs:nth-child(5){
-    height: 100px;
-    vertical-align: middle;
-}
-#explainbox .devboxs p{
-    height: 25px;
-    line-height: 25px;
-    font-size: 11px;
-    font-weight: 600;
-    color: rgb(68, 68, 68);
-}
+#fourth .rightbox .introbox p{
 
-#explainbox .devboxs:nth-child(6){
-    height: 85px;
-    vertical-align: middle;
-    padding-top: 10px;
+    width: calc(100% - 125px);
 }
-#explainbox .devboxs:nth-child(6) p a, #explainbox .devboxs:nth-child(7) p a{
-    color: rgb(88, 88, 88);
-}
+#fourth .rightbox .introbox .title{
+    width: 90px;
 
-#explainbox .devboxs .label{
-    position: absolute;
-    width: 60px;
-    height: 25px;
-    color: rgb(228, 228, 228);
-    background: rgb(63, 63, 63);
-    top: -10px;
-    left: 10px;
-    box-shadow: 0 0 3px gray;
-    line-height: 25px;
-    font-size: 11px;
+}
+#fourth .rightbox .introbox .content{
+
+    margin-top: 15px;
 }
 
 
@@ -866,6 +818,42 @@ body{
 
 /* medea */
 
+
+@media (min-width: 1040px) {
+    .contentbox {
+        float: left;
+        margin: auto;
+    }
+    #thirdbox {
+        margin-left: calc(50% - 510px);
+    }
+    #fourthbox {
+        margin-left: calc(50% - 510px);
+    }
+    .rightbox {
+        margin-left: 20px;
+        margin-bottom: auto;
+    }
+    
+#preloadingback {
+    background-size: 100% auto;
+}
+#fullpagebackground{
+    background-size: 100% 100%;
+    
+}
+#fifth .fp-tableCell{
+    
+    background-size: 100% 100%;
+}
+
+#fifth #textbox p{
+    
+    font-size: 14px;
+}
+}
+
+
 @media (max-width: 971px) {
     #welcomeheader2, #welcomeheader {
         font-size: 40px;
@@ -909,32 +897,6 @@ body{
     }
 }
 
-@media (max-width: 350px) {
-    .star {
-        display: none;
-    }
-    .starlabel {
-        display: block;
-        margin-left: 2px;
-    }/* 
-    #profilebox {
-        display: none;
-    }
-    #myface {
-        margin-left: calc(50% - 70px);
-    } */
-    .profilecontent p {
-        overflow: hidden;
-        word-break: break-all;
-    }
-    #explainbox .devboxs p{
-        font-size: 10px !important;
-    }
-    #thirdbox .about{
-        padding: 25px 10px 10px 10px;
-        width: calc(100% - 20px);
-    }
-}
 
 @media (max-width: 500px) {
     .contentbox {
@@ -963,10 +925,8 @@ body{
         
         padding-left: 0px;
     }
-    #introduceself .title{
-        height: 175px;
-    }
 }
+
 
 @media (max-width: 430px) {
     #instaframe {
@@ -1009,10 +969,11 @@ body{
     #profilebox .entity{
         font-size: 11px;
     }
-    #introduceself p{
-        font-size: 11px;
+    .introbox p{
+        font-size: 13px;
+        width: auto;
     }
-    #introduceself .title{
+    .introbox .title{
         width: 100%;
         font-size: 14px;
         height: 20px;
@@ -1024,6 +985,17 @@ body{
     #myface {
         margin-left: calc(50% - 160px);
     }
+    #fourth .rightbox .introbox p{
+     float: none;
+     width: auto;
+    }
+    
+#fourth .rightbox .introbox .title{
+    width: auto;
+    
+    height: auto !important;
+
+}
 
     
 #explainbox p:first-child {
@@ -1031,36 +1003,49 @@ body{
 }
 }
 
-@media (min-width: 1040px) {
-    .contentbox {
-        float: left;
-        margin: auto;
-    }
-    #thirdbox {
-        margin-left: calc(50% - 510px);
-    }
-    #fourthbox {
-        margin-left: calc(50% - 510px);
-    }
-    .rightbox {
-        margin-left: 20px;
-        margin-bottom: auto;
-    }
-    
-#preloadingback {
-    background-size: 100% auto;
-}
-#fullpagebackground{
-    background-size: 100% 100%;
-    
-}
-#fifth .fp-tableCell{
-    
-    background-size: 100% 100%;
-}
 
-#fifth #textbox p{
-    
-    font-size: 14px;
-}
+@media (max-width: 350px) {
+    .star {
+        display: none;
+    }
+    .starlabel {
+        display: block;
+        margin-left: 2px;
+    }/* 
+    #profilebox {
+        display: none;
+    }
+    #myface {
+        margin-left: calc(50% - 70px);
+    } */
+    .profilecontent p {
+        overflow: hidden;
+        word-break: break-all;
+    }
+    #explainbox .devboxs p{
+        font-size: 10px !important;
+    }
+    #thirdbox .about{
+        padding: 25px 10px 10px 10px;
+        width: calc(100% - 20px);
+    }
+    #fourth .rightbox .introbox{
+        padding: 25px 10px 10px 10px;
+        width: calc(100% - 20px);
+    }
+    #profilebox #title {
+        font-size: 21px;
+    }
+    #profilebox #title b{
+        font-size: 9px;
+    }
+    #profilebox{
+        padding-left: 10px;
+    }
+    #myface {
+        margin-left: calc(50% - 140px);
+    }
+    #profilebox .entity{
+        font-size: 10px;
+    }
 }
