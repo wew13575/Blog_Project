@@ -28,17 +28,18 @@
     token = $("meta[name='_csrf']").attr("content");
     header = $("meta[name='_csrf_header']").attr("content");
     console.log(token + header);
-    $('.overlay').hide();
-  });
-
-
-  $.ajaxSetup({
+    $.ajaxSetup({
     beforeSend: function (xhr) {
       if (header && token) {
         xhr.setRequestHeader(header, token);
       }
     }
   });
+    $('.overlay').hide();
+  });
+
+
+
 
 
 
