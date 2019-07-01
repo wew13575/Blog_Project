@@ -1,5 +1,8 @@
 /* common */
-
+body{
+    
+     font-family: Arial, Helvetica, sans-serif;
+}
 .animated.bounce {
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
@@ -14,7 +17,7 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background:url("../../resources/image/background.jpg") no-repeat center center;
+    background:url("/resources/image/background.jpg") no-repeat center center;
     background-size: auto 100%;
     vertical-align: middle;
     visibility: hidden;
@@ -28,7 +31,7 @@
     z-index: 999;
     background: white;
     text-align: center;
-    background:url("../../resources/image/preloading.jpg") no-repeat center center;
+    background:url("/resources/image/preloading.jpg") no-repeat center center;
     background-size: auto 100%;
     vertical-align: middle;
 }
@@ -85,7 +88,7 @@
 #fifth .fp-tableCell {
     height: 100%;
     position: fixed;
-    background:url("../../resources/image/noeul.jpg") no-repeat center center;
+    background:url("/resources/image/noeul.jpg") no-repeat center center;
     background-size: auto 100%;
     vertical-align: middle;
     text-align: center;
@@ -297,6 +300,7 @@
     font-size: 10px;
     font-weight: 600;
     line-height: 16px;
+    text-align: left;
 }
 
 #story {
@@ -417,39 +421,57 @@
 }
 
 #profilebox {
-    width: calc(100% - 160px);
-    height: 185px;
-    float: right;
-    padding-left: 10px;
+    width: calc(100% - 188px);
+    height: 178px;
+    float: left;
+    padding-left: 30px;
+    margin-top: 7px;
+    color: rgb(83, 83, 83);
+
 }
 
 #profilebox .entity {
-    font-size: 14px;
+    font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    width: calc(100% - 60px);
-    height: 28px;
-    display: block;
-    line-height: 28px;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
     margin: 0;
     word-break: break-all;
-    overflow: hidden;
-    margin-left: 30px;
     text-align: left;
+    float:left;
+}
+#profilebox .icons {
+    font-size: 16px;
+    font-weight: 600;
+    width: 26px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
     color: rgb(63, 63, 63);
+    float:left;
 }
 
 #profilebox #title {
     font-family: Arial, Helvetica, sans-serif;
-    padding-left: 0px;
-    background: rgb(63, 63, 63);
-    color: rgb(228, 228, 228);
+    color: rgb(88, 88, 88);
     width: calc(100% - 60px);
-    height: 25px;
-    line-height: 25px;
-    text-align: center;
-    margin-left: 30px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    height: 32px;
+    width: 200px;
+    line-height: 32px;
+    text-align: left;
+    margin: 0px;
+    margin-bottom: 25px;
+
+}
+#profilebox #title b{
+    color: rgb(122, 122, 122);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 32px;
+
 }
 
 .bottomline {
@@ -459,22 +481,41 @@
     background: rgba(145, 145, 145, 0.384);
 }
 
-#introduceself {
+.introbox {
     width: 100%;
     overflow: hidden;
     float: left;
-    margin-top: 20px;
     display: none;
 }
-
-#introduceself p {
+.introbox .content{
+    width: 100%;
+    float: left;
+    margin-top: 25px;
+}
+.introbox p {
+    color:rgb(49, 49, 49);
     margin: 0px;
-    font-size: 12px;
+    font-size: 14px;
     vertical-align: top;
     line-height: 18px;
+    width: calc(100% - 175px);
+    float:left;
+    
+    font-family: 'Do Hyeon', sans-serif;
+}
+.introbox .title{
+    width: 140px;
+
+    margin-bottom: 10px;
+    margin-right: 35px;
+     color:rgb(70, 70, 70);
+     font-size: 20px;
+     line-height: 20px;
+     text-align: right;
+     font-weight: 700;
 }
 
-#introduceself.expand {
+.introbox.expand {
     display: block;
 }
 
@@ -587,25 +628,25 @@
 
 .mystat {
     height: 100px;
-    padding: 25px 38px 25px 38px;
+    padding: 10px 38px 10px 38px;
 }
 
 #experience {
     width: calc(100% - 76px);
-    height: 270px;
-    padding: 25px 38px 25px 38px;
+    height: 90px;
+    padding: 15px 38px 15px 38px;
 }
 
 #experience .profilebar {
     width: 4px;
-    height: 270px;
+    height: 90px;
     background: rgb(63, 63, 63);
     float: left;
 }
 
 .rightbox .profilebar {
     width: 4px;
-    height: 100px;
+    height: 85px;
     background: rgb(63, 63, 63);
     float: left;
 }
@@ -659,7 +700,69 @@
 }
 
 /* 3section */
+/* 4section */
+#fourthbox #monitor{
+    width: calc(100% - 30px);
+    padding: 0px 15px 15px 15px;
 
+}
+#fourthbox p{
+    
+    color:rgb(70, 70, 70);
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 700;
+    font-family: 'Do Hyeon', sans-serif;
+    text-align: center;
+    margin: 15px 0px 10px 0px;
+    width: calc(100% - 30px);
+
+}
+#fourth .rightbox .introbox{
+    display: block;
+    width: calc(100% - 76px);
+    padding: 25px 38px 10px 38px;
+}
+
+#fourth .rightbox .introbox p{
+
+    width: calc(100% - 125px);
+}
+#fourth .rightbox .introbox .title{
+    width: 90px;
+
+}
+#fourth .rightbox .introbox .content{
+
+    margin-top: 15px;
+}
+
+
+
+
+/* 4section */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 5section */
 #fifth #textbox{
     
     position: absolute;
@@ -694,6 +797,7 @@
 }
 
 
+/* 5section */
 /* 
 #fp-nav span {
     background: #000 !important;
@@ -712,6 +816,42 @@
 } */
 
 /* medea */
+
+
+@media (min-width: 1040px) {
+    .contentbox {
+        float: left;
+        margin: auto;
+    }
+    #thirdbox {
+        margin-left: calc(50% - 510px);
+    }
+    #fourthbox {
+        margin-left: calc(50% - 510px);
+    }
+    .rightbox {
+        margin-left: 20px;
+        margin-bottom: auto;
+    }
+    
+#preloadingback {
+    background-size: 100% auto;
+}
+#fullpagebackground{
+    background-size: 100% 100%;
+    
+}
+#fifth .fp-tableCell{
+    
+    background-size: 100% 100%;
+}
+
+#fifth #textbox p{
+    
+    font-size: 14px;
+}
+}
+
 
 @media (max-width: 971px) {
     #welcomeheader2, #welcomeheader {
@@ -756,25 +896,6 @@
     }
 }
 
-@media (max-width: 350px) {
-    .star {
-        display: none;
-    }
-    .starlabel {
-        display: block;
-        margin-left: 2px;
-    }
-    #profilebox {
-        display: none;
-    }
-    #myface {
-        margin-left: calc(50% - 70px);
-    }
-    .profilecontent p {
-        overflow: hidden;
-        word-break: break-all;
-    }
-}
 
 @media (max-width: 500px) {
     .contentbox {
@@ -796,7 +917,15 @@
     #preloadingback p{
         font-size: 13px;
     }
+    #profilebox .icons {
+        padding-left: 0px;
+    }
+    #profilebox #title{
+        
+        padding-left: 0px;
+    }
 }
+
 
 @media (max-width: 430px) {
     #instaframe {
@@ -826,38 +955,96 @@
         width: calc(100% - 46px);
         padding: 25px 23px 25px 23px;
     }
+    #fourthbox{
+        height: auto;
+        min-height: 0px;
+    }
+    #profilebox #title {
+        font-size: 23px;
+    }
+    #profilebox #title b{
+        font-size: 11px;
+    }
+    #profilebox .entity{
+        font-size: 11px;
+    }
+    .introbox p{
+        font-size: 13px;
+        width: auto;
+    }
+    .introbox .title{
+        width: 100%;
+        font-size: 14px;
+        height: 20px;
+        text-align: left;
+    }
+    #profilebox{
+        margin-top: 0px;
+    }
+    #myface {
+        margin-left: calc(50% - 160px);
+    }
+    #fourth .rightbox .introbox p{
+     float: none;
+     width: auto;
+    }
+    
+#fourth .rightbox .introbox .title{
+    width: auto;
+    
+    height: auto !important;
+
 }
 
-@media (min-width: 1040px) {
-    .contentbox {
-        float: left;
-        margin: auto;
-    }
-    #thirdbox {
-        margin-left: calc(50% - 510px);
-    }
-    #fourthbox {
-        margin-left: calc(50% - 510px);
-    }
-    .rightbox {
-        margin-left: 20px;
-        margin-bottom: auto;
-    }
     
-#preloadingback {
-    background-size: 100% auto;
+#explainbox p:first-child {
+    font-size: 17px;
 }
-#fullpagebackground{
-    background-size: 100% 100%;
-    
-}
-#fifth .fp-tableCell{
-    
-    background-size: 100% 100%;
 }
 
-#fifth #textbox p{
-    
-    font-size: 14px;
-}
+
+@media (max-width: 350px) {
+    .star {
+        display: none;
+    }
+    .starlabel {
+        display: block;
+        margin-left: 2px;
+    }/* 
+    #profilebox {
+        display: none;
+    }
+    #myface {
+        margin-left: calc(50% - 70px);
+    } */
+    .profilecontent p {
+        overflow: hidden;
+        word-break: break-all;
+    }
+    #explainbox .devboxs p{
+        font-size: 10px !important;
+    }
+    #thirdbox .about{
+        padding: 25px 10px 10px 10px;
+        width: calc(100% - 20px);
+    }
+    #fourth .rightbox .introbox{
+        padding: 25px 10px 10px 10px;
+        width: calc(100% - 20px);
+    }
+    #profilebox #title {
+        font-size: 21px;
+    }
+    #profilebox #title b{
+        font-size: 9px;
+    }
+    #profilebox{
+        padding-left: 10px;
+    }
+    #myface {
+        margin-left: calc(50% - 140px);
+    }
+    #profilebox .entity{
+        font-size: 10px;
+    }
 }

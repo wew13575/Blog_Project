@@ -136,7 +136,7 @@ request.setCharacterEncoding("UTF-8");
         <div class="homeBox" >
 
           <div class="homeBoxcontent">
-            <p><a href="/blog">Latest Post</a></p>
+            <p><a href="/blog">RecentPost</a></p>
 
             <c:forEach var="article" items="${bloglist}">
               <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${article.id}'">
@@ -151,7 +151,7 @@ request.setCharacterEncoding("UTF-8");
         </div>
         <div class="homeBox">
           <div class="homeBoxcontent">
-            <p><a href="/board">Latest Question</a></p>
+            <p><a href="/board">RecentQuestion</a></p>
             <c:forEach var="article" items="${boardlist}">
               <div class="homeBoxrow" onclick="location.href = '/article/post?articleid=${article.id}'">
                 <img class="homeBoxthum" src="/upload/image/${article.thumnailpath}">

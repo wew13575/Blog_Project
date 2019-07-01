@@ -74,7 +74,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     .and()
     .exceptionHandling().accessDeniedPage("/")
     .and()
-    .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).ignoringAntMatchers("/search").ignoringAntMatchers("/article/search").ignoringAntMatchers("/article/list");  //ignoringAntMatchers("/**");
+    .csrf().disable();
+    //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).ignoringAntMatchers("/search").ignoringAntMatchers("/article/search").ignoringAntMatchers("/article/list");  //ignoringAntMatchers("/**");
   }
 
   @Override
